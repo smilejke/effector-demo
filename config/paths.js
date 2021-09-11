@@ -71,6 +71,7 @@ module.exports = {
   features: resolveApp( 'src/features'),
   assets: resolveApp( 'public/assets'),
   templates: resolveApp( 'src/templates'),
+  containers: resolveApp('src/containers'),
   publicUrlOrPath,
 };
 
