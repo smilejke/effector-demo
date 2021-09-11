@@ -21,9 +21,10 @@
     "jsx": "react-jsx",
     "baseUrl": ".",
     "paths": {
-      "pages/*": "src/pages/*",
-      "features/*": "src/features/*",
-      "assets": "public/assets/*"
+      "pages/*": ["src/pages/*"],
+      "features/*": ["src/features/*"],
+      "templates/*": ["src/templates/*"],
+      "assets": ["public/assets/*"]
     }
   },
   "include": [

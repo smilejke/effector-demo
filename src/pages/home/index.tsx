@@ -1,3 +1,7 @@
+import { GeneralTemplate } from "templates/general-template";
+
 export const HomePage = () => {
-    return <h1>Home page</h1>
+    return <GeneralTemplate>
+        <h1>Home page</h1>
+    </GeneralTemplate>
 }
