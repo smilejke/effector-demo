@@ -8,15 +8,7 @@ export const HomePageContainer = () => {
   return (
     <div className="home-container">
       {menu.map((product) => {
-        return (
-          <ProductCard
-            title={product.title}
-            description={product.description}
-            src={product.src}
-            price={product.price}
-            key={product.title}
-          />
-        );
+        return <ProductCard position={product} key={product.title} />;
       })}
     </div>
   );

@@ -2,38 +2,33 @@ import { FC } from "react";
 import { Card } from "antd";
 import { ShoppingCartOutlined } from "@ant-design/icons";
 import "./styles.css";
+import { addToCart } from "features/cart/controllers";
+import { TMenuPosition } from "features/home/types";
 
 const { Meta } = Card;
 
 interface ProductCardProps {
-  title: string;
-  description: string;
-  src: string;
-  price: number;
+  position: TMenuPosition;
 }
 
-export const ProductCard: FC<ProductCardProps> = ({
-  title,
-  description,
-  src,
-  price,
-}) => {
+export const ProductCard: FC<ProductCardProps> = ({ position }) => {
   return (
     <Card
       hoverable
+      onClick={() => addToCart(position)}
       cover={
         <img
-          src={src}
-          alt={title}
+          src={position.src}
+          alt={position.title}
           style={{ height: "15rem", objectFit: "cover" }}
         />
       }
       actions={[
-        <span key="price">{price.toFixed(2)} BYN</span>,
+        <span key="price">{position.price.toFixed(2)} BYN</span>,
         <ShoppingCartOutlined key="buy" />,
       ]}
     >
-      <Meta title={title} description={description} />
+      <Meta title={position.title} description={position.description} />
     </Card>
   );
 };

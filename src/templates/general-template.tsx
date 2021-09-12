@@ -24,7 +24,7 @@ export const GeneralTemplate: FC<GeneralTemplateProps> = ({ children }) => (
         </Content>
       </Layout>
     </Content>
-    <Footer style={{ textAlign: "center" }}>
+    <Footer style={{ textAlign: "center", padding: "10px 50px 15px" }}>
       Effector demo app ©2021 Created by Vadim Melnikov
     </Footer>
   </Layout>
