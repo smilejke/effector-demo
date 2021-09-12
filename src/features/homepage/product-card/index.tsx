@@ -17,9 +17,14 @@ export const ProductCard: FC<ProductCardProps> = ({
   return (
     <Card
       hoverable
-      style={{ width: 240, margin: "0 1rem 1.5rem" }}
-      className="product-card"
-      cover={<img alt={title} src={src} />}
+      style={{ width: 300, margin: "0 1rem 1.5rem" }}
+      cover={
+        <img
+          src={src}
+          alt={title}
+          style={{ height: "15rem", objectFit: "cover" }}
+        />
+      }
     >
       <Meta title={title} description={description} />
     </Card>

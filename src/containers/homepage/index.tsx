@@ -1,24 +1,20 @@
 import { ProductCard } from "features/homepage/product-card";
 import "./style.css";
+import { MOCK_MENU } from "../../mocks/menu";
 
 export const HomePageContainer = () => {
-  const MOCK_CARD = {
-    title: "title",
-    description: "description",
-    src: "https://os.alipayobjects.com/rmsportal/QBnOOoLaAfKPirc.png",
-  };
-
   return (
     <div className="home-container">
-      <ProductCard {...MOCK_CARD} />
-      <ProductCard {...MOCK_CARD} />
-      <ProductCard {...MOCK_CARD} />
-      <ProductCard {...MOCK_CARD} />
-      <ProductCard {...MOCK_CARD} />
-      <ProductCard {...MOCK_CARD} />
-      <ProductCard {...MOCK_CARD} />
-      <ProductCard {...MOCK_CARD} />
-      <ProductCard {...MOCK_CARD} />
+      {MOCK_MENU.map((product, index) => {
+        return (
+          <ProductCard
+            title={product.title}
+            description={product.description}
+            src={product.src}
+            key={product.title}
+          />
+        );
+      })}
     </div>
   );
 };
