@@ -1,16 +1,19 @@
-import { ProductCard } from "features/homepage/product-card";
+import { ProductCard } from "features/home/components/product-card";
+import { useMenu } from "features/home/selectors";
 import "./style.css";
-import { MOCK_MENU } from "../../mocks/menu";
 
 export const HomePageContainer = () => {
+  const menu = useMenu();
+
   return (
     <div className="home-container">
-      {MOCK_MENU.map((product, index) => {
+      {menu.map((product) => {
         return (
           <ProductCard
             title={product.title}
             description={product.description}
             src={product.src}
+            price={product.price}
             key={product.title}
           />
         );

@@ -1,0 +1,13 @@
+.ant-card-body {
+  min-height: 12rem;
+}
+
+.ant-card:hover .ant-card-actions span {
+  color: #1890ff;
+  transform: scale(1);
+}
+
+.ant-card:hover .ant-card-actions span {
+  transition: transform 0.2s ease;
+  transform: scale(1.2);
+}

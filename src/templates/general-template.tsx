@@ -25,7 +25,7 @@ export const GeneralTemplate: FC<GeneralTemplateProps> = ({ children }) => (
       </Layout>
     </Content>
     <Footer style={{ textAlign: "center" }}>
-      Ant Design ©2018 Created by Ant UED
+      Effector demo app ©2021 Created by Vadim Melnikov
     </Footer>
   </Layout>
 );

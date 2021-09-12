@@ -71,7 +71,8 @@ module.exports = {
   features: resolveApp("src/features"),
   assets: resolveApp("src/assets"),
   templates: resolveApp("src/templates"),
-  containers: resolveApp("src/containers"),
+  libs: resolveApp("src/libs"),
+  mocks: resolveApp("src/mocks"),
   publicUrlOrPath,
 };
 

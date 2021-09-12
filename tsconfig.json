@@ -24,8 +24,9 @@
       "pages/*": ["src/pages/*"],
       "features/*": ["src/features/*"],
       "templates/*": ["src/templates/*"],
-      "containers/*": ["src/containers/*"],
-      "assets/*": ["src/assets/*"]
+      "assets/*": ["src/assets/*"],
+      "mocks/*": ["src/mocks/*"],
+      "libs/*": ["src/libs/*"]
     }
   },
   "include": [

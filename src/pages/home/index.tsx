@@ -1,5 +1,5 @@
 import { GeneralTemplate } from "templates/general-template";
-import { HomePageContainer } from "containers/homepage";
+import { HomePageContainer } from "features/home/containers/homepage-container";
 
 export const HomePage = () => {
   return (
