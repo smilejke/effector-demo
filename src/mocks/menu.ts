@@ -15,14 +15,15 @@ import burger3 from "assets/images/menu/burgers/burger3.jpeg";
 import burger4 from "assets/images/menu/burgers/burger4.jpeg";
 import burger5 from "assets/images/menu/burgers/burger5.jpeg";
 import burger6 from "assets/images/menu/burgers/burger6.jpeg";
+import { TMenu } from "features/home/types";
 
-export const MOCK_MENU = [
+export const MOCK_MENU: TMenu = [
   {
     title: "Солянка",
     description:
       "280г, куриное филе, бекон, ветчина, маринованные огурцы, лук, каперсы, маслины, лимон, сметана",
     src: soup1,
-    category: "soup",
+    category: "soups",
     price: 6.7,
   },
   {
@@ -30,7 +31,7 @@ export const MOCK_MENU = [
     description:
       "250г, куриное филе, кокосовое молоко, бульон, тайский красный карри, лук, капуста, цуккини, сладкий перец, перец чили, кинза, имбирно-чесночная паста, сливки",
     src: soup2,
-    category: "soup",
+    category: "soups",
     price: 7.1,
   },
   {
@@ -38,14 +39,14 @@ export const MOCK_MENU = [
     description:
       "305г, свиное ребрышко, свекла, картофель, паста томатная, бульон, морковь, лук, чеснок, сметана, укроп",
     src: soup3,
-    category: "soup",
+    category: "soups",
     price: 7.1,
   },
   {
     title: "Бульон с чесночным хлебом",
     description: "372г, бульон куриный, курица, яйцо, чесночный хлеб, укроп",
     src: soup4,
-    category: "soup",
+    category: "soups",
     price: 5.4,
   },
   {
@@ -53,7 +54,7 @@ export const MOCK_MENU = [
     description:
       "415г, свекла, огурец, яйцо, кефир, зеленый лук, картофельные дольки, укроп",
     src: soup5,
-    category: "soup",
+    category: "soups",
     price: 6.2,
   },
   {

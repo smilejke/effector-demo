@@ -1,9 +1,10 @@
 import { FC } from "react";
 import { Card } from "antd";
 import { ShoppingCartOutlined } from "@ant-design/icons";
-import "./styles.css";
 import { addToCart } from "features/cart/controllers";
 import { TMenuPosition } from "features/home/types";
+
+import "./styles.css";
 
 const { Meta } = Card;
 

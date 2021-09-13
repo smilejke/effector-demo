@@ -1,3 +1,10 @@
+import { GeneralTemplate } from "templates/general-template";
+import { StatusContainer } from "features/status/containers/status-container";
+
 export const StatusPage = () => {
-  return <h1>Status page</h1>;
+  return (
+    <GeneralTemplate selectedMenu="status">
+      <StatusContainer />
+    </GeneralTemplate>
+  );
 };

@@ -1,3 +1,10 @@
+import { GeneralTemplate } from "templates/general-template";
+import { CartContainer } from "features/cart/containers/cart-container";
+
 export const CartPage = () => {
-  return <h1>Cart Page</h1>;
+  return (
+    <GeneralTemplate selectedMenu="cart">
+      <CartContainer />
+    </GeneralTemplate>
+  );
 };

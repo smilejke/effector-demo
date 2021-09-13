@@ -5,6 +5,7 @@
 
 .site-layout-background {
   background: #fff;
+  height: 50%;
 }
 
 .ant-menu-dark .ant-menu-item:hover .ant-badge {
