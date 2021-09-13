@@ -23,17 +23,18 @@ export const HeaderTemplate: FC<HeaderTemplateProps> = ({ selectedKey }) => {
         defaultSelectedKeys={[selectedKey || "products"]}
       >
         <Menu.Item key="products">
-          <Link to={paths.home()}>Products</Link>
+          <Link to={paths.home()} />
+          Products
         </Menu.Item>
         <Menu.Item key="status">
-          <Link to={paths.status()}>Order status</Link>
+          <Link to={paths.status()} />
+          Order status
         </Menu.Item>
         <Menu.Item key="cart">
-          <Link to={paths.cart()}>
-            <Badge count={cartLength} offset={[15, -5]}>
-              Cart
-            </Badge>
-          </Link>
+          <Link to={paths.cart()} />
+          <Badge count={cartLength} offset={[15, -5]}>
+            Cart
+          </Badge>
         </Menu.Item>
       </Menu>
     </Header>

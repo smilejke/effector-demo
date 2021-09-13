@@ -1,4 +1,4 @@
-import { $selectedCategory } from "features/home/stores";
-import { selectCategory } from "features/home/controllers";
+import { setMenu } from "features/home/controllers";
+import { $menu } from "features/home/stores";
 
-$selectedCategory.on(selectCategory, (_, payload) => payload);
+$menu.on(setMenu, (_, payload) => payload);

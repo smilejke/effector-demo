@@ -1,21 +1,23 @@
 import { FC } from "react";
-import { Layout } from "antd";
+import { Layout, Spin } from "antd";
 import { HeaderTemplate } from "templates/header-template";
 import { MenuTemplate as Menu } from "templates/menu-template";
 
-import "./styles.css";
 import { TDefaultSelectedKeys } from "templates/types";
+import "./styles.css";
 
 const { Content, Footer, Sider } = Layout;
 
 interface GeneralTemplateProps {
   selectedMenu?: TDefaultSelectedKeys;
   children: JSX.Element;
+  loading?: boolean;
 }
 
 export const GeneralTemplate: FC<GeneralTemplateProps> = ({
   selectedMenu,
   children,
+  loading = false,
 }) => {
   const isHomePage = selectedMenu !== "cart" && selectedMenu !== "status";
 
@@ -29,8 +31,15 @@ export const GeneralTemplate: FC<GeneralTemplateProps> = ({
               <Menu />
             </Sider>
           )}
-          <Content style={{ padding: "0 24px", minHeight: 280 }}>
-            {children}
+          <Content
+            style={{
+              padding: "0 24px",
+              minHeight: 280,
+              display: !loading ? "block" : "flex",
+            }}
+          >
+            {!loading && children}
+            {loading && <Spin size="large" style={{ margin: "auto" }} />}
           </Content>
         </Layout>
       </Content>
