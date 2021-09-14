@@ -1,9 +1,9 @@
 import { MOCK_MENU } from "mocks/menu";
-import { TMenu, TMenuPositionCategory } from "features/home/types";
+import { TMenu } from "features/home/types";
 
 /** FAKE API TO GET MENU POSITIONS **/
 export const getProductsByCategoryRequest = (
-  category: TMenuPositionCategory = "all"
+  category: string = "all"
 ): Promise<TMenu> =>
   new Promise((res) => {
     setTimeout(() => {

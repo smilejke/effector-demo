@@ -1,13 +1,12 @@
 import { useStore } from "effector-react";
-import { $menu } from "features/home/stores";
-import { getProductsByCategoryFx } from "features/home/controllers";
+import { $isMenuPending, $products } from "features/home/stores";
 
 import { TMenu } from "features/home/types";
 
-export const useMenu = (): TMenu => {
-  return useStore($menu);
+export const useProducts = (): TMenu => {
+  return useStore($products);
 };
 
 export const useGetMenuFetching = (): boolean => {
-  return useStore(getProductsByCategoryFx.pending);
+  return useStore($isMenuPending);
 };

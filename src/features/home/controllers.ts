@@ -1,15 +1,18 @@
 import { createEffect, createEvent } from "effector-root";
-import { TMenu, TMenuPositionCategory } from "features/home/types";
+import { TMenu } from "features/home/types";
 import { getProductsByCategoryRequest } from "features/home/api";
 
 export const setMenu = createEvent<TMenu>("setMenu");
 
+export const selectCategory = createEvent<string>("selectCategory");
+
 /** FAKE API TO GET MENU POSITIONS **/
-export const getProductsByCategoryFx = createEffect<
-  TMenuPositionCategory,
-  TMenu,
-  Error
->({
+export const getProductsByCategoryFx = createEffect<string, TMenu, Error>({
+  handler: getProductsByCategoryRequest,
+  name: "getProductsByCategoryFx",
+});
+
+export const getAllProductsFx = createEffect<string, TMenu, Error>({
   handler: getProductsByCategoryRequest,
   name: "getProductsByCategoryFx",
 });

@@ -1,14 +1,14 @@
 import { ProductCard } from "features/home/components/product-card";
-import { useMenu } from "features/home/selectors";
+import { useProducts } from "features/home/selectors";
 
 import "./style.css";
 
 export const HomePageContainer = () => {
-  const menu = useMenu();
+  const products = useProducts();
 
   return (
     <div className="home-container">
-      {menu.map((product) => {
+      {products.map((product) => {
         return <ProductCard position={product} key={product.title} />;
       })}
     </div>
