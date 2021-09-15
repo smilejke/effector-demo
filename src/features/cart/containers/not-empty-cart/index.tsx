@@ -16,7 +16,11 @@ export const Cart = () => {
         Specify your order
       </Typography.Title>
       {cart.map((item, index) => (
-        <ProductCard position={item} key={`product-${item.title}-${index}`} />
+        <ProductCard
+          position={item}
+          key={`product-${item.title}-${index}`}
+          page="cart"
+        />
       ))}
     </div>
   );

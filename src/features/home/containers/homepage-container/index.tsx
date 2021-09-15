@@ -14,6 +14,7 @@ export const HomePageContainer = () => {
           <ProductCard
             position={product}
             onClick={() => addToCart(product)}
+            page="home"
             key={product.title}
           />
         );

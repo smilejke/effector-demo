@@ -2,14 +2,10 @@
   min-height: 12rem;
 }
 
-.ant-card:hover .ant-card-actions span {
+.ant-card[data-clickable="true"]:hover .ant-card-actions svg {
   color: #1890ff;
-  transform: scale(1);
-}
-
-.ant-card:hover .ant-card-actions span {
   transition: transform 0.2s ease;
-  transform: scale(1.2);
+  transform: scale(1.5);
 }
 
 .ant-card[data-clickable="true"]:active.ant-card-bordered {
@@ -19,4 +15,19 @@
 
 .ant-card[data-clickable="true"]:active.ant-card-hoverable {
   transition: border-color 0.3s;
+}
+
+.ant-card-actions {
+  display: flex;
+  align-items: center;
+}
+
+.ant-card[data-clickable="false"] .ant-card-actions li svg {
+  transition: transform 0.1s ease;
+  transform: scale(1.3);
+}
+
+.ant-card[data-clickable="false"] .ant-card-actions li:hover svg {
+  color: #1890ff;
+  transform: scale(1.5);
 }

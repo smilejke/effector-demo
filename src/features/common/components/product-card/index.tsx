@@ -1,18 +1,55 @@
-import { FC } from "react";
-import { Card } from "antd";
+import { FC, ReactNode } from "react";
+import Card from "antd/lib/card";
+import Input from "antd/lib/input";
+import Typography from "antd/lib/typography";
 import { TMenuPosition } from "features/home/types";
 
-import { ShoppingCartOutlined } from "@ant-design/icons";
+import {
+  ShoppingCartOutlined,
+  PlusCircleOutlined,
+  MinusCircleOutlined,
+} from "@ant-design/icons";
 import "./styles.css";
 
 const { Meta } = Card;
+const { Text } = Typography;
 
 interface ProductCardProps {
   position: TMenuPosition;
   onClick?: () => void;
+  page: string;
 }
 
-export const ProductCard: FC<ProductCardProps> = ({ position, onClick }) => {
+export const ProductCard: FC<ProductCardProps> = ({
+  position,
+  onClick,
+  page,
+}) => {
+  const setActions = (page: string, price: number): ReactNode[] => {
+    if (page === "home") {
+      return [
+        <Text strong key="price">
+          {price.toFixed(2)} BYN
+        </Text>,
+        <ShoppingCartOutlined key="buy" />,
+      ];
+    }
+
+    return [
+      <Text strong key="price">
+        {price.toFixed(2)} BYN
+      </Text>,
+      <PlusCircleOutlined key="add" />,
+      <Input
+        style={{ textAlign: "center", width: "60%", cursor: "pointer" }}
+        value={5}
+        readOnly
+        key="count"
+      />,
+      <MinusCircleOutlined key="delete" />,
+    ];
+  };
+
   return (
     <Card
       hoverable
@@ -26,10 +63,7 @@ export const ProductCard: FC<ProductCardProps> = ({ position, onClick }) => {
           style={{ height: "15rem", objectFit: "cover" }}
         />
       }
-      actions={[
-        <span key="price">{position.price.toFixed(2)} BYN</span>,
-        <ShoppingCartOutlined key="buy" />,
-      ]}
+      actions={setActions(page, position.price)}
     >
       <Meta title={position.title} description={position.description} />
     </Card>
