@@ -19,7 +19,7 @@ const selectMenu = split(selectCategory, {
   byCategories: (payload) => payload !== "all",
 });
 
-const getProductsSample = sample({
+const getProductCategorySample = sample({
   source: $selectedCategories,
   clock: selectMenu.byCategories,
   fn: (state, category) => {
@@ -30,17 +30,33 @@ const getProductsSample = sample({
   },
 });
 
-forward({
-  from: selectMenu.allMenu,
-  to: getAllProductsFx,
+const getAllProductsSample = sample({
+  source: $selectedCategories,
+  clock: selectMenu.allMenu,
+  fn: (state, category) => {
+    return {
+      is: state[category],
+      category,
+    };
+  },
 });
 
-const getProductsGuard = guard({
-  source: getProductsSample,
+const getProductCategoryGuard = guard({
+  source: getProductCategorySample,
+  filter: (state) => !state.is,
+});
+
+const getAllProductsGuard = guard({
+  source: getAllProductsSample,
   filter: (state) => !state.is,
 });
 
 forward({
-  from: getProductsGuard.map(({ category }) => category),
+  from: getProductCategoryGuard.map(({ category }) => category),
   to: getProductsByCategoryFx,
+});
+
+forward({
+  from: getAllProductsGuard.map(({ category }) => category),
+  to: getAllProductsFx,
 });

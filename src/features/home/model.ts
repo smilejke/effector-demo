@@ -22,6 +22,7 @@ $selectedCategories
     };
   })
   .on(getAllProductsFx.done, (state, payload) => ({
+    all: true,
     soups: true,
     burgers: true,
     salads: true,

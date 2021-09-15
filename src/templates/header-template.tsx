@@ -5,6 +5,7 @@ import { Menu, Layout, Badge } from "antd";
 import { paths } from "pages/paths";
 import { useCartLength } from "features/cart/selectors";
 import { TDefaultSelectedKeys } from "templates/types";
+import { setPadding } from "templates/helpers";
 
 const { Header } = Layout;
 
@@ -30,7 +31,7 @@ export const HeaderTemplate: FC<HeaderTemplateProps> = ({ selectedKey }) => {
           <Link to={paths.status()} />
           Order status
         </Menu.Item>
-        <Menu.Item key="cart">
+        <Menu.Item key="cart" style={{ paddingRight: setPadding(cartLength) }}>
           <Link to={paths.cart()} />
           <Badge count={cartLength} offset={[15, -5]}>
             Cart

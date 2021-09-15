@@ -12,6 +12,7 @@ export const getProductsByCategoryFx = createEffect<string, TMenu, Error>({
   name: "getProductsByCategoryFx",
 });
 
+/** FAKE API TO GET ALL MENU **/
 export const getAllProductsFx = createEffect<string, TMenu, Error>({
   handler: getProductsByCategoryRequest,
   name: "getProductsByCategoryFx",

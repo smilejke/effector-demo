@@ -7,6 +7,6 @@ export const useProducts = (): TMenu => {
   return useStore($products);
 };
 
-export const useGetMenuFetching = (): boolean => {
+export const useMenuFetching = (): boolean => {
   return useStore($isMenuPending);
 };
