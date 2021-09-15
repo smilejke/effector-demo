@@ -32,10 +32,11 @@ export const HeaderTemplate: FC<HeaderTemplateProps> = ({ selectedKey }) => {
           Order status
         </Menu.Item>
         <Menu.Item key="cart" style={{ paddingRight: setPadding(cartLength) }}>
-          <Link to={paths.cart()} />
-          <Badge count={cartLength} offset={[15, -5]}>
-            Cart
-          </Badge>
+          <Link to={paths.cart()}>
+            <Badge count={cartLength} offset={[15, -5]}>
+              Cart
+            </Badge>
+          </Link>
         </Menu.Item>
       </Menu>
     </Header>

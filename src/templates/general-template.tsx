@@ -33,7 +33,7 @@ export const GeneralTemplate: FC<GeneralTemplateProps> = ({
           )}
           <Content
             style={{
-              padding: "0 24px",
+              padding: isHomePage ? "0 24px" : "",
               minHeight: 280,
               display: !loading ? "block" : "flex",
             }}

@@ -9,7 +9,7 @@
 }
 
 .ant-menu-dark .ant-menu-item:hover .ant-badge,
-.ant-menu-dark .ant-menu-item-selected > span > .ant-badge {
+.ant-menu-dark .ant-menu-item-selected > span > a > .ant-badge {
   color: #fff !important;
 }
 

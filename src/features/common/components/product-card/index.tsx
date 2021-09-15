@@ -1,22 +1,24 @@
 import { FC } from "react";
 import { Card } from "antd";
-import { ShoppingCartOutlined } from "@ant-design/icons";
-import { addToCart } from "features/cart/controllers";
 import { TMenuPosition } from "features/home/types";
 
+import { ShoppingCartOutlined } from "@ant-design/icons";
 import "./styles.css";
 
 const { Meta } = Card;
 
 interface ProductCardProps {
   position: TMenuPosition;
+  onClick?: () => void;
 }
 
-export const ProductCard: FC<ProductCardProps> = ({ position }) => {
+export const ProductCard: FC<ProductCardProps> = ({ position, onClick }) => {
   return (
     <Card
       hoverable
-      onClick={() => addToCart(position)}
+      onClick={onClick}
+      data-clickable={Boolean(onClick)}
+      style={{ maxWidth: "30rem" }}
       cover={
         <img
           src={position.src}

@@ -5,9 +5,9 @@ import {
   selectCategory,
   setMenu,
 } from "features/home/controllers";
+import { $selectedCategories } from "features/home/stores";
 
 import "./model";
-import { $selectedCategories } from "features/home/stores";
 
 forward({
   from: getProductsByCategoryFx.done.map(({ result }) => result),
@@ -21,18 +21,7 @@ const selectMenu = split(selectCategory, {
 
 const getProductCategorySample = sample({
   source: $selectedCategories,
-  clock: selectMenu.byCategories,
-  fn: (state, category) => {
-    return {
-      is: state[category],
-      category,
-    };
-  },
-});
-
-const getAllProductsSample = sample({
-  source: $selectedCategories,
-  clock: selectMenu.allMenu,
+  clock: [selectMenu.byCategories, selectMenu.allMenu],
   fn: (state, category) => {
     return {
       is: state[category],
@@ -46,17 +35,17 @@ const getProductCategoryGuard = guard({
   filter: (state) => !state.is,
 });
 
-const getAllProductsGuard = guard({
-  source: getAllProductsSample,
-  filter: (state) => !state.is,
+const effectTuUse = split(getProductCategoryGuard, {
+  category: ({ category }) => category !== "all",
+  all: ({ category }) => category === "all",
 });
 
 forward({
-  from: getProductCategoryGuard.map(({ category }) => category),
+  from: effectTuUse.category.map(({ category }) => category),
   to: getProductsByCategoryFx,
 });
 
 forward({
-  from: getAllProductsGuard.map(({ category }) => category),
+  from: effectTuUse.all.map(({ category }) => category),
   to: getAllProductsFx,
 });

@@ -1,0 +1,5 @@
+.order-container {
+  display: grid;
+  grid-row-gap: 2rem;
+  justify-content: center;
+}

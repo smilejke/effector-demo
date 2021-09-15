@@ -1,3 +1,16 @@
+import { useIsCartEmpty } from "features/cart/selectors";
+import { EmptyCart } from "features/cart/containers/empty-cart";
+import { Cart } from "features/cart/containers/not-empty-cart";
+
+import "./styles.css";
+
 export const CartContainer = () => {
-  return <h1>CartContainer</h1>;
+  const cartEmpty = useIsCartEmpty();
+
+  return (
+    <div className="cart-container" data-empty={cartEmpty}>
+      {cartEmpty && <EmptyCart />}
+      {!cartEmpty && <Cart />}
+    </div>
+  );
 };
