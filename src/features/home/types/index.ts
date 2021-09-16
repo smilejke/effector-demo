@@ -6,6 +6,9 @@ export type TMenuPosition = {
   src: string;
   category: TMenuPositionCategory;
   price: number;
+  count: number;
+  id: string;
+  total?: number;
 };
 
 export type TMenu = TMenuPosition[];

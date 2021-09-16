@@ -21,7 +21,7 @@ $selectedCategories
       [payload.params]: true,
     };
   })
-  .on(getAllProductsFx.done, (state, payload) => ({
+  .on(getAllProductsFx.done, () => ({
     all: true,
     soups: true,
     burgers: true,

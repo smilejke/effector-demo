@@ -15,7 +15,7 @@ export const HomePageContainer = () => {
             position={product}
             onClick={() => addToCart(product)}
             page="home"
-            key={product.title}
+            key={product.id}
           />
         );
       })}

@@ -2,4 +2,31 @@
   display: grid;
   grid-row-gap: 2rem;
   justify-content: center;
+  overflow-y: auto;
+}
+
+.bill-container {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.bill-container .ant-card-body {
+  overflow-y: auto;
+  max-height: 30rem;
+  padding: 0;
+}
+
+.bill-container .ant-card-body table tbody tr td:not(:first-of-type),
+.bill-container .ant-card-body table thead tr th:not(:first-of-type) {
+  text-align: center;
+}
+
+.bill-container .ant-card-body table tbody tr td:first-of-type {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 15rem;
 }

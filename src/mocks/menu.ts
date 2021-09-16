@@ -25,6 +25,8 @@ export const MOCK_MENU: TMenu = [
     src: soup1,
     category: "soups",
     price: 6.7,
+    count: 1,
+    id: "soup1",
   },
   {
     title: "Том Кха с курицей",
@@ -33,6 +35,8 @@ export const MOCK_MENU: TMenu = [
     src: soup2,
     category: "soups",
     price: 7.1,
+    count: 1,
+    id: "soup2",
   },
   {
     title: "Борщ с ребром",
@@ -41,6 +45,8 @@ export const MOCK_MENU: TMenu = [
     src: soup3,
     category: "soups",
     price: 7.1,
+    count: 1,
+    id: "soup3",
   },
   {
     title: "Бульон с чесночным хлебом",
@@ -48,6 +54,8 @@ export const MOCK_MENU: TMenu = [
     src: soup4,
     category: "soups",
     price: 5.4,
+    count: 1,
+    id: "soup4",
   },
   {
     title: "Холодник с картофельными дольками",
@@ -56,6 +64,8 @@ export const MOCK_MENU: TMenu = [
     src: soup5,
     category: "soups",
     price: 6.2,
+    count: 1,
+    id: "soup5",
   },
   {
     title: "Салат Цезарь с курицей",
@@ -64,6 +74,8 @@ export const MOCK_MENU: TMenu = [
     src: salad1,
     category: "salads",
     price: 11.7,
+    count: 1,
+    id: "salad1",
   },
   {
     title: "Салат с индейкой и соусом из вяленых томатов",
@@ -72,6 +84,8 @@ export const MOCK_MENU: TMenu = [
     src: salad2,
     category: "salads",
     price: 13.4,
+    count: 1,
+    id: "salad2",
   },
   {
     title: "Салат Цезарь с копченым лососем",
@@ -80,6 +94,8 @@ export const MOCK_MENU: TMenu = [
     src: salad3,
     category: "salads",
     price: 13.4,
+    count: 1,
+    id: "salad3",
   },
   {
     title: "Овощной салат с  грушей и сыром Дор Блю",
@@ -88,6 +104,8 @@ export const MOCK_MENU: TMenu = [
     src: salad4,
     category: "salads",
     price: 12.7,
+    count: 1,
+    id: "salad4",
   },
   {
     title: "Греческий салат с рулетиками из цукини и сливочного крема",
@@ -96,6 +114,8 @@ export const MOCK_MENU: TMenu = [
     src: salad5,
     category: "salads",
     price: 9.9,
+    count: 1,
+    id: "salad5",
   },
   {
     title: "Немецкий салат с трюфельным соусом и рулькой",
@@ -104,6 +124,8 @@ export const MOCK_MENU: TMenu = [
     src: salad6,
     category: "salads",
     price: 9.7,
+    count: 1,
+    id: "salad6",
   },
   {
     title: "Сэндвич с курицей и хрустящим беконом",
@@ -112,6 +134,8 @@ export const MOCK_MENU: TMenu = [
     src: burger1,
     category: "burgers",
     price: 4.3,
+    count: 1,
+    id: "burger1",
   },
   {
     title: "Сэндвич со свининой и соусом BBQ",
@@ -120,6 +144,8 @@ export const MOCK_MENU: TMenu = [
     src: burger2,
     category: "burgers",
     price: 4.9,
+    count: 1,
+    id: "burger2",
   },
   {
     title: "Сэндвич с курицей, луковыми кольцами и ореховым соусом",
@@ -128,6 +154,8 @@ export const MOCK_MENU: TMenu = [
     src: burger3,
     category: "burgers",
     price: 4.3,
+    count: 1,
+    id: "burger3",
   },
   {
     title: "Бургер  чеддер и бекон",
@@ -136,6 +164,8 @@ export const MOCK_MENU: TMenu = [
     src: burger4,
     category: "burgers",
     price: 13.7,
+    count: 1,
+    id: "burger4",
   },
   {
     title: "Бургер Double BBQ",
@@ -144,6 +174,8 @@ export const MOCK_MENU: TMenu = [
     src: burger5,
     category: "burgers",
     price: 18.9,
+    count: 1,
+    id: "burger5",
   },
   {
     title: "Бургер Чикен Терияки",
@@ -152,5 +184,7 @@ export const MOCK_MENU: TMenu = [
     src: burger6,
     category: "burgers",
     price: 11.9,
+    count: 1,
+    id: "burger6",
   },
 ];
