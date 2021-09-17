@@ -1,5 +1,10 @@
 import { useStore } from "effector-react";
-import { $cart, $cartLength, $totalPrice } from "features/cart/stores";
+import {
+  $cart,
+  $cartLength,
+  $codeCheckStatus,
+  $totalPrice,
+} from "features/cart/stores";
 import { promoCodeModal } from "features/cart/model";
 import { checkPromoCodeFx } from "features/cart/controllers";
 import { TMenu } from "features/home/types";
@@ -27,4 +32,8 @@ export const useConfirmModalVisible = (): boolean => {
 
 export const useCheckPromoCodeFetching = (): boolean => {
   return useStore(checkPromoCodeFx.pending);
+};
+
+export const usePromoCheckStatus = (): string => {
+  return useStore($codeCheckStatus);
 };

@@ -1,7 +1,12 @@
 import update from "immutability-helper";
 
-import { addToCart, deleteFromCart } from "features/cart/controllers";
-import { $cart } from "features/cart/stores";
+import {
+  addToCart,
+  checkPromoCodeFx,
+  deleteFromCart,
+  setCodeCheckResult,
+} from "features/cart/controllers";
+import { $cart, $codeCheckStatus } from "features/cart/stores";
 import { createModal } from "libs/createModal";
 
 export const promoCodeModal = createModal("promoCodeModal");
@@ -55,3 +60,8 @@ $cart
       return update(state, { $splice: [[index, 1]] });
     }
   });
+
+$codeCheckStatus
+  .on(setCodeCheckResult, (_, payload) => payload)
+  .reset(checkPromoCodeFx)
+  .reset(promoCodeModal.close);

@@ -8,3 +8,6 @@ export const $cartLength = $cart.map((items) =>
 export const $totalPrice = $cart.map((items) =>
   items.reduce((acc, item) => acc + (item.total || 0), 0)
 );
+export const $codeCheckStatus = createStore<string>("", {
+  name: "$codeCheckStatus",
+});
