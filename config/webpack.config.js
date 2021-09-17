@@ -335,6 +335,7 @@ module.exports = function (webpackEnv) {
         templates: paths.templates,
         libs: paths.libs,
         mocks: paths.mocks,
+        hooks: paths.hooks,
         // Allows for better profiling with ReactDevTools
         ...(isEnvProductionProfile && {
           "react-dom$": "react-dom/profiling",

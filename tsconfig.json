@@ -26,7 +26,8 @@
       "templates/*": ["src/templates/*"],
       "assets/*": ["src/assets/*"],
       "mocks/*": ["src/mocks/*"],
-      "libs/*": ["src/libs/*"]
+      "libs/*": ["src/libs/*"],
+      "hooks/*": ["src/hooks/*"]
     }
   },
   "include": [

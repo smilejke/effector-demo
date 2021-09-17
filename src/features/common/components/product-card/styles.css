@@ -1,29 +1,27 @@
+.ant-card {
+  max-width: 30rem;
+  max-height: 31.5rem;
+}
+
 .ant-card-body {
   min-height: 12rem;
 }
-
-.ant-card[data-clickable="true"] .ant-card-actions button svg {
-  transition: transform 0.2s ease;
-  transform: scale(1.1);
-}
-
-.ant-card[data-clickable="true"] .ant-card-actions button:hover svg {
-  transform: scale(1.3);
-}
-
-/*box-shadow: 0 3px 10px 4px rgb(0 0 255 / 16%), 0 3px 6px 0 rgb(0 0 255 / 12%),*/
-/*0 5px 12px 4px rgb(0 0 255 / 9%);*/
 
 .ant-card-actions {
   display: flex;
   align-items: center;
 }
 
-.ant-card[data-clickable="false"] .ant-card-actions button svg {
+.ant-card .ant-card-actions button svg {
   transition: transform 0.2s ease;
   transform: scale(1.3);
 }
 
-.ant-card[data-clickable="false"] .ant-card-actions button:hover svg {
+.ant-card .ant-card-actions button:hover svg {
   transform: scale(1.5);
+}
+
+.ant-card[data-clicked="true"].ant-card-hoverable {
+  box-shadow: 0 3px 10px 4px rgb(0 0 255 / 16%), 0 3px 6px 0 rgb(0 0 255 / 12%),
+    0 5px 12px 4px rgb(0 0 255 / 9%);
 }

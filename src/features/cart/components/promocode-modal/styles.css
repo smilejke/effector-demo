@@ -1,0 +1,25 @@
+.promo-modal__wrapper {
+  display: flex;
+  flex-direction: column;
+}
+
+.promo-modal__actions {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.promo-modal__code {
+  margin-bottom: 2rem;
+  display: grid;
+  grid-template-columns: 90% 10%;
+  align-items: center;
+}
+
+.promo-modal__code .ant-spin {
+  text-align: end;
+}
+
+.promo-modal__code span[role="img"] {
+  font-size: 24px;
+}

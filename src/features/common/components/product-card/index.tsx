@@ -1,32 +1,56 @@
-import { FC, ReactNode } from "react";
+import { FC, ReactNode, useEffect, useState } from "react";
 import Card from "antd/lib/card";
 import Input from "antd/lib/input";
 import Typography from "antd/lib/typography";
 import Button from "antd/lib/button";
-import { TMenuPosition } from "features/home/types";
-
 import {
   ShoppingCartOutlined,
   PlusCircleOutlined,
   MinusCircleOutlined,
 } from "@ant-design/icons";
-import "./styles.css";
+
 import { addToCart, deleteFromCart } from "features/cart/controllers";
+import { TProductCardAction } from "features/common/types";
+import { TMenuPosition } from "features/home/types";
+
+import "./styles.css";
 
 const { Meta } = Card;
 const { Text } = Typography;
 
 interface ProductCardProps {
   position: TMenuPosition;
-  onClick?: () => void;
   page: string;
 }
 
-export const ProductCard: FC<ProductCardProps> = ({
-  position,
-  onClick,
-  page,
-}) => {
+export const ProductCard: FC<ProductCardProps> = ({ position, page }) => {
+  const [clicked, setClicked] = useState(false);
+
+  useEffect(() => {
+    if (clicked) {
+      const cancelClickEffect = setTimeout(() => setClicked(false), 150);
+      return () => clearTimeout(cancelClickEffect);
+    }
+  }, [clicked]);
+
+  const handleAction = (
+    actionType: TProductCardAction,
+    product: TMenuPosition
+  ) => {
+    setClicked(true);
+
+    switch (actionType) {
+      case "add":
+        addToCart(product);
+        break;
+      case "remove":
+        deleteFromCart(product);
+        break;
+      default:
+        return () => null;
+    }
+  };
+
   const setActions = (page: string, product: TMenuPosition): ReactNode[] => {
     if (page === "home") {
       return [
@@ -39,7 +63,7 @@ export const ProductCard: FC<ProductCardProps> = ({
           key="add"
           shape="circle"
           size="large"
-          onClick={onClick}
+          onClick={() => handleAction("add", product)}
         />,
       ];
     }
@@ -54,7 +78,7 @@ export const ProductCard: FC<ProductCardProps> = ({
         key="add"
         shape="circle"
         size="large"
-        onClick={() => addToCart(product)}
+        onClick={() => handleAction("add", product)}
       />,
       <Input
         style={{
@@ -73,7 +97,7 @@ export const ProductCard: FC<ProductCardProps> = ({
         type="primary"
         key="delete"
         shape="circle"
-        onClick={() => deleteFromCart(product)}
+        onClick={() => handleAction("remove", product)}
       />,
     ];
   };
@@ -81,8 +105,7 @@ export const ProductCard: FC<ProductCardProps> = ({
   return (
     <Card
       hoverable
-      data-clickable={Boolean(onClick)}
-      style={{ maxWidth: "30rem" }}
+      data-clicked={clicked}
       cover={
         <img
           src={position.src}

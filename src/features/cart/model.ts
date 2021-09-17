@@ -2,6 +2,9 @@ import update from "immutability-helper";
 
 import { addToCart, deleteFromCart } from "features/cart/controllers";
 import { $cart } from "features/cart/stores";
+import { createModal } from "libs/createModal";
+
+export const promoCodeModal = createModal("promoCodeModal");
 
 $cart
   .on(addToCart, (state, position) => {

@@ -73,6 +73,7 @@ module.exports = {
   templates: resolveApp("src/templates"),
   libs: resolveApp("src/libs"),
   mocks: resolveApp("src/mocks"),
+  hooks: resolveApp("src/hooks"),
   publicUrlOrPath,
 };
 
