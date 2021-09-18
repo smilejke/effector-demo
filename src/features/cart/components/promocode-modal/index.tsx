@@ -47,7 +47,10 @@ export const PromoCodeModal: FC = () => {
 
   const handleChange = (e: ChangeEvent<HTMLInputElement>) => {
     setPromoCode(e.target.value);
-    codeStatus && setCodeCheckResult("");
+
+    if (codeStatus) {
+      setCodeCheckResult("");
+    }
   };
 
   return (

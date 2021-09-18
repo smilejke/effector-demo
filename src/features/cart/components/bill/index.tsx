@@ -18,8 +18,7 @@ export const Bill: FC<BillProps> = ({ cart }) => {
 
   return (
     <Card
-      title="Bill"
-      style={{ width: 500 }}
+      className="bill"
       actions={[
         <Text strong>Total: {total.toFixed(2)} BYN</Text>,
         <Button type="primary" onClick={() => promoCodeModal.open()}>

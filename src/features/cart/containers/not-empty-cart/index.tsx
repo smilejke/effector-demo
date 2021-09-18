@@ -21,6 +21,10 @@ export const Cart = () => {
         ))}
       </div>
       <div className="bill-container">
+        <Title level={1} style={{ marginBottom: "0", textAlign: "center" }}>
+          Total bill:
+        </Title>
+        <div></div>
         <Bill cart={cart} />
       </div>
     </>

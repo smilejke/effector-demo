@@ -41,7 +41,7 @@ export const BillContentTable: FC<BilTableProps> = ({ cart }) => {
       pagination={false}
       rowKey="id"
       style={{ width: "100%", height: "100%" }}
-      scroll={{ y: "30rem" }}
+      scroll={{ y: "22rem" }}
     />
   );
 };

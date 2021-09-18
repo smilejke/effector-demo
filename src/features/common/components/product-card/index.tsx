@@ -61,8 +61,8 @@ export const ProductCard: FC<ProductCardProps> = ({ position, page }) => {
           icon={<ShoppingCartOutlined />}
           type="primary"
           key="add"
-          shape="circle"
           size="large"
+          style={{ minWidth: "5rem" }}
           onClick={() => handleAction("add", product)}
         />,
       ];
