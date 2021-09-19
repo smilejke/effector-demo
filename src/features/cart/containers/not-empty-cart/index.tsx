@@ -1,7 +1,8 @@
+import { Typography } from "antd";
 import { useCart } from "features/cart/selectors";
 import { ProductCard } from "features/common/components/product-card";
-import { Typography } from "antd";
 import { Bill } from "features/cart/components/bill";
+import { PromoCode } from "features/cart/components/promo-code";
 
 import "./styles.css";
 
@@ -24,7 +25,7 @@ export const Cart = () => {
         <Title level={1} style={{ marginBottom: "0", textAlign: "center" }}>
           Total bill:
         </Title>
-        <div></div>
+        <PromoCode />
         <Bill cart={cart} />
       </div>
     </>

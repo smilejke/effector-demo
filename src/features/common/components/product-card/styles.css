@@ -1,9 +1,17 @@
-.ant-card {
+.home-container .ant-card,
+.order-container .ant-card {
   max-width: 30rem;
   max-height: 31.5rem;
 }
 
-.ant-card-body {
+.ant-card.bill {
+  max-width: 30rem;
+  max-height: 25rem;
+}
+
+.bill .ant-card-body,
+.order-container .ant-card-body,
+.home-container .ant-card-body {
   min-height: 12rem;
 }
 
