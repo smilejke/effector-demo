@@ -4,6 +4,7 @@ import {
   addToCart,
   checkPromoCodeFx,
   deleteFromCart,
+  resetPromoCode,
   setCodeCheckResult,
 } from "features/cart/controllers";
 import { $cart, $codeCheckStatus, $promoCode } from "features/cart/stores";
@@ -33,7 +34,9 @@ $codeCheckStatus
   .reset(checkPromoCodeFx)
   .reset(promoCodeModal.close);
 
-$promoCode.on(
-  checkPromoCodeFx.done.map(({ result }) => result),
-  (_, payload) => payload
-);
+$promoCode
+  .on(
+    checkPromoCodeFx.done.map(({ result }) => result),
+    (_, payload) => payload
+  )
+  .reset(resetPromoCode);

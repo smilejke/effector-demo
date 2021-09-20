@@ -1,6 +1,7 @@
-import { forward } from "effector";
+import { forward, guard } from "effector";
 import {
   checkPromoCodeFx,
+  resetPromoCode,
   setCodeCheckResult,
 } from "features/cart/controllers";
 
@@ -12,4 +13,10 @@ forward({
     checkPromoCodeFx.fail.map(() => "fail"),
   ],
   to: setCodeCheckResult,
+});
+
+guard({
+  source: setCodeCheckResult,
+  filter: (value) => value === "",
+  target: resetPromoCode,
 });

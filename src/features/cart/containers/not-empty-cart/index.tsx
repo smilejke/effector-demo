@@ -10,7 +10,6 @@ const { Title } = Typography;
 
 export const Cart = () => {
   const cart = useCart();
-  console.log("cart", cart);
 
   return (
     <>

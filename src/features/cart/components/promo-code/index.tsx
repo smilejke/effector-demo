@@ -63,10 +63,17 @@ export const PromoCode = () => {
         />
         {promoCodeFetching && <Spin indicator={<LoadingOutlined spin />} />}
         {codeStatus === "done" && <CheckCircleTwoTone twoToneColor="#52c41a" />}
-        {codeStatus === "fail" && <CloseCircleTwoTone twoToneColor="#eb2f96" />}
+        {codeStatus === "fail" && <CloseCircleTwoTone twoToneColor="#EA2027" />}
       </div>
       {codeStatus === "done" && (
-        <Text type="secondary">{code.description}</Text>
+        <Text type="secondary" strong style={{ color: "#52c41a" }}>
+          {code.description}
+        </Text>
+      )}
+      {codeStatus === "fail" && (
+        <Text type="secondary" style={{ color: "#EA2027" }}>
+          Wrong code
+        </Text>
       )}
     </Card>
   );

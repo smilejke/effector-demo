@@ -12,3 +12,4 @@ export const checkPromoCodeFx = createEffect<string, TPromoCode, Error>({
 });
 
 export const setCodeCheckResult = createEvent<string>("setCodeCheckResult");
+export const resetPromoCode = createEvent<void>("resetPromoCode");

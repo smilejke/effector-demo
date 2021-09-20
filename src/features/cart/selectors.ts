@@ -1,9 +1,9 @@
 import { useStore } from "effector-react";
 import {
   $cartLength,
+  $cartWithCode,
   $codeCheckStatus,
   $promoCode,
-  $totalCart,
   $totalPrice,
 } from "features/cart/stores";
 import { promoCodeModal } from "features/cart/model";
@@ -12,11 +12,11 @@ import { TMenu } from "features/home/types";
 import { TPromoCode } from "features/cart/types";
 
 export const useCart = (): TMenu => {
-  return useStore($totalCart);
+  return useStore($cartWithCode);
 };
 
 export const useIsCartEmpty = (): boolean => {
-  const cart = useStore($totalCart);
+  const cart = useStore($cartWithCode);
   return cart.length === 0;
 };
 
