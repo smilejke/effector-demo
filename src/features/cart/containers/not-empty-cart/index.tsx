@@ -10,6 +10,7 @@ const { Title } = Typography;
 
 export const Cart = () => {
   const cart = useCart();
+  console.log("cart", cart);
 
   return (
     <>
@@ -17,8 +18,12 @@ export const Cart = () => {
         <Title level={1} style={{ marginBottom: "0", textAlign: "center" }}>
           Specify your order:
         </Title>
-        {cart.map((item) => (
-          <ProductCard position={item} key={item.id} page="cart" />
+        {cart.map((item, index) => (
+          <ProductCard
+            position={item}
+            key={`${item.category} + ${index}`}
+            page="cart"
+          />
         ))}
       </div>
       <div className="bill-container">

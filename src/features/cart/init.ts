@@ -1,9 +1,10 @@
-import "./model";
 import { forward } from "effector";
 import {
   checkPromoCodeFx,
   setCodeCheckResult,
 } from "features/cart/controllers";
+
+import "./model";
 
 forward({
   from: [

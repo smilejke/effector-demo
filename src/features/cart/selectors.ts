@@ -1,20 +1,22 @@
 import { useStore } from "effector-react";
 import {
-  $cart,
   $cartLength,
   $codeCheckStatus,
+  $promoCode,
+  $totalCart,
   $totalPrice,
 } from "features/cart/stores";
 import { promoCodeModal } from "features/cart/model";
 import { checkPromoCodeFx } from "features/cart/controllers";
 import { TMenu } from "features/home/types";
+import { TPromoCode } from "features/cart/types";
 
 export const useCart = (): TMenu => {
-  return useStore($cart);
+  return useStore($totalCart);
 };
 
 export const useIsCartEmpty = (): boolean => {
-  const cart = useStore($cart);
+  const cart = useStore($totalCart);
   return cart.length === 0;
 };
 
@@ -36,4 +38,8 @@ export const useCheckPromoCodeFetching = (): boolean => {
 
 export const usePromoCheckStatus = (): string => {
   return useStore($codeCheckStatus);
+};
+
+export const usePromoCode = (): TPromoCode => {
+  return useStore($promoCode);
 };

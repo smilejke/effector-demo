@@ -14,6 +14,7 @@ import {
 import {
   useCheckPromoCodeFetching,
   usePromoCheckStatus,
+  usePromoCode,
 } from "features/cart/selectors";
 
 import {
@@ -25,10 +26,13 @@ import useDebounce from "hooks/useDebounce";
 
 import "./styles.css";
 
+const { Text } = Typography;
+
 export const PromoCode = () => {
   const [promoCode, setPromoCode] = useState("");
   const promoCodeFetching = useCheckPromoCodeFetching();
   const codeStatus = usePromoCheckStatus();
+  const code = usePromoCode();
 
   useDebounce(
     () => {
@@ -61,7 +65,9 @@ export const PromoCode = () => {
         {codeStatus === "done" && <CheckCircleTwoTone twoToneColor="#52c41a" />}
         {codeStatus === "fail" && <CloseCircleTwoTone twoToneColor="#eb2f96" />}
       </div>
-      <Typography.Text type="secondary">Ant Design (secondary)</Typography.Text>
+      {codeStatus === "done" && (
+        <Text type="secondary">{code.description}</Text>
+      )}
     </Card>
   );
 };
