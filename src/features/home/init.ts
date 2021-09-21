@@ -22,12 +22,10 @@ const selectMenu = split(selectCategory, {
 const getProductCategorySample = sample({
   source: $selectedCategories,
   clock: [selectMenu.byCategories, selectMenu.allMenu],
-  fn: (state, category) => {
-    return {
-      is: state[category],
-      category,
-    };
-  },
+  fn: (state, category) => ({
+    is: state[category],
+    category,
+  }),
 });
 
 const getProductCategoryGuard = guard({
@@ -35,17 +33,17 @@ const getProductCategoryGuard = guard({
   filter: (state) => !state.is,
 });
 
-const effectTuUse = split(getProductCategoryGuard, {
+const effectToUse = split(getProductCategoryGuard, {
   category: ({ category }) => category !== "all",
   all: ({ category }) => category === "all",
 });
 
 forward({
-  from: effectTuUse.category.map(({ category }) => category),
+  from: effectToUse.category.map(({ category }) => category),
   to: getProductsByCategoryFx,
 });
 
 forward({
-  from: effectTuUse.all.map(({ category }) => category),
+  from: effectToUse.all.map(({ category }) => category),
   to: getAllProductsFx,
 });

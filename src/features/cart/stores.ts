@@ -30,7 +30,7 @@ export const $cartGrouped = $cart.map((state): TMenu => {
     };
   }, {} as Record<string, TMenuPosition & { total: number }>);
 
-  return Object.values(result);
+  return Object.values(result).sort((a, b) => b.id - a.id);
 });
 
 export const $codeCheckStatus = createStore<string>("", {

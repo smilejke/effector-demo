@@ -15,12 +15,10 @@ $menu
   .on(getAllProductsFx.doneData, (_, payload) => payload);
 
 $selectedCategories
-  .on(getProductsByCategoryFx.done, (state, payload) => {
-    return {
-      ...state,
-      [payload.params]: true,
-    };
-  })
+  .on(getProductsByCategoryFx.done, (state, payload) => ({
+    ...state,
+    [payload.params]: true,
+  }))
   .on(getAllProductsFx.done, () => ({
     all: true,
     soups: true,

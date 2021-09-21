@@ -1,3 +1,5 @@
+import { customAlphabet } from "nanoid";
+
 import soup1 from "assets/images/menu/soups/soup1.jpeg";
 import soup2 from "assets/images/menu/soups/soup2.jpeg";
 import soup3 from "assets/images/menu/soups/soup3.jpeg";
@@ -16,6 +18,7 @@ import burger4 from "assets/images/menu/burgers/burger4.jpeg";
 import burger5 from "assets/images/menu/burgers/burger5.jpeg";
 import burger6 from "assets/images/menu/burgers/burger6.jpeg";
 import { TMenu } from "features/home/types";
+const nanoid = customAlphabet("1234567890", 9);
 
 export const MOCK_MENU: TMenu = [
   {
@@ -26,7 +29,7 @@ export const MOCK_MENU: TMenu = [
     category: "soups",
     price: 6.7,
     count: 1,
-    id: "soup1",
+    id: Number(nanoid()),
   },
   {
     title: "Том Кха с курицей",
@@ -36,7 +39,7 @@ export const MOCK_MENU: TMenu = [
     category: "soups",
     price: 7.1,
     count: 1,
-    id: "soup2",
+    id: Number(nanoid()),
   },
   {
     title: "Борщ с ребром",
@@ -46,7 +49,7 @@ export const MOCK_MENU: TMenu = [
     category: "soups",
     price: 7.1,
     count: 1,
-    id: "soup3",
+    id: Number(nanoid()),
   },
   {
     title: "Бульон с чесночным хлебом",
@@ -55,7 +58,7 @@ export const MOCK_MENU: TMenu = [
     category: "soups",
     price: 5.4,
     count: 1,
-    id: "soup4",
+    id: Number(nanoid()),
   },
   {
     title: "Холодник с картофельными дольками",
@@ -65,7 +68,7 @@ export const MOCK_MENU: TMenu = [
     category: "soups",
     price: 6.2,
     count: 1,
-    id: "soup5",
+    id: Number(nanoid()),
   },
   {
     title: "Салат Цезарь с курицей",
@@ -75,7 +78,7 @@ export const MOCK_MENU: TMenu = [
     category: "salads",
     price: 11.7,
     count: 1,
-    id: "salad1",
+    id: Number(nanoid()),
   },
   {
     title: "Салат с индейкой и соусом из вяленых томатов",
@@ -85,7 +88,7 @@ export const MOCK_MENU: TMenu = [
     category: "salads",
     price: 13.4,
     count: 1,
-    id: "salad2",
+    id: Number(nanoid()),
   },
   {
     title: "Салат Цезарь с копченым лососем",
@@ -95,7 +98,7 @@ export const MOCK_MENU: TMenu = [
     category: "salads",
     price: 13.4,
     count: 1,
-    id: "salad3",
+    id: Number(nanoid()),
   },
   {
     title: "Овощной салат с  грушей и сыром Дор Блю",
@@ -105,7 +108,7 @@ export const MOCK_MENU: TMenu = [
     category: "salads",
     price: 12.7,
     count: 1,
-    id: "salad4",
+    id: Number(nanoid()),
   },
   {
     title: "Греческий салат с рулетиками из цукини и сливочного крема",
@@ -115,7 +118,7 @@ export const MOCK_MENU: TMenu = [
     category: "salads",
     price: 9.9,
     count: 1,
-    id: "salad5",
+    id: Number(nanoid()),
   },
   {
     title: "Немецкий салат с трюфельным соусом и рулькой",
@@ -125,7 +128,7 @@ export const MOCK_MENU: TMenu = [
     category: "salads",
     price: 9.7,
     count: 1,
-    id: "salad6",
+    id: Number(nanoid()),
   },
   {
     title: "Сэндвич с курицей и хрустящим беконом",
@@ -135,7 +138,7 @@ export const MOCK_MENU: TMenu = [
     category: "burgers",
     price: 4.3,
     count: 1,
-    id: "burger1",
+    id: Number(nanoid()),
   },
   {
     title: "Сэндвич со свининой и соусом BBQ",
@@ -145,7 +148,7 @@ export const MOCK_MENU: TMenu = [
     category: "burgers",
     price: 4.9,
     count: 1,
-    id: "burger2",
+    id: Number(nanoid()),
   },
   {
     title: "Сэндвич с курицей, луковыми кольцами и ореховым соусом",
@@ -155,7 +158,7 @@ export const MOCK_MENU: TMenu = [
     category: "burgers",
     price: 4.3,
     count: 1,
-    id: "burger3",
+    id: Number(nanoid()),
   },
   {
     title: "Бургер  чеддер и бекон",
@@ -165,7 +168,7 @@ export const MOCK_MENU: TMenu = [
     category: "burgers",
     price: 13.7,
     count: 1,
-    id: "burger4",
+    id: Number(nanoid()),
   },
   {
     title: "Бургер Double BBQ",
@@ -175,7 +178,7 @@ export const MOCK_MENU: TMenu = [
     category: "burgers",
     price: 18.9,
     count: 1,
-    id: "burger5",
+    id: Number(nanoid()),
   },
   {
     title: "Бургер Чикен Терияки",
@@ -185,6 +188,6 @@ export const MOCK_MENU: TMenu = [
     category: "burgers",
     price: 11.9,
     count: 1,
-    id: "burger6",
+    id: Number(nanoid()),
   },
 ];

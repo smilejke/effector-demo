@@ -7,7 +7,7 @@ export type TMenuPosition = {
   category: TMenuPositionCategory;
   price: number;
   count: number;
-  id: string;
+  id: number;
   total?: number;
 };
 

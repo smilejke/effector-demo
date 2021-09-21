@@ -6,7 +6,7 @@ export const setMenu = createEvent<TMenu>("setMenu");
 
 export const selectCategory = createEvent<string>("selectCategory");
 
-/** FAKE API TO GET MENU POSITIONS **/
+/** FAKE API TO GET MENU BY SELECTED CATEGORY **/
 export const getProductsByCategoryFx = createEffect<string, TMenu, Error>({
   handler: getProductsByCategoryRequest,
   name: "getProductsByCategoryFx",
