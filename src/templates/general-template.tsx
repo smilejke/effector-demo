@@ -4,7 +4,7 @@ import { HeaderTemplate } from "templates/header-template";
 import { MenuTemplate as Menu } from "templates/menu-template";
 
 import { TDefaultSelectedKeys } from "templates/types";
-import "./styles.css";
+import "./styles.scss";
 
 const { Content, Footer, Sider } = Layout;
 

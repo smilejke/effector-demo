@@ -1,8 +1,8 @@
 .empty-cart-link {
   display: flex;
   flex-direction: column;
-}
 
-.empty-cart-link a {
-  margin-top: 0.5rem;
+  & a {
+    margin-top: 0.5rem;
+  }
 }

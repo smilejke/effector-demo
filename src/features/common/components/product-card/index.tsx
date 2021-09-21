@@ -13,7 +13,7 @@ import { addToCart, deleteFromCart } from "features/cart/controllers";
 import { TProductCardAction } from "features/common/types";
 import { TMenuPosition } from "features/home/types";
 
-import "./styles.css";
+import "./styles.scss";
 
 const { Meta } = Card;
 const { Text } = Typography;

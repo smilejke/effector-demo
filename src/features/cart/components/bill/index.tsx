@@ -7,6 +7,8 @@ import { TMenu } from "features/home/types";
 import { BillContentTable } from "features/cart/components/bill-content-table";
 import { promoCodeModal } from "features/cart/model";
 
+import "./styles.scss";
+
 const { Text } = Typography;
 
 interface BillProps {

@@ -4,7 +4,7 @@ import { ProductCard } from "features/common/components/product-card";
 import { Bill } from "features/cart/components/bill";
 import { PromoCode } from "features/cart/components/promo-code";
 
-import "./styles.css";
+import "./styles.scss";
 
 const { Title } = Typography;
 

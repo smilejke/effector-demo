@@ -14,10 +14,6 @@
   justify-content: center;
 }
 
-.bill .ant-card-body {
-  padding: 0;
-}
-
 .bill-container .ant-card-body table tbody tr td:not(:first-of-type),
 .bill-container .ant-card-body table thead tr th:not(:first-of-type) {
   text-align: center;
@@ -30,9 +26,4 @@
   width: 15rem;
 }
 
-.bill {
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between;
-  width: 500px;
-}
+

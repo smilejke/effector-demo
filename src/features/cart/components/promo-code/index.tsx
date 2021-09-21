@@ -24,7 +24,7 @@ import {
 
 import useDebounce from "hooks/useDebounce";
 
-import "./styles.css";
+import "./styles.scss";
 
 const { Text } = Typography;
 
@@ -56,7 +56,7 @@ export const PromoCode = () => {
     <Card title="Do you have promo code?" className="promo-code__container">
       <div className="promo-code__code">
         <Input
-          value={promoCode}
+          value={promoCode || code.code}
           size="large"
           placeholder="Enter your promo code"
           onChange={handleChange}

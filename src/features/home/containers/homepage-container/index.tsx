@@ -1,7 +1,7 @@
 import { ProductCard } from "features/common/components/product-card";
 import { useProducts } from "features/home/selectors";
 
-import "./style.css";
+import "./style.scss";
 
 export const HomePageContainer = () => {
   const products = useProducts();

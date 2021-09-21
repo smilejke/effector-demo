@@ -1,6 +1,5 @@
-import update from "immutability-helper";
 import { combine, createStore } from "effector-root";
-import { TMenu } from "features/home/types";
+import { TMenu, TMenuPosition } from "features/home/types";
 import { TPromoCode } from "features/cart/types";
 
 export const $cart = createStore<TMenu>([], { name: "$cart" });
@@ -9,30 +8,29 @@ export const $cartLength = $cart.map((items) =>
   items.reduce((acc, item) => acc + item.count, 0)
 );
 
-export const $cartGrouped = $cart.map((state) => {
-  return state.reduce((acc, item) => {
-    const has = acc?.find((pos) => pos.id === item.id);
-
-    if (has) {
-      const index = acc.indexOf(has);
-      const updated = update(has, {
-        count: { $set: has.count + 1 },
-        total: {
-          $set: has.total ? has.total + item.price : item.price,
+export const $cartGrouped = $cart.map((state): TMenu => {
+  const result = state.reduce((acc, item) => {
+    if (acc[item.id]) {
+      return {
+        ...acc,
+        [item.id]: {
+          ...item,
+          count: acc[item.id].count + 1,
+          total: acc[item.id].total + item.price,
         },
-      });
-
-      return update(acc, {
-        [index]: { $set: updated },
-      });
+      };
     }
+    return {
+      ...acc,
+      [item.id]: {
+        ...item,
+        count: 1,
+        total: item.price,
+      },
+    };
+  }, {} as Record<string, TMenuPosition & { total: number }>);
 
-    const updated = update(item, {
-      total: { $set: item.price },
-    });
-
-    return update(acc, { $push: [updated] });
-  }, [] as TMenu);
+  return Object.values(result);
 });
 
 export const $codeCheckStatus = createStore<string>("", {

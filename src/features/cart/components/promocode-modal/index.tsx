@@ -22,7 +22,7 @@ import {
 
 import useDebounce from "hooks/useDebounce";
 
-import "./styles.css";
+import "./styles.scss";
 
 export const PromoCodeModal: FC = () => {
   const [promoCode, setPromoCode] = useState("");
