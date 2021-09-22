@@ -6,7 +6,7 @@ import {
   $promoCode,
   $totalPrice,
 } from "features/cart/stores";
-import { promoCodeModal } from "features/cart/model";
+import { confirmOrderModal } from "features/cart/model";
 import { checkPromoCodeFx } from "features/cart/controllers";
 import { TMenu } from "features/home/types";
 import { TPromoCode } from "features/cart/types";
@@ -29,7 +29,7 @@ export const useTotalPrice = (): number => {
 };
 
 export const useConfirmModalVisible = (): boolean => {
-  return useStore(promoCodeModal.visible);
+  return useStore(confirmOrderModal.visible);
 };
 
 export const useCheckPromoCodeFetching = (): boolean => {

@@ -9,19 +9,29 @@ import { $selectedCategories } from "features/home/stores";
 
 import "./model";
 
+/**
+ * 1. FORWARD is effector's function which can be read as:
+ * when FROM happens, call TO with value returned from FROM as params.
+ *
+ * 2. SPLIT is effector's variation of switch/case construction.
+ *
+ * 3. SAMPLE is effector's function which can be read as:
+ * when CLOCK triggers, take value from SAMPLE and value returned from CLOCK,
+ * pass them as FN's arguments and call TARGET with the value returned from FN.
+ *
+ * 4. GUARD is effector's function which can be read as:
+ * When CLOCK triggers, check if FILTER is true and call TARGET with SOURCE as props.
+ *
+ * **/
+
 forward({
   from: getProductsByCategoryFx.done.map(({ result }) => result),
   to: setMenu,
 });
 
-const selectMenu = split(selectCategory, {
-  allMenu: (payload) => payload === "all",
-  byCategories: (payload) => payload !== "all",
-});
-
 const getProductCategorySample = sample({
   source: $selectedCategories,
-  clock: [selectMenu.byCategories, selectMenu.allMenu],
+  clock: selectCategory,
   fn: (state, category) => ({
     is: state[category],
     category,

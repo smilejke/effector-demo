@@ -1,0 +1,20 @@
+.order-confirm {
+  &__list {
+    ul {
+      li {
+        list-style: none;
+        margin-bottom: 0.3rem;
+      }
+    }
+  }
+  &__total {
+    &.ant-typography {
+      text-align: end;
+      margin-bottom: 1rem;
+    }
+  }
+  &__actions {
+    display: flex;
+    justify-content: space-between;
+  }
+}

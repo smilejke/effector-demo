@@ -10,7 +10,7 @@ import {
 import { $cart, $codeCheckStatus, $promoCode } from "features/cart/stores";
 import { createModal } from "libs/createModal";
 
-export const promoCodeModal = createModal("promoCodeModal");
+export const confirmOrderModal = createModal("confirmOrderModal");
 
 $cart
   .on(addToCart, (state, position) => {
@@ -31,12 +31,8 @@ $cart
 
 $codeCheckStatus
   .on(setCodeCheckResult, (_, payload) => payload)
-  .reset(checkPromoCodeFx)
-  .reset(promoCodeModal.close);
+  .reset(checkPromoCodeFx);
 
 $promoCode
-  .on(
-    checkPromoCodeFx.done.map(({ result }) => result),
-    (_, payload) => payload
-  )
+  .on(checkPromoCodeFx.done, (_, payload) => payload.result)
   .reset(resetPromoCode);

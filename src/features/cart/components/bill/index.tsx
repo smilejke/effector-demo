@@ -5,7 +5,7 @@ import Button from "antd/lib/button";
 import { useTotalPrice } from "features/cart/selectors";
 import { TMenu } from "features/home/types";
 import { BillContentTable } from "features/cart/components/bill-content-table";
-import { promoCodeModal } from "features/cart/model";
+import { confirmOrderModal } from "features/cart/model";
 
 import "./styles.scss";
 
@@ -23,7 +23,7 @@ export const Bill: FC<BillProps> = ({ cart }) => {
       className="bill"
       actions={[
         <Text strong>Total: {total.toFixed(2)} BYN</Text>,
-        <Button type="primary" onClick={() => promoCodeModal.open()}>
+        <Button type="primary" onClick={() => confirmOrderModal.open()}>
           Confirm Order
         </Button>,
       ]}

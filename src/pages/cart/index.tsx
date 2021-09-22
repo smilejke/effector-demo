@@ -1,6 +1,6 @@
 import { GeneralTemplate } from "templates/general-template";
 import { CartContainer } from "features/cart/containers/cart-container";
-import { PromoCodeModal } from "features/cart/components/promocode-modal";
+import { ConfirmOrderModal } from "features/cart/components/confirm-order-modal";
 
 export const CartPage = () => {
   return (
@@ -8,7 +8,7 @@ export const CartPage = () => {
       <GeneralTemplate selectedMenu="cart">
         <CartContainer />
       </GeneralTemplate>
-      <PromoCodeModal />
+      <ConfirmOrderModal />
     </>
   );
 };
