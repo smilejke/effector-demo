@@ -31,14 +31,16 @@ export const OrderItem: FC<OrderItemProps> = ({ order }) => {
         <Text type="secondary">{date}</Text>
       </div>
       <div className="order-item__content">
-        <ul>
-          {order.cart.map((pos) => (
-            <li key={pos.id}>
-              <Text>{pos.title}</Text>
-              <Text>{pos.count}шт</Text>
-            </li>
-          ))}
-        </ul>
+        <div className="order-item__content-wrapper">
+          <ul>
+            {order.cart.map((pos) => (
+              <li key={pos.id}>
+                <Text>{pos.title}</Text>
+                <Text>{pos.count}шт</Text>
+              </li>
+            ))}
+          </ul>
+        </div>
       </div>
       <div className="order-item__footer">
         <Paragraph strong>Total: {order.total} BYN</Paragraph>
