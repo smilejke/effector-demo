@@ -28,7 +28,7 @@ export const ProductCard: FC<ProductCardProps> = ({ position, page }) => {
 
   useEffect(() => {
     if (clicked) {
-      const cancelClickEffect = setTimeout(() => setClicked(false), 150);
+      const cancelClickEffect = setTimeout(() => setClicked(false), 250);
       return () => clearTimeout(cancelClickEffect);
     }
   }, [clicked]);

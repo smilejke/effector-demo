@@ -8,3 +8,14 @@
   width: 100vw;
   height: 100vh;
 }
+
+::-webkit-scrollbar {
+  width: 0.41667rem;
+  background-color: rgb(245, 245, 245);
+}
+
+::-webkit-scrollbar-thumb {
+  width: 0.41667rem;
+  border-radius: 0.208333rem;
+  background-color: rgb(160, 160, 160);
+}

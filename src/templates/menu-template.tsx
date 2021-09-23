@@ -28,7 +28,7 @@ export const MenuTemplate = () => {
       </Menu.Item>
       <Menu.Item key="burgers">
         <Link to="?section=burgers" />
-        Burger
+        Burgers
       </Menu.Item>
     </Menu>
   );

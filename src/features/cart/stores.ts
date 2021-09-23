@@ -26,7 +26,7 @@ export const $cartGrouped = $cart.map((state): TMenu => {
         [item.id]: {
           ...item,
           count: acc[item.id].count + 1,
-          total: acc[item.id].total + item.price,
+          total: Number((acc[item.id].total + item.price).toFixed(2)),
         },
       };
     }
@@ -44,7 +44,7 @@ export const $cartGrouped = $cart.map((state): TMenu => {
 });
 
 /**
- * status of checkPromoCodeFx (done/fail)
+ * orders of checkPromoCodeFx (done/fail)
  * **/
 export const $codeCheckStatus = createStore<string>("", {
   name: "$codeCheckStatus",
@@ -66,7 +66,9 @@ export const $cartWithCode = combine($cartGrouped, $promoCode, (cart, code) => {
       return cart.map((item) => ({
         ...item,
         price: item.price - item.price * code.amount,
-        total: item.total && item.total - item.total * code.amount,
+        total:
+          item.total &&
+          Number((item.total - item.total * code.amount).toFixed(2)),
       }));
     }
     return cart.map((item) =>
@@ -74,7 +76,9 @@ export const $cartWithCode = combine($cartGrouped, $promoCode, (cart, code) => {
         ? {
             ...item,
             price: item.price - item.price * code.amount,
-            total: item.total && item.total - item.total * code.amount,
+            total:
+              item.total &&
+              Number((item.total - item.total * code.amount).toFixed(2)),
           }
         : item
     );

@@ -10,6 +10,7 @@ import { confirmOrderModal } from "features/cart/model";
 import { checkPromoCodeFx } from "features/cart/controllers";
 import { TMenu } from "features/home/types";
 import { TPromoCode } from "features/cart/types";
+import { TOrder } from "features/orders/types";
 
 export const useCart = (): TMenu => {
   return useStore($cartWithCode);
@@ -30,6 +31,10 @@ export const useTotalPrice = (): number => {
 
 export const useConfirmModalVisible = (): boolean => {
   return useStore(confirmOrderModal.visible);
+};
+
+export const useConfirmModalPayload = (): TOrder | null => {
+  return useStore(confirmOrderModal.state).payload;
 };
 
 export const useCheckPromoCodeFetching = (): boolean => {

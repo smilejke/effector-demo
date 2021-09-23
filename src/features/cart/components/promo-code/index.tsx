@@ -33,6 +33,8 @@ export const PromoCode = () => {
   const promoCodeFetching = useCheckPromoCodeFetching();
   const codeStatus = usePromoCheckStatus();
   const code = usePromoCode();
+  const reqDone = codeStatus === "done" && !promoCodeFetching;
+  const reqFailed = codeStatus === "fail" && !promoCodeFetching;
 
   useDebounce(
     () => {
@@ -62,15 +64,15 @@ export const PromoCode = () => {
           onChange={handleChange}
         />
         {promoCodeFetching && <Spin indicator={<LoadingOutlined spin />} />}
-        {codeStatus === "done" && <CheckCircleTwoTone twoToneColor="#52c41a" />}
-        {codeStatus === "fail" && <CloseCircleTwoTone twoToneColor="#EA2027" />}
+        {reqDone && <CheckCircleTwoTone twoToneColor="#52c41a" />}
+        {reqFailed && <CloseCircleTwoTone twoToneColor="#EA2027" />}
       </div>
-      {codeStatus === "done" && (
+      {reqDone && (
         <Text type="secondary" strong style={{ color: "#52c41a" }}>
           {code.description}
         </Text>
       )}
-      {codeStatus === "fail" && (
+      {reqFailed && (
         <Text type="secondary" style={{ color: "#EA2027" }}>
           Wrong code
         </Text>

@@ -26,4 +26,12 @@
   width: 15rem;
 }
 
+.bill {
+  .ant-card-body {
+    .ant-table-body {
+      overflow-y: auto !important;
+    }
+  }
+}
+
 

@@ -1,6 +1,6 @@
 import { HomePage } from "pages/home";
 import { CartPage } from "pages/cart";
-import { StatusPage } from "pages/status";
+import { StatusPage } from "pages/orders";
 import { paths } from "./paths";
 
 export const routes = [

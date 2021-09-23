@@ -3,9 +3,10 @@ import Card from "antd/lib/card";
 import Typography from "antd/lib/typography";
 import Button from "antd/lib/button";
 import { useTotalPrice } from "features/cart/selectors";
-import { TMenu } from "features/home/types";
+import { useOrderFetching } from "features/orders/selectors";
 import { BillContentTable } from "features/cart/components/bill-content-table";
-import { confirmOrderModal } from "features/cart/model";
+import { createOrderFx } from "features/orders/controllers";
+import { TMenu } from "features/home/types";
 
 import "./styles.scss";
 
@@ -17,13 +18,18 @@ interface BillProps {
 
 export const Bill: FC<BillProps> = ({ cart }) => {
   const total = useTotalPrice();
+  const orderPending = useOrderFetching();
 
   return (
     <Card
       className="bill"
       actions={[
         <Text strong>Total: {total.toFixed(2)} BYN</Text>,
-        <Button type="primary" onClick={() => confirmOrderModal.open()}>
+        <Button
+          type="primary"
+          loading={orderPending}
+          onClick={() => createOrderFx({ cart, total })}
+        >
           Confirm Order
         </Button>,
       ]}

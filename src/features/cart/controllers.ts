@@ -15,8 +15,8 @@ export const checkPromoCodeFx = createEffect<string, TPromoCode, Error>({
   name: "checkPromoCodeFx",
 });
 
-/** set promo code request status **/
+/** set promo code request orders **/
 export const setCodeCheckResult = createEvent<string>("setCodeCheckResult");
 
-/** clear promo code check status store **/
+/** clear promo code check orders store **/
 export const resetPromoCode = createEvent<void>("resetPromoCode");

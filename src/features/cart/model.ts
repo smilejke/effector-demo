@@ -9,8 +9,9 @@ import {
 } from "features/cart/controllers";
 import { $cart, $codeCheckStatus, $promoCode } from "features/cart/stores";
 import { createModal } from "libs/createModal";
+import { TOrder } from "features/orders/types";
 
-export const confirmOrderModal = createModal("confirmOrderModal");
+export const confirmOrderModal = createModal<TOrder>("confirmOrderModal");
 
 $cart
   .on(addToCart, (state, position) => {
@@ -27,7 +28,8 @@ $cart
       const index = state.indexOf(selectedPosition);
       return update(state, { $splice: [[index, 1]] });
     }
-  });
+  })
+  .reset(confirmOrderModal.close);
 
 $codeCheckStatus
   .on(setCodeCheckResult, (_, payload) => payload)
