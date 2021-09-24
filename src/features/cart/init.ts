@@ -1,9 +1,11 @@
 import { forward, guard } from "effector";
 import {
   checkPromoCodeFx,
+  resetCart,
   resetPromoCode,
   setCodeCheckResult,
 } from "features/cart/controllers";
+import { confirmOrderModal } from "features/cart/model";
 
 import "./model";
 
@@ -19,4 +21,9 @@ guard({
   source: setCodeCheckResult,
   filter: (value) => value === "",
   target: resetPromoCode,
+});
+
+forward({
+  from: confirmOrderModal.close,
+  to: resetCart,
 });

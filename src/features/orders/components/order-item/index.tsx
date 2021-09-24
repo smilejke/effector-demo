@@ -25,7 +25,10 @@ export const OrderItem: FC<OrderItemProps> = ({ order }) => {
   return (
     <div className="order-item__container">
       <div className="order-item__header">
-        <Title level={4} style={{ marginBottom: "0", color: "#1890ff" }}>
+        <Title
+          level={4}
+          style={{ marginBottom: "0", color: "var(--ant-blue)" }}
+        >
           Order № {order.orderId}
         </Title>
         <Text type="secondary">{date}</Text>
@@ -45,7 +48,10 @@ export const OrderItem: FC<OrderItemProps> = ({ order }) => {
       <div className="order-item__footer">
         <Paragraph strong>Total: {order.total} BYN</Paragraph>
         <Paragraph strong>
-          Order status: <Text code>{order.status}</Text>
+          Order status:{" "}
+          <Text code data-status={order.status}>
+            {order.status}
+          </Text>
         </Paragraph>
       </div>
     </div>

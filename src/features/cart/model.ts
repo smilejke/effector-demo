@@ -4,6 +4,7 @@ import {
   addToCart,
   checkPromoCodeFx,
   deleteFromCart,
+  resetCart,
   resetPromoCode,
   setCodeCheckResult,
 } from "features/cart/controllers";
@@ -29,12 +30,14 @@ $cart
       return update(state, { $splice: [[index, 1]] });
     }
   })
-  .reset(confirmOrderModal.close);
+  .reset(resetCart);
 
 $codeCheckStatus
   .on(setCodeCheckResult, (_, payload) => payload)
-  .reset(checkPromoCodeFx);
+  .reset(checkPromoCodeFx)
+  .reset(resetCart);
 
 $promoCode
   .on(checkPromoCodeFx.done, (_, payload) => payload.result)
-  .reset(resetPromoCode);
+  .reset(resetPromoCode)
+  .reset(resetCart);

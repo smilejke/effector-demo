@@ -13,7 +13,7 @@ export const OrdersContainer = () => {
     <div className="order-page__container">
       <Title level={1}>Your orders</Title>
       <div className="order-page__content">
-        {orders.map((order) => {
+        {orders.map((order, index) => {
           return <OrderItem order={order} key={order.orderId} />;
         })}
       </div>

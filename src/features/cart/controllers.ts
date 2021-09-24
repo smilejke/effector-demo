@@ -20,3 +20,6 @@ export const setCodeCheckResult = createEvent<string>("setCodeCheckResult");
 
 /** clear promo code check orders store **/
 export const resetPromoCode = createEvent<void>("resetPromoCode");
+
+/** clear cart and all related to it things **/
+export const resetCart = createEvent<void>("resetCart");

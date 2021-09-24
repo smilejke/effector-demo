@@ -18,7 +18,7 @@ export const MOCK_ORDERS: TOrders = [
     total: 7.1,
     orderId: "000102",
     status: "closed",
-    date: new Date(),
+    date: new Date(2021, 4, 25, 18, 25, 30),
   },
   {
     cart: [
@@ -47,7 +47,7 @@ export const MOCK_ORDERS: TOrders = [
     total: 20.5,
     orderId: "000139",
     status: "closed",
-    date: new Date(),
+    date: new Date(2021, 7, 14, 12, 45, 30),
   },
   {
     cart: [
@@ -87,6 +87,6 @@ export const MOCK_ORDERS: TOrders = [
     total: 39.7,
     orderId: "000864",
     status: "closed",
-    date: new Date(),
+    date: new Date(2021, 3, 5, 10, 18, 40),
   },
 ];

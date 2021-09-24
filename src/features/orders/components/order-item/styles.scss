@@ -4,7 +4,8 @@
     grid-template-rows: 0.2fr 1fr 0.2fr;
     grid-template-columns: 100%;
     grid-row-gap: 1rem;
-    max-height: 25rem;
+    max-height: 20rem;
+    min-width: 330px;
     justify-content: center;
     padding: 1rem;
     background: #fff;
@@ -29,7 +30,6 @@
   &__content {
     background: #f0f4ff;
     border-radius: 0.3rem;
-    border: 2px solid rgb(198, 218, 255);
     overflow: hidden;
 
     &-wrapper {
@@ -55,7 +55,7 @@
             margin-right: 1rem;
           }
           &:last-of-type {
-            color: #1890ff;
+            color: var(--ant-blue);
           }
         }
         &:last-of-type {
@@ -71,6 +71,21 @@
 
       &.ant-typography:first-of-type {
         margin-bottom: 0.3rem;
+      }
+
+      & span {
+        &[data-status="accepted"] {
+          color: var(--order-accepted);
+        }
+        &[data-status="cooking"] {
+          color: var(--order-cooking);
+        }
+        &[data-status="ready for delivery"] {
+          color: var(--order-ready);
+        }
+        &[data-status="closed"] {
+          text-decoration: line-through;
+        }
       }
     }
     display: flex;
