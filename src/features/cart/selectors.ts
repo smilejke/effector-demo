@@ -8,11 +8,10 @@ import {
 } from "features/cart/stores";
 import { confirmOrderModal } from "features/cart/model";
 import { checkPromoCodeFx } from "features/cart/controllers";
-import { TMenu } from "features/home/types";
-import { TPromoCode } from "features/cart/types";
+import { TCart, TPromoCode } from "features/cart/types";
 import { TOrder } from "features/orders/types";
 
-export const useCart = (): TMenu => {
+export const useCart = (): TCart => {
   return useStore($cartWithCode);
 };
 

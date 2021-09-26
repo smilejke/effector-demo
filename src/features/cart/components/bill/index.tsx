@@ -6,14 +6,14 @@ import { useTotalPrice } from "features/cart/selectors";
 import { useOrderFetching } from "features/orders/selectors";
 import { BillContentTable } from "features/cart/components/bill-content-table";
 import { createOrderFx } from "features/orders/controllers";
-import { TMenu } from "features/home/types";
+import { TCart } from "features/cart/types";
 
 import "./styles.scss";
 
 const { Text } = Typography;
 
 interface BillProps {
-  cart: TMenu;
+  cart: TCart;
 }
 
 export const Bill: FC<BillProps> = ({ cart }) => {

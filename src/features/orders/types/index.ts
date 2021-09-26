@@ -1,4 +1,4 @@
-import { TMenu } from "features/home/types";
+import { TCart } from "features/cart/types";
 
 export type TOrderStatus =
   | "accepted"
@@ -7,7 +7,7 @@ export type TOrderStatus =
   | "closed";
 
 export type TOrder = {
-  cart: TMenu;
+  cart: TCart;
   total: number;
   orderId: string;
   status: TOrderStatus;

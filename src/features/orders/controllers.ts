@@ -1,11 +1,11 @@
 import { createEffect } from "effector-root";
-import { TMenu } from "features/home/types";
 import { TOrder } from "features/orders/types";
+import { TCart } from "features/cart/types";
 import { createOrderRequest } from "features/orders/api";
 
 /** FAKE API TO CREATE ORDER **/
 export const createOrderFx = createEffect<
-  { cart: TMenu; total: number },
+  { cart: TCart; total: number },
   TOrder,
   Error
 >({

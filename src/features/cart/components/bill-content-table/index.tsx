@@ -2,12 +2,12 @@ import { FC } from "react";
 import Table from "antd/lib/table";
 import Typography from "antd/lib/typography";
 
-import { TMenu } from "features/home/types";
+import { TCart } from "features/cart/types";
 
 const { Text } = Typography;
 
 interface BilTableProps {
-  cart: TMenu;
+  cart: TCart;
 }
 
 export const BillContentTable: FC<BilTableProps> = ({ cart }) => {

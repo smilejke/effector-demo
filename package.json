@@ -48,8 +48,7 @@
     "html-webpack-plugin": "4.5.0",
     "identity-obj-proxy": "3.0.0",
     "immutability-helper": "^3.1.1",
-    "jest": "26.6.0",
-    "jest-circus": "26.6.0",
+    "jest": "^26.6.0",
     "jest-resolve": "26.6.0",
     "jest-watch-typeahead": "0.6.1",
     "mini-css-extract-plugin": "0.11.3",
@@ -109,6 +108,7 @@
   },
   "devDependencies": {
     "@types/react-router-dom": "^5.1.8",
+    "jest-circus": "^27.2.2",
     "prettier": "2.4.0"
   },
   "jest": {
@@ -128,7 +128,7 @@
       "<rootDir>/src/**/*.{spec,test}.{js,jsx,ts,tsx}"
     ],
     "testEnvironment": "jsdom",
-    "testRunner": "/Users/smilejke/Documents/Learning/effector_vs_redux/frontend/effector/food_delivery/node_modules/jest-circus/runner.js",
+    "testRunner": "<rootDir>/node_modules/jest-circus/runner.js",
     "transform": {
       "^.+\\.(js|jsx|mjs|cjs|ts|tsx)$": "<rootDir>/config/jest/babelTransform.js",
       "^.+\\.css$": "<rootDir>/config/jest/cssTransform.js",
@@ -142,7 +142,12 @@
     "moduleNameMapper": {
       "^react-native$": "react-native-web",
       "^.+\\.module\\.(css|sass|scss)$": "identity-obj-proxy",
-      "^src/(.*)$": "<rootDir>/src/$1"
+      "^src/(.*)$": "<rootDir>/src/$1",
+      "^pages(.*)$": "<rootDir>/src/pages$1",
+      "^features(.*)$": "<rootDir>/src/features$1",
+      "^templates(.*)$": "<rootDir>/src/templates$1",
+      "^mocks(.*)$": "<rootDir>/src/mocks$1",
+      "^libs(.*)$": "<rootDir>/src/libs$1"
     },
     "moduleFileExtensions": [
       "web.js",

@@ -42,6 +42,7 @@ export const MOCK_ORDERS: TOrders = [
         price: 13.4,
         src: "/static/media/salad2.62db8b97.jpeg",
         title: "Салат с индейкой и соусом из вяленых томатов",
+        total: 13.4,
       },
     ],
     total: 20.5,
@@ -71,6 +72,7 @@ export const MOCK_ORDERS: TOrders = [
         price: 13.4,
         src: "/static/media/salad2.62db8b97.jpeg",
         title: "Салат с индейкой и соусом из вяленых томатов",
+        total: 13.4,
       },
       {
         category: "burgers",

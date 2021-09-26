@@ -1,6 +1,6 @@
 import { customAlphabet } from "nanoid";
-import { TMenu } from "features/home/types";
 import { TOrder } from "features/orders/types";
+import { TCart } from "features/cart/types";
 
 const nanoid = customAlphabet("1234567890", 3);
 
@@ -9,7 +9,7 @@ export const createOrderRequest = ({
   cart,
   total,
 }: {
-  cart: TMenu;
+  cart: TCart;
   total: number;
 }): Promise<TOrder> =>
   new Promise((res) => {

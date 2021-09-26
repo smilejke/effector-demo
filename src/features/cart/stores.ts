@@ -1,24 +1,22 @@
 import { combine, createStore } from "effector-root";
-import { TMenu, TMenuPosition } from "features/home/types";
-import { TPromoCode } from "features/cart/types";
+import { TMenuPosition } from "features/home/types";
+import { TCart, TPromoCode } from "features/cart/types";
 
 /**
  * store to keep all selected menu positions
  * **/
-export const $cart = createStore<TMenu>([], { name: "$cart" });
+export const $cart = createStore<TCart>([], { name: "$cart" });
 
 /**
  * dynamic store to count total amount of cart items based on $cart store
  * **/
-export const $cartLength = $cart.map((items) =>
-  items.reduce((acc, item) => acc + item.count, 0)
-);
+export const $cartLength = $cart.map((items) => items.length);
 
 /**
  * dynamic store to present cart in a different form to exclude all copies and to count
  * all positions amount and total cost. Based on $cart store.
  * **/
-export const $cartGrouped = $cart.map((state): TMenu => {
+export const $cartGrouped = $cart.map((state): TCart => {
   const result = state.reduce((acc, item) => {
     if (acc[item.id]) {
       return {
@@ -66,9 +64,7 @@ export const $cartWithCode = combine($cartGrouped, $promoCode, (cart, code) => {
       return cart.map((item) => ({
         ...item,
         price: item.price - item.price * code.amount,
-        total:
-          item.total &&
-          Number((item.total - item.total * code.amount).toFixed(2)),
+        total: Number((item.total - item.total * code.amount).toFixed(2)),
       }));
     }
     return cart.map((item) =>
@@ -76,9 +72,7 @@ export const $cartWithCode = combine($cartGrouped, $promoCode, (cart, code) => {
         ? {
             ...item,
             price: item.price - item.price * code.amount,
-            total:
-              item.total &&
-              Number((item.total - item.total * code.amount).toFixed(2)),
+            total: Number((item.total - item.total * code.amount).toFixed(2)),
           }
         : item
     );

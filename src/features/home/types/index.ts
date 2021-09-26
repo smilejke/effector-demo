@@ -8,7 +8,6 @@ export type TMenuPosition = {
   price: number;
   count: number;
   id: number;
-  total?: number;
 };
 
 export type TMenu = TMenuPosition[];

@@ -16,9 +16,7 @@ export const confirmOrderModal = createModal<TOrder>("confirmOrderModal");
 
 $cart
   .on(addToCart, (state, position) => {
-    const updated = update(position, {
-      total: { $set: position.price },
-    });
+    const updated = { ...position, total: position.price };
 
     return update(state, { $push: [updated] });
   })

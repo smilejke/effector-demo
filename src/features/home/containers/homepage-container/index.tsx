@@ -1,4 +1,4 @@
-import { ProductCard } from "features/common/components/product-card";
+import { ProductCardMenu } from "features/common/components/product-card-menu";
 import { useProducts } from "features/home/selectors";
 
 import "./style.scss";
@@ -9,7 +9,7 @@ export const HomePageContainer = () => {
   return (
     <div className="home-container">
       {products.map((product) => {
-        return <ProductCard position={product} page="home" key={product.id} />;
+        return <ProductCardMenu position={product} key={product.id} />;
       })}
     </div>
   );

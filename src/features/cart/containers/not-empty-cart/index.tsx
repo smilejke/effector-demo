@@ -1,6 +1,6 @@
 import { Typography } from "antd";
 import { useCart } from "features/cart/selectors";
-import { ProductCard } from "features/common/components/product-card";
+import { ProductCardCart } from "features/common/components/product-card-cart";
 import { Bill } from "features/cart/components/bill";
 import { PromoCode } from "features/cart/components/promo-code";
 
@@ -18,10 +18,9 @@ export const Cart = () => {
           Specify your order:
         </Title>
         {cart.map((item, index) => (
-          <ProductCard
+          <ProductCardCart
             position={item}
             key={`${item.category} + ${index}`}
-            page="cart"
           />
         ))}
       </div>
