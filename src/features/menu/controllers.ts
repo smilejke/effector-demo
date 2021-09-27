@@ -8,7 +8,9 @@ export const setMenu = createEvent<TMenu>("setMenu");
 /** select menu category (string) **/
 export const selectCategory = createEvent<string>("selectCategory");
 
-/** set {[category]: true} to $selectedCategories store after category selected **/
+/** set {[category]: true} to $selectedCategories store after category selected
+ * and products were downloaded first time
+ * **/
 export const setSelectedCategories = createEvent<Record<string, boolean>>(
   "setSelectedCategories"
 );

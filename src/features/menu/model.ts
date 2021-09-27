@@ -10,7 +10,7 @@ import {
   $selectedCategory,
 } from "features/menu/stores";
 
-/** stores subscriptions on different actions **/
+/** Stores subscriptions on different actions. **/
 
 $menu
   .on(setMenu, (state, payload) => [...state, ...payload])

@@ -6,13 +6,13 @@ import {
 } from "features/menu/controllers";
 
 /**
- * store to keep all downloaded menu positions
+ * Store to keep all downloaded menu positions.
  * **/
 export const $menu = createStore<TMenu>([], { name: "$menu" });
 
 /**
- * store to add a category as field and "true" as value to check if category
- * was downloaded and prevent new requests (cache)
+ * Store to add a category in {[category]: true} format to check if category
+ * was downloaded and prevent the same requests (cache).
  * **/
 export const $selectedCategories = createStore<Record<string, boolean>>(
   {},
@@ -20,15 +20,15 @@ export const $selectedCategories = createStore<Record<string, boolean>>(
 );
 
 /**
- * store to keep selected menu category to show
+ * Store to keep selected menu category to show.
  * **/
 export const $selectedCategory = createStore<string>("", {
   name: "$selectedCategory",
 });
 
 /**
- * store based on 2 another stores to show only products by selected category
- * and keep $menu without changes. This store is used on react side to render menu cards on home page.
+ * Store based on 2 another stores to show only products by selected category
+ * and keep $menu without changes. This store is used on react side to render menu cards on menu page.
  * **/
 export const $products = combine($menu, $selectedCategory, (menu, category) => {
   if (category === "all") {
@@ -40,7 +40,8 @@ export const $products = combine($menu, $selectedCategory, (menu, category) => {
 });
 
 /**
- * store based on effects pending to show loader on react side while requests are fetching
+ * Store based on effects pending to show loader on react side while selected requests are fetching.
+ * This store is used on react to render loader until content downloaded.
  * **/
 export const $isMenuPending = combine(
   getAllProductsFx.pending,
