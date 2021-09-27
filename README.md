@@ -2,8 +2,8 @@
 
 ![alt text](https://repository-images.githubusercontent.com/123197392/2cfb4000-1310-11eb-8f8b-316a18c2ce65)
 
-This project was created as demonstration of Effector state manager.<br />
-A lot of decisions were made only to demonstrate different effector's possibilities and could have been made much easier.<br />
+This project was created as demonstration of Effector state manager.\
+A lot of decisions were made only to demonstrate different effector's possibilities and could have been made much easier.\
 The project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
@@ -28,6 +28,12 @@ Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
 
+### `npm run test`
+
+Runs the application tests.\
+App contain only few tests just to show effector's advantages.
+
 ## Learn More
 
-You can learn more in the [Effector documentation](https://github.com/effector/effector).
+You can learn more in the [Effector documentation](https://github.com/effector/effector). \
+Short list of [projects based on Effector](https://github.com/effector/effector/issues/278)
