@@ -147,7 +147,8 @@
       "^features(.*)$": "<rootDir>/src/features$1",
       "^templates(.*)$": "<rootDir>/src/templates$1",
       "^mocks(.*)$": "<rootDir>/src/mocks$1",
-      "^libs(.*)$": "<rootDir>/src/libs$1"
+      "^libs(.*)$": "<rootDir>/src/libs$1",
+      "^assets(.*)$": "<rootDir>/src/assets$1"
     },
     "moduleFileExtensions": [
       "web.js",

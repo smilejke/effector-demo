@@ -1,6 +1,7 @@
 import { combine, createStore } from "effector-root";
 import { TMenuPosition } from "features/menu/types";
 import { TCart, TPromoCode } from "features/cart/types";
+import { getSumToFixed } from "libs/sumToFixed";
 
 /**
  * Store to keep all selected menu positions.
@@ -24,7 +25,7 @@ export const $cartGrouped = $cart.map((state): TCart => {
         [item.id]: {
           ...item,
           count: acc[item.id].count + 1,
-          total: Number((acc[item.id].total + item.price).toFixed(2)),
+          total: getSumToFixed(acc[item.id].total + item.price),
         },
       };
     }
@@ -64,28 +65,32 @@ export const $promoCode = createStore<TPromoCode>({} as TPromoCode, {
 export const $cartWithCode = combine($cartGrouped, $promoCode, (cart, code) => {
   if (code.category) {
     if (code.category === "all") {
-      return cart.map((item) => ({
-        ...item,
-        price: item.price - item.price * code.amount,
-        total: Number((item.total - item.total * code.amount).toFixed(2)),
-      }));
+      return cart
+        .map((item) => ({
+          ...item,
+          price: getSumToFixed(item.price - item.price * code.amount),
+          total: getSumToFixed(item.total - item.total * code.amount),
+        }))
+        .sort((a, b) => b.id - a.id);
     }
-    return cart.map((item) =>
-      item.category === code.category
-        ? {
-            ...item,
-            price: item.price - item.price * code.amount,
-            total: Number((item.total - item.total * code.amount).toFixed(2)),
-          }
-        : item
-    );
+    return cart
+      .map((item) =>
+        item.category === code.category
+          ? {
+              ...item,
+              price: getSumToFixed(item.price - item.price * code.amount),
+              total: getSumToFixed(item.total - item.total * code.amount),
+            }
+          : item
+      )
+      .sort((a, b) => b.id - a.id);
   }
-  return cart;
+  return cart.sort((a, b) => b.id - a.id);
 });
 
 /**
  * Dynamic store to count total cart price to be used on react side.
  * **/
 export const $totalPrice = $cartWithCode.map((items) =>
-  items.reduce((acc, item) => acc + (item.total || 0), 0)
+  items.reduce((acc, item) => acc + item.total, 0)
 );
