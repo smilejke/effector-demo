@@ -1,13 +1,13 @@
 import { FC } from "react";
+import Button from "antd/lib/button";
+import Input from "antd/lib/input";
+import Typography from "antd/lib/typography";
+import { MinusCircleOutlined, PlusCircleOutlined } from "@ant-design/icons";
+
 import {
   ProductCard,
   ProductCardBaseProps,
 } from "features/common/components/product-card";
-import Button from "antd/lib/button";
-import Input from "antd/lib/input";
-import Typography from "antd/lib/typography";
-
-import { MinusCircleOutlined, PlusCircleOutlined } from "@ant-design/icons";
 import { TProductCardAction } from "features/common/types";
 import { CartItem } from "features/cart/types";
 import { addToCart, deleteFromCart } from "features/cart/controllers";

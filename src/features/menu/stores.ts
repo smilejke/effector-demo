@@ -1,9 +1,9 @@
 import { createStore, combine } from "effector-root";
-import { TMenu } from "features/home/types";
+import { TMenu } from "features/menu/types";
 import {
   getAllProductsFx,
   getProductsByCategoryFx,
-} from "features/home/controllers";
+} from "features/menu/controllers";
 
 /**
  * store to keep all downloaded menu positions

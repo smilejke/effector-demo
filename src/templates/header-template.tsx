@@ -24,7 +24,7 @@ export const HeaderTemplate: FC<HeaderTemplateProps> = ({ selectedKey }) => {
         defaultSelectedKeys={[selectedKey || "products"]}
       >
         <Menu.Item key="products">
-          <Link to={paths.home()} />
+          <Link to={paths.menu()} />
           Products
         </Menu.Item>
         <Menu.Item key="status">

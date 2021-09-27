@@ -9,7 +9,7 @@ export const EmptyCart = () => {
       description={
         <EmptyCartLink
           description={"Your order is empty"}
-          linkTo={paths.home()}
+          linkTo={paths.menu()}
         />
       }
       image={Empty.PRESENTED_IMAGE_SIMPLE}

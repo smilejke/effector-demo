@@ -1,5 +1,5 @@
 import { MOCK_MENU } from "mocks/menu";
-import { TMenu } from "features/home/types";
+import { TMenu } from "features/menu/types";
 
 /** FAKE API TO GET MENU POSITIONS **/
 export const getProductsByCategoryRequest = (

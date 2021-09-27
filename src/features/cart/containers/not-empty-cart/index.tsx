@@ -1,6 +1,6 @@
 import { Typography } from "antd";
 import { useCart } from "features/cart/selectors";
-import { ProductCardCart } from "features/common/components/product-card-cart";
+import { ProductCardCart } from "features/cart/components/product-card-cart";
 import { Bill } from "features/cart/components/bill";
 import { PromoCode } from "features/cart/components/promo-code";
 

@@ -3,11 +3,11 @@ import { useLocation } from "react-router-dom";
 import qs from "query-string";
 
 import { GeneralTemplate } from "templates/general-template";
-import { HomePageContainer } from "features/home/containers/homepage-container";
-import { useMenuFetching } from "features/home/selectors";
-import { selectCategory } from "features/home/controllers";
+import { MenuPageContainer } from "features/menu/containers/menu-container";
+import { useMenuFetching } from "features/menu/selectors";
+import { selectCategory } from "features/menu/controllers";
 
-export const HomePage = () => {
+export const MenuPage = () => {
   const isMenuFetching = useMenuFetching();
   const { search } = useLocation();
 
@@ -22,7 +22,7 @@ export const HomePage = () => {
 
   return (
     <GeneralTemplate loading={isMenuFetching}>
-      <HomePageContainer />
+      <MenuPageContainer />
     </GeneralTemplate>
   );
 };

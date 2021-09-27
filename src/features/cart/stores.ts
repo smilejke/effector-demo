@@ -1,5 +1,5 @@
 import { combine, createStore } from "effector-root";
-import { TMenuPosition } from "features/home/types";
+import { TMenuPosition } from "features/menu/types";
 import { TCart, TPromoCode } from "features/cart/types";
 
 /**

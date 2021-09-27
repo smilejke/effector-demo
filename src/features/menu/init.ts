@@ -4,8 +4,8 @@ import {
   getProductsByCategoryFx,
   selectCategory,
   setMenu,
-} from "features/home/controllers";
-import { $selectedCategories } from "features/home/stores";
+} from "features/menu/controllers";
+import { $selectedCategories } from "features/menu/stores";
 
 import "./model";
 

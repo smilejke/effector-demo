@@ -1,14 +1,14 @@
 import { FC, useEffect, useState } from "react";
+import Button from "antd/lib/button";
+import Typography from "antd/lib/typography";
+import { ShoppingCartOutlined } from "@ant-design/icons";
+
 import {
   ProductCard,
   ProductCardBaseProps,
 } from "features/common/components/product-card";
-import Button from "antd/lib/button";
-import Typography from "antd/lib/typography";
-
-import { ShoppingCartOutlined } from "@ant-design/icons";
 import { addToCart } from "features/cart/controllers";
-import { TMenuPosition } from "features/home/types";
+import { TMenuPosition } from "features/menu/types";
 
 const { Text } = Typography;
 

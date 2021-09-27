@@ -1,5 +1,5 @@
 export const paths = {
-  home: () => "/",
+  menu: () => "/",
   cart: () => "/cart",
   status: () => "/orders",
 };

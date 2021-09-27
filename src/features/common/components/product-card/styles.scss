@@ -1,4 +1,4 @@
-.home-container,
+.menu-container,
 .order-container {
   & .ant-card {
     max-width: 30rem;
@@ -13,7 +13,7 @@
 
 .bill,
 .order-container,
-.home-container {
+.menu-container {
   & .ant-card-body {
     min-height: 12rem;
   }

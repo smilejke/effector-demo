@@ -19,21 +19,21 @@ export const GeneralTemplate: FC<GeneralTemplateProps> = ({
   children,
   loading = false,
 }) => {
-  const isHomePage = selectedMenu !== "cart" && selectedMenu !== "status";
+  const isMenuPage = selectedMenu !== "cart" && selectedMenu !== "status";
 
   return (
     <Layout>
       <HeaderTemplate selectedKey={selectedMenu} />
       <Content style={{ padding: "0 50px" }}>
         <Layout style={{ padding: "24px 0" }}>
-          {isHomePage && (
+          {isMenuPage && (
             <Sider className="site-layout-background" width={200}>
               <Menu />
             </Sider>
           )}
           <Content
             style={{
-              padding: isHomePage ? "0 24px" : "",
+              padding: isMenuPage ? "0 24px" : "",
               minHeight: 280,
               display: !loading ? "block" : "flex",
             }}

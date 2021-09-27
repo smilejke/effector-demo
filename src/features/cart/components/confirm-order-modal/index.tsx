@@ -32,7 +32,7 @@ export const ConfirmOrderModal = () => {
         style={{ padding: "0" }}
         extra={[
           <Link
-            to={paths.home()}
+            to={paths.menu()}
             onClick={() => confirmOrderModal.close()}
             key="return"
           >

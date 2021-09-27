@@ -1,12 +1,12 @@
-import { HomePage } from "pages/home";
+import { MenuPage } from "pages/menu";
 import { CartPage } from "pages/cart";
 import { StatusPage } from "pages/orders";
 import { paths } from "./paths";
 
 export const routes = [
   {
-    component: HomePage,
-    path: paths.home(),
+    component: MenuPage,
+    path: paths.menu(),
     exact: true,
   },
   {

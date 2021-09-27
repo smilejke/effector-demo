@@ -1,4 +1,4 @@
-import { TMenuPosition } from "features/home/types";
+import { TMenuPosition } from "features/menu/types";
 
 export type TPromoCode = {
   code: string;

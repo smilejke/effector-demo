@@ -1,7 +1,7 @@
 import { useStore } from "effector-react";
-import { $isMenuPending, $products } from "features/home/stores";
+import { $isMenuPending, $products } from "features/menu/stores";
 
-import { TMenu } from "features/home/types";
+import { TMenu } from "features/menu/types";
 
 export const useProducts = (): TMenu => {
   return useStore($products);

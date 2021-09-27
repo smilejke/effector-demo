@@ -17,7 +17,7 @@ import burger3 from "assets/images/menu/burgers/burger3.jpeg";
 import burger4 from "assets/images/menu/burgers/burger4.jpeg";
 import burger5 from "assets/images/menu/burgers/burger5.jpeg";
 import burger6 from "assets/images/menu/burgers/burger6.jpeg";
-import { TMenu } from "features/home/types";
+import { TMenu } from "features/menu/types";
 const nanoid = customAlphabet("1234567890", 9);
 
 export const MOCK_MENU: TMenu = [

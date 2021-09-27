@@ -1,6 +1,6 @@
 import { createEffect, createEvent } from "effector-root";
 import { checkPromoCodeRequest } from "features/cart/api";
-import { TMenuPosition } from "features/home/types";
+import { TMenuPosition } from "features/menu/types";
 import { CartItem, TPromoCode } from "features/cart/types";
 
 /** add menu position to cart **/
