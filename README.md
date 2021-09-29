@@ -6,6 +6,13 @@ This project was created as demonstration of Effector state manager.\
 A lot of decisions were made only to demonstrate different Effector's possibilities and could have been done much easier.\
 The project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## Installation
+
+1. `git clone git@github.com:smilejke/effector-demo.git`
+2. `cd effector-demo/`
+3. `npm install`
+4. `npm start`
+
 ## Author's advice
 Look through the project in logical order for better understanding:
 <ol>
