@@ -3,9 +3,12 @@ import {
   getAllProductsFx,
   getProductsByCategoryFx,
   selectCategory,
+  selectProduct,
   setMenu,
 } from "features/menu/controllers";
-import { $selectedCategories } from "features/menu/stores";
+import { addToCart, deleteFromCart } from "features/cart/controllers";
+import { $products, $selectedCategories } from "features/menu/stores";
+import { TProductGuard } from "features/menu/types";
 
 import "./model";
 
@@ -28,7 +31,7 @@ import "./model";
  * Most of fields are not required and are optional, for example here are sample's types:
  * sample({source?, clock?, fn?, target?}): target.
  * Depending on what is used, the meaning of other fields can be changed.
- * In this description I have listed only "full" variations for all functions.
+ * In description above I have listed only "full" variations for all functions.
  * You can learn more in the Effector documentation. (https://github.com/effector/effector).
  * **/
 
@@ -40,6 +43,8 @@ forward({
   from: getProductsByCategoryFx.done.map(({ result }) => result),
   to: setMenu,
 });
+
+/** ========================================================= **/
 
 /**
  * Read as:
@@ -90,4 +95,58 @@ forward({
 forward({
   from: effectToUse.all.map(({ category }) => category),
   to: getAllProductsFx,
+});
+
+/** ========================================================= **/
+
+/**
+ * Read as:
+ * 1. After selectProduct is called, take $products and selectProduct's params and pass them as FN's args,
+ * 2. Return { product, action } in FN
+ * **/
+const selectProductSample = sample({
+  source: $products,
+  clock: selectProduct,
+  fn: (products, { id, action }) => {
+    const product = products.find((prod) => prod.id === id) ?? null;
+
+    return {
+      product,
+      action,
+    };
+  },
+});
+
+/**
+ * Because of .find JavaScript method in selectProductSample,
+ * we should check if product was found by id and not to do extra work if not.
+ * That means that if selectProductGuard will return false, further code won't be executed.
+ * **/
+const selectProductGuard = guard({
+  source: selectProductSample,
+  filter: (actionResult): actionResult is TProductGuard =>
+    actionResult.product !== null,
+});
+
+/**
+ * If product in selectProductSample was found (that means that selectProductGuard returned true),
+ * we will create two cases on "add product to cart" and "remove product from cart", depending on action type
+ * and save them into selectProductSplit.add / selectProductSplit.remove
+ * **/
+const selectProductSplit = split(selectProductGuard, {
+  add: ({ action }) => action === "add",
+  remove: ({ action }) => action === "remove",
+});
+
+/**
+ * Depending on selectProductSplit, call the appropriate method.
+ * **/
+forward({
+  from: selectProductSplit.add.map(({ product }) => product),
+  to: addToCart,
+});
+
+forward({
+  from: selectProductSplit.remove.map(({ product }) => product),
+  to: deleteFromCart,
 });

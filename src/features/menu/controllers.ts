@@ -1,5 +1,5 @@
 import { createEffect, createEvent } from "effector-root";
-import { TMenu } from "features/menu/types";
+import { TMenu, TSelectProduct } from "features/menu/types";
 import { getProductsByCategoryRequest } from "features/menu/api";
 
 /** replace $menu with new data **/
@@ -19,3 +19,6 @@ export const getAllProductsFx = createEffect<string, TMenu, Error>({
   handler: getProductsByCategoryRequest,
   name: "getProductsByCategoryFx",
 });
+
+/** select product to make actions with $cart in { id: productId, action: "add" / "remove" } format **/
+export const selectProduct = createEvent<TSelectProduct>("selectProduct");

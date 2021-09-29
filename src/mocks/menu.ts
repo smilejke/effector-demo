@@ -20,6 +20,10 @@ import burger6 from "assets/images/menu/burgers/burger6.jpeg";
 import { TMenu } from "features/menu/types";
 const nanoid = customAlphabet("1234567890", 9);
 
+const nanoidStartWith = (start: number) => {
+  return Number(start + nanoid());
+};
+
 export const MOCK_MENU: TMenu = [
   {
     title: "Солянка",
@@ -29,7 +33,7 @@ export const MOCK_MENU: TMenu = [
     category: "soups",
     price: 6.7,
     count: 1,
-    id: Number(nanoid()),
+    id: nanoidStartWith(3),
   },
   {
     title: "Том Кха с курицей",
@@ -39,7 +43,7 @@ export const MOCK_MENU: TMenu = [
     category: "soups",
     price: 7.1,
     count: 1,
-    id: Number(nanoid()),
+    id: nanoidStartWith(3),
   },
   {
     title: "Борщ с ребром",
@@ -49,7 +53,7 @@ export const MOCK_MENU: TMenu = [
     category: "soups",
     price: 7.1,
     count: 1,
-    id: Number(nanoid()),
+    id: nanoidStartWith(3),
   },
   {
     title: "Бульон с чесночным хлебом",
@@ -58,7 +62,7 @@ export const MOCK_MENU: TMenu = [
     category: "soups",
     price: 5.4,
     count: 1,
-    id: Number(nanoid()),
+    id: nanoidStartWith(3),
   },
   {
     title: "Холодник с картофельными дольками",
@@ -68,7 +72,7 @@ export const MOCK_MENU: TMenu = [
     category: "soups",
     price: 6.2,
     count: 1,
-    id: Number(nanoid()),
+    id: nanoidStartWith(3),
   },
   {
     title: "Салат Цезарь с курицей",
@@ -78,7 +82,7 @@ export const MOCK_MENU: TMenu = [
     category: "salads",
     price: 11.7,
     count: 1,
-    id: Number(nanoid()),
+    id: nanoidStartWith(2),
   },
   {
     title: "Салат с индейкой и соусом из вяленых томатов",
@@ -88,7 +92,7 @@ export const MOCK_MENU: TMenu = [
     category: "salads",
     price: 13.4,
     count: 1,
-    id: Number(nanoid()),
+    id: nanoidStartWith(2),
   },
   {
     title: "Салат Цезарь с копченым лососем",
@@ -98,7 +102,7 @@ export const MOCK_MENU: TMenu = [
     category: "salads",
     price: 13.4,
     count: 1,
-    id: Number(nanoid()),
+    id: nanoidStartWith(2),
   },
   {
     title: "Овощной салат с  грушей и сыром Дор Блю",
@@ -108,7 +112,7 @@ export const MOCK_MENU: TMenu = [
     category: "salads",
     price: 12.7,
     count: 1,
-    id: Number(nanoid()),
+    id: nanoidStartWith(2),
   },
   {
     title: "Греческий салат с рулетиками из цукини и сливочного крема",
@@ -118,7 +122,7 @@ export const MOCK_MENU: TMenu = [
     category: "salads",
     price: 9.9,
     count: 1,
-    id: Number(nanoid()),
+    id: nanoidStartWith(2),
   },
   {
     title: "Немецкий салат с трюфельным соусом и рулькой",
@@ -128,7 +132,7 @@ export const MOCK_MENU: TMenu = [
     category: "salads",
     price: 9.7,
     count: 1,
-    id: Number(nanoid()),
+    id: nanoidStartWith(2),
   },
   {
     title: "Сэндвич с курицей и хрустящим беконом",
@@ -138,7 +142,7 @@ export const MOCK_MENU: TMenu = [
     category: "burgers",
     price: 4.3,
     count: 1,
-    id: Number(nanoid()),
+    id: nanoidStartWith(1),
   },
   {
     title: "Сэндвич со свининой и соусом BBQ",
@@ -148,7 +152,7 @@ export const MOCK_MENU: TMenu = [
     category: "burgers",
     price: 4.9,
     count: 1,
-    id: Number(nanoid()),
+    id: nanoidStartWith(1),
   },
   {
     title: "Сэндвич с курицей, луковыми кольцами и ореховым соусом",
@@ -158,7 +162,7 @@ export const MOCK_MENU: TMenu = [
     category: "burgers",
     price: 4.3,
     count: 1,
-    id: Number(nanoid()),
+    id: nanoidStartWith(1),
   },
   {
     title: "Бургер  чеддер и бекон",
@@ -168,7 +172,7 @@ export const MOCK_MENU: TMenu = [
     category: "burgers",
     price: 13.7,
     count: 1,
-    id: Number(nanoid()),
+    id: nanoidStartWith(1),
   },
   {
     title: "Бургер Double BBQ",
@@ -178,7 +182,7 @@ export const MOCK_MENU: TMenu = [
     category: "burgers",
     price: 18.9,
     count: 1,
-    id: Number(nanoid()),
+    id: nanoidStartWith(1),
   },
   {
     title: "Бургер Чикен Терияки",
@@ -188,6 +192,6 @@ export const MOCK_MENU: TMenu = [
     category: "burgers",
     price: 11.9,
     count: 1,
-    id: Number(nanoid()),
+    id: nanoidStartWith(1),
   },
 ];

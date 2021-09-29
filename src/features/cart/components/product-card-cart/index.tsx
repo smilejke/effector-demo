@@ -10,7 +10,7 @@ import {
 } from "features/common/components/product-card";
 import { TProductCardAction } from "features/common/types";
 import { CartItem } from "features/cart/types";
-import { addToCart, deleteFromCart } from "features/cart/controllers";
+import { selectProduct } from "features/menu/controllers";
 
 const { Text } = Typography;
 
@@ -21,10 +21,10 @@ export const ProductCardCart: FC<ProductCardBaseProps> = ({
   const handleAction = (actionType: TProductCardAction, product: CartItem) => {
     switch (actionType) {
       case "add":
-        addToCart(product);
+        selectProduct({ id: product.id, action: "add" });
         break;
       case "remove":
-        deleteFromCart(product);
+        selectProduct({ id: product.id, action: "remove" });
         break;
       default:
         return () => null;

@@ -3,8 +3,24 @@
 ![alt text](https://repository-images.githubusercontent.com/123197392/2cfb4000-1310-11eb-8f8b-316a18c2ce65)
 
 This project was created as demonstration of Effector state manager.\
-A lot of decisions were made only to demonstrate different effector's possibilities and could have been made much easier.\
+A lot of decisions were made only to demonstrate different Effector's possibilities and could have been done much easier.\
 The project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+
+## Author's advice
+Look through the project in logical order for better understanding:
+<ol>
+<li>menu</li>
+<li>cart</li>
+<li>orders</li>
+</ol>
+Each feature block contain files to work with Effector, I also advice to learn them in such an order:  
+<ol>
+<li>stores</li>
+<li>controllers</li>
+<li>model</li>
+<li>init</li>
+<li>selectors</li>
+</ol>
 
 ## Available Scripts
 
@@ -31,9 +47,9 @@ See the section about [deployment](https://facebook.github.io/create-react-app/d
 ### `npm run test`
 
 Runs the application tests.\
-App contain only few tests just to show effector's advantages.
+App contain only few tests just to show Effector's test advantages.
 
 ## Learn More
 
 You can learn more in the [Effector documentation](https://github.com/effector/effector). \
-Short list of [projects based on Effector](https://github.com/effector/effector/issues/278)
+Short list of [projects based on Effector](https://github.com/effector/effector/issues/278).

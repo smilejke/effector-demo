@@ -7,8 +7,8 @@ import {
   ProductCard,
   ProductCardBaseProps,
 } from "features/common/components/product-card";
-import { addToCart } from "features/cart/controllers";
 import { TMenuPosition } from "features/menu/types";
+import { selectProduct } from "features/menu/controllers";
 
 const { Text } = Typography;
 
@@ -27,7 +27,7 @@ export const ProductCardMenu: FC<ProductCardBaseProps> = ({
 
   const handleAction = (product: TMenuPosition) => {
     setClicked(true);
-    addToCart(product);
+    selectProduct({ id: product.id, action: "add" });
   };
 
   return (

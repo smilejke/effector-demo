@@ -11,3 +11,15 @@ export type TMenuPosition = {
 };
 
 export type TMenu = TMenuPosition[];
+
+export type TProductActions = "add" | "remove";
+
+export type TSelectProduct = {
+  id: number;
+  action: TProductActions;
+};
+
+export type TProductGuard = {
+  product: TMenuPosition;
+  action: TProductActions;
+};
