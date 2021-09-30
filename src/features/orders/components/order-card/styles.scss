@@ -1,0 +1,110 @@
+@import url("https://fonts.googleapis.com/css?family=Oswald:400,700");
+
+:root {
+  --level-one: translateZ(3rem);
+  --level-two: translateZ(6rem);
+  --level-three: translateZ(9rem);
+}
+
+.card {
+  width: 400px;
+  max-height: 26.5rem;
+  cursor: pointer;
+
+  & .card__content {
+    text-align: center;
+    position: relative;
+    padding: 15em 5em;
+    transition: transform 1s;
+    transform-style: preserve-3d;
+
+    & .card__front,
+    .card__back {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding: 5em 3em;
+      backface-visibility: hidden;
+      transform-style: preserve-3d;
+      display: grid;
+      align-content: center;
+    }
+  }
+
+  & .card__front {
+    background-color: var(--order-card-text);
+    color: #333;
+
+    &::before {
+      content: "";
+      position: absolute;
+      --spacer: 1em;
+      top: var(--spacer);
+      bottom: var(--spacer);
+      left: var(--spacer);
+      right: var(--spacer);
+      border: 3px solid currentColor;
+      transform: var(--level-one);
+    }
+
+    & .card__title {
+      font-size: 3.5rem;
+      transform: var(--level-three);
+      order: 2;
+      text-transform: uppercase;
+    }
+
+    & .card__subtitle {
+      transform: var(--level-two);
+      text-transform: uppercase;
+      letter-spacing: 4px;
+      font-size: 0.75rem;
+      font-weight: var(--fw-bold);
+      opacity: 0.8;
+      margin-bottom: 0;
+
+      span {
+        font-size: 0.9rem;
+      }
+    }
+  }
+
+  & .card__back {
+    transform: rotateY(0.5turn);
+    background: var(--order-cart-back);
+
+    & .card__body {
+      transform: var(--level-two);
+      font-size: 1.5rem;
+      line-height: 1.6;
+
+      & .ant-typography {
+        color: var(--order-card-text);
+        margin-bottom: 0.5rem;
+
+        & span {
+          &[data-status="accepted"] {
+            color: var(--order-accepted);
+          }
+          &[data-status="cooking"] {
+            color: var(--order-cooking);
+          }
+          &[data-status="ready for delivery"] {
+            color: var(--order-ready);
+          }
+          &[data-status="closed"] {
+            color: var(--order-accepted);
+          }
+        }
+      }
+    }
+  }
+
+  &:hover {
+    & .card__content {
+      transform: rotateY(0.5turn);
+    }
+  }
+}

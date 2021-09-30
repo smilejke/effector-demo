@@ -1,6 +1,7 @@
-import { useOrders } from "features/orders/selectors";
-import { OrderItem } from "features/orders/components/order-item";
 import Typography from "antd/lib/typography";
+
+import { useOrders } from "features/orders/selectors";
+import { OrderCard } from "features/orders/components/order-card";
 
 import "./styles.scss";
 
@@ -14,7 +15,7 @@ export const OrdersContainer = () => {
       <Title level={1}>Your orders</Title>
       <div className="order-page__content">
         {orders.map((order, index) => {
-          return <OrderItem order={order} key={order.orderId} />;
+          return <OrderCard order={order} key={order.orderId} />;
         })}
       </div>
     </div>
