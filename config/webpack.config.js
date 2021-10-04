@@ -299,7 +299,34 @@ module.exports = function (webpackEnv) {
       // https://medium.com/webpack/webpack-4-code-splitting-chunk-graph-and-the-splitchunks-optimization-be739a861366
       splitChunks: {
         chunks: "all",
-        name: isEnvDevelopment,
+        minChunks: 1,
+        cacheGroups: {
+          default: false,
+          vendors: {
+            test: /node_modules\/(?!antd|@ant-design\/icons\/).*/,
+            name: "vendors",
+            chunks: "all",
+          },
+          antd: {
+            test: /node_modules\/(antd\/).*/,
+            name: "ui",
+            chunks: "all",
+          },
+          "@ant-design/icons": {
+            test: /node_modules\/(@ant-design\/icons\/).*/,
+            name: "@ant-design/icons",
+            chunks: "all",
+          },
+          // common chunk
+          common: {
+            name: "common",
+            minChunks: 2,
+            chunks: "all",
+            priority: 10,
+            reuseExistingChunk: true,
+            enforce: true,
+          },
+        },
       },
       // Keep the runtime chunk separated to enable long term caching
       // https://twitter.com/wSokra/status/969679223278505985

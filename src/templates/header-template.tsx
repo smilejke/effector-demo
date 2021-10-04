@@ -28,7 +28,7 @@ export const HeaderTemplate: FC<HeaderTemplateProps> = ({ selectedKey }) => {
           Products
         </Menu.Item>
         <Menu.Item key="status">
-          <Link to={paths.status()} />
+          <Link to={paths.orders()} />
           Order status
         </Menu.Item>
         <Menu.Item key="cart" style={{ paddingRight: setPadding(cartLength) }}>

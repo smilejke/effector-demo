@@ -1,7 +1,7 @@
 import { GeneralTemplate } from "templates/general-template";
 import { OrdersContainer } from "features/orders/containers/orders-container";
 
-export const StatusPage = () => {
+export const OrdersPage = () => {
   return (
     <GeneralTemplate selectedMenu="status">
       <OrdersContainer />

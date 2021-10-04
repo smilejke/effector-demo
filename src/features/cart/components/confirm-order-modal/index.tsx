@@ -39,7 +39,7 @@ export const ConfirmOrderModal = () => {
             <Button>Buy Again</Button>
           </Link>,
           <Link
-            to={paths.status()}
+            to={paths.orders()}
             onClick={() => confirmOrderModal.close()}
             key="checkOrders"
           >
