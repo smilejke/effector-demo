@@ -5,7 +5,7 @@ import { ConfirmOrderModal } from "features/cart/components/confirm-order-modal"
 export const CartPage = () => {
   return (
     <>
-      <GeneralTemplate selectedMenu="cart">
+      <GeneralTemplate>
         <CartContainer />
       </GeneralTemplate>
       <ConfirmOrderModal />

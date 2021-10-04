@@ -10,7 +10,7 @@ import { setPadding } from "templates/helpers";
 const { Header } = Layout;
 
 interface HeaderTemplateProps {
-  selectedKey?: TDefaultSelectedKeys;
+  selectedKey: TDefaultSelectedKeys;
 }
 
 export const HeaderTemplate: FC<HeaderTemplateProps> = ({ selectedKey }) => {
@@ -27,7 +27,7 @@ export const HeaderTemplate: FC<HeaderTemplateProps> = ({ selectedKey }) => {
           <Link to={paths.menu()} />
           Products
         </Menu.Item>
-        <Menu.Item key="status">
+        <Menu.Item key="orders">
           <Link to={paths.orders()} />
           Order status
         </Menu.Item>

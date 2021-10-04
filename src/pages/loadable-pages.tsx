@@ -1,4 +1,5 @@
 import loadable from "@loadable/component";
+import { GeneralTemplate } from "templates/general-template";
 
 export const MenuPage = loadable(
   () =>
@@ -9,6 +10,7 @@ export const MenuPage = loadable(
     ),
   {
     resolveComponent: ({ MenuPage }) => MenuPage,
+    fallback: <GeneralTemplate loading />,
   }
 );
 export const OrdersPage = loadable(
@@ -20,6 +22,7 @@ export const OrdersPage = loadable(
     ),
   {
     resolveComponent: ({ OrdersPage }) => OrdersPage,
+    fallback: <GeneralTemplate loading />,
   }
 );
 export const CartPage = loadable(
@@ -31,5 +34,6 @@ export const CartPage = loadable(
     ),
   {
     resolveComponent: ({ CartPage }) => CartPage,
+    fallback: <GeneralTemplate loading />,
   }
 );

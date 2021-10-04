@@ -1,39 +1,47 @@
-import { FC } from "react";
+import { FC, useMemo } from "react";
+import { useLocation } from "react-router-dom";
 import { Layout, Spin } from "antd";
 import { HeaderTemplate } from "templates/header-template";
 import { MenuTemplate as Menu } from "templates/menu-template";
-
 import { TDefaultSelectedKeys } from "templates/types";
+
 import "./styles.scss";
 
 const { Content, Footer, Sider } = Layout;
 
 interface GeneralTemplateProps {
-  selectedMenu?: TDefaultSelectedKeys;
-  children: JSX.Element;
+  children?: JSX.Element;
   loading?: boolean;
 }
 
 export const GeneralTemplate: FC<GeneralTemplateProps> = ({
-  selectedMenu,
   children,
   loading = false,
 }) => {
-  const isMenuPage = selectedMenu !== "cart" && selectedMenu !== "status";
+  const { pathname } = useLocation();
+
+  const pageIdentifier = useMemo(() => {
+    const page = pathname.replaceAll("/", "") as TDefaultSelectedKeys;
+
+    return {
+      page,
+      isMenuPage: page !== "cart" && page !== "orders",
+    };
+  }, [pathname]);
 
   return (
     <Layout>
-      <HeaderTemplate selectedKey={selectedMenu} />
+      <HeaderTemplate selectedKey={pageIdentifier.page} />
       <Content style={{ padding: "0 50px" }}>
         <Layout style={{ padding: "24px 0" }}>
-          {isMenuPage && (
+          {pageIdentifier.isMenuPage && (
             <Sider className="site-layout-background" width={200}>
               <Menu />
             </Sider>
           )}
           <Content
             style={{
-              padding: isMenuPage ? "0 24px" : "",
+              padding: pageIdentifier.isMenuPage ? "0 24px" : "",
               minHeight: 280,
               display: !loading ? "block" : "flex",
             }}

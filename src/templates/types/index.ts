@@ -1,1 +1,1 @@
-export type TDefaultSelectedKeys = "products" | "cart" | "status";
+export type TDefaultSelectedKeys = "products" | "cart" | "orders";

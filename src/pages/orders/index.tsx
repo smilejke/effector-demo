@@ -3,7 +3,7 @@ import { OrdersContainer } from "features/orders/containers/orders-container";
 
 export const OrdersPage = () => {
   return (
-    <GeneralTemplate selectedMenu="status">
+    <GeneralTemplate>
       <OrdersContainer />
     </GeneralTemplate>
   );
