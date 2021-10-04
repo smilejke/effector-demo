@@ -6,6 +6,24 @@
   }
 }
 
+.menu-container {
+  & .ant-card {
+    img {
+      transition: transform 0.2s ease;
+    }
+
+    & .ant-card-cover {
+      overflow: hidden;
+    }
+
+    &:hover {
+      img {
+        transform: scale(1.05);
+      }
+    }
+  }
+}
+
 .ant-card.bill {
   max-width: 30rem;
   max-height: 25rem;
