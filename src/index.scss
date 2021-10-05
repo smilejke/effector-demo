@@ -28,3 +28,10 @@
   border-radius: 0.208333rem;
   background-color: rgb(160, 160, 160);
 }
+
+.ant-notification-notice-with-icon {
+  & .ant-notification-notice-description {
+    margin-left: 0;
+    margin-top: 0.7rem;
+  }
+}
