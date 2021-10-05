@@ -1,20 +1,10 @@
 import { customAlphabet } from "nanoid";
+
 import { TCheckOrderData, TOrder } from "features/orders/types";
 import { TCart } from "features/cart/types";
-import notification from "antd/lib/notification";
+import { sendNotification } from "libs/sendNotification";
 
 const nanoid = customAlphabet("1234567890", 3);
-const sendNotification = ({ orderId, status }: TCheckOrderData) => {
-  const config = {
-    message: "Order status changed",
-    description: `Your order № ${orderId} changed status to ${status.toUpperCase()}.`,
-    duration: 5,
-  };
-  if (status !== "closed") {
-    return notification.info(config);
-  }
-  return notification.success(config);
-};
 
 /** FAKE API TO CREATE ORDER **/
 export const createOrderRequest = ({
