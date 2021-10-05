@@ -92,7 +92,7 @@
           &[data-status="cooking"] {
             color: var(--order-cooking);
           }
-          &[data-status="ready for delivery"] {
+          &[data-status="ready"] {
             color: var(--order-ready);
           }
           &[data-status="closed"] {

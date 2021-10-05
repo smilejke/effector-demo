@@ -1,10 +1,6 @@
 import { TCart } from "features/cart/types";
 
-export type TOrderStatus =
-  | "accepted"
-  | "cooking"
-  | "ready for delivery"
-  | "closed";
+export type TOrderStatus = "accepted" | "cooking" | "ready" | "closed";
 
 export type TOrder = {
   cart: TCart;
@@ -15,3 +11,8 @@ export type TOrder = {
 };
 
 export type TOrders = TOrder[];
+
+export type TCheckOrderData = {
+  orderId: string;
+  status: TOrderStatus;
+};
