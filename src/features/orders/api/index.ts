@@ -44,7 +44,7 @@ export const checkOrderStatusRequest = ({
           orderId,
           status: "cooking",
         });
-      }, 10000);
+      }, 5000);
     });
   }
   if (status === "cooking") {
@@ -58,7 +58,7 @@ export const checkOrderStatusRequest = ({
           orderId,
           status: "ready",
         });
-      }, 10000);
+      }, 5000);
     });
   }
   return new Promise((res) => {
@@ -71,6 +71,6 @@ export const checkOrderStatusRequest = ({
         orderId,
         status: "closed",
       });
-    }, 10000);
+    }, 5000);
   });
 };
