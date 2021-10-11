@@ -20,6 +20,7 @@ import { getSumToFixed } from "libs/sumToFixed";
 
 import "./model";
 import "./init";
+import { countTotalPriceWithCode } from "libs/discountCounter";
 
 describe("Cart flow", () => {
   const TEST_MENU_POSITION = MOCK_MENU[0];
@@ -146,14 +147,14 @@ describe("Cart flow", () => {
       {
         ...TEST_CART_ITEM,
         count: 2,
-        price: getSumToFixed(
-          TEST_CART_ITEM.price -
-            TEST_CART_ITEM.price * TEST_PROMO_CODE_ALL.amount
+        price: countTotalPriceWithCode(
+          TEST_CART_ITEM.price,
+          TEST_PROMO_CODE_ALL.amount
         ),
-        total: getSumToFixed(
-          (TEST_CART_ITEM.total -
-            TEST_CART_ITEM.total * TEST_PROMO_CODE_ALL.amount) *
-            2
+        total: countTotalPriceWithCode(
+          TEST_CART_ITEM.total,
+          TEST_PROMO_CODE_ALL.amount,
+          2
         ),
       },
     ]);
@@ -199,13 +200,13 @@ describe("Cart flow", () => {
         },
         {
           ...TEST_CART_ITEM_SALAD,
-          price: getSumToFixed(
-            TEST_CART_ITEM_SALAD.price -
-              TEST_CART_ITEM_SALAD.price * TEST_PROMO_CODE_SALADS.amount
+          price: countTotalPriceWithCode(
+            TEST_CART_ITEM_SALAD.price,
+            TEST_PROMO_CODE_SALADS.amount
           ),
-          total: getSumToFixed(
-            TEST_CART_ITEM_SALAD.total -
-              TEST_CART_ITEM_SALAD.total * TEST_PROMO_CODE_SALADS.amount
+          total: countTotalPriceWithCode(
+            TEST_CART_ITEM_SALAD.total,
+            TEST_PROMO_CODE_SALADS.amount
           ),
         },
       ].sort((a, b) => b.id - a.id)

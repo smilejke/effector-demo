@@ -2,6 +2,7 @@ import { combine, createStore } from "effector-root";
 import { TMenuPosition } from "features/menu/types";
 import { TCart, TPromoCode } from "features/cart/types";
 import { getSumToFixed } from "libs/sumToFixed";
+import { countTotalPriceWithCode } from "libs/discountCounter";
 
 /**
  * Store to keep all selected menu positions.
@@ -68,8 +69,8 @@ export const $cartWithCode = combine($cartGrouped, $promoCode, (cart, code) => {
       return cart
         .map((item) => ({
           ...item,
-          price: getSumToFixed(item.price - item.price * code.amount),
-          total: getSumToFixed(item.total - item.total * code.amount),
+          price: countTotalPriceWithCode(item.price, code.amount),
+          total: countTotalPriceWithCode(item.total, code.amount),
         }))
         .sort((a, b) => b.id - a.id);
     }
@@ -78,8 +79,8 @@ export const $cartWithCode = combine($cartGrouped, $promoCode, (cart, code) => {
         item.category === code.category
           ? {
               ...item,
-              price: getSumToFixed(item.price - item.price * code.amount),
-              total: getSumToFixed(item.total - item.total * code.amount),
+              price: countTotalPriceWithCode(item.price, code.amount),
+              total: countTotalPriceWithCode(item.total, code.amount),
             }
           : item
       )
