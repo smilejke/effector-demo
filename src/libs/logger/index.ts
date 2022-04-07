@@ -1,4 +1,4 @@
-import { root } from "effector-root";
+import { Domain } from "effector";
 import { attachLogger } from "effector-logger/attach";
 
 const getConfigLogger = (): LoggerOptions => {
@@ -26,7 +26,7 @@ const attachApiLogger = () => {
   }
 };
 
-export const setLogger = (): void => {
-  attachLogger(root, getConfigLogger());
+export const setLogger = (domain: Domain): void => {
+  attachLogger(domain, getConfigLogger());
   attachApiLogger();
 };

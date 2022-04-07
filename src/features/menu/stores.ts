@@ -1,9 +1,14 @@
-import { createStore, combine } from "effector-root";
+import { combine } from "effector-root";
 import { TMenu } from "features/menu/types";
 import {
   getAllProductsFx,
   getProductsByCategoryFx,
 } from "features/menu/controllers";
+
+
+import { menuDomain } from './domain'
+
+const { createStore } = menuDomain
 
 /**
  * Store to keep all downloaded menu positions.

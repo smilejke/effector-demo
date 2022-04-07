@@ -1,14 +1,16 @@
-import { allSettled, fork, root } from "effector-root";
+import { allSettled, fork } from "effector";
 import { createOrderFx } from "features/orders/controllers";
 import { $orders } from "features/orders/stores";
 import { MOCK_ORDERS } from "mocks/orders";
+
+import { orderDomain } from "./domain";
 
 import "./model";
 import "./init";
 
 describe("Orders flow", () => {
   test("Create order and add to $orders store", async () => {
-    const scope = fork(root);
+    const scope = fork(orderDomain);
     const TEST_ORDER = { ...MOCK_ORDERS[0] };
 
     /** $orders store has 3 mock orders by the default **/
@@ -22,7 +24,7 @@ describe("Orders flow", () => {
   }, 20000);
 
   test("Change order status", async () => {
-    const scope = fork(root);
+    const scope = fork(orderDomain);
     const TEST_ORDER = { ...MOCK_ORDERS[0] };
 
     await allSettled(createOrderFx, {
