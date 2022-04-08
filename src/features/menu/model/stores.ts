@@ -3,7 +3,7 @@ import { TMenu } from "features/menu/types";
 import {
   getAllProductsFx,
   getProductsByCategoryFx,
-} from "features/menu/controllers";
+} from "features/menu/model/controllers";
 
 
 import { menuDomain } from './domain'

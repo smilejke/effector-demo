@@ -3,8 +3,8 @@ import {
   getAllProductsFx,
   getProductsByCategoryFx,
   selectCategory,
-} from "features/menu/controllers";
-import { $menu, $products, $selectedCategories } from "features/menu/stores";
+} from "features/menu/model/controllers";
+import { $menu, $products, $selectedCategories } from "features/menu/model/stores";
 import { MOCK_MENU } from "mocks/menu";
 import { menuDomain } from "./domain";
 

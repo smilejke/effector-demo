@@ -7,8 +7,8 @@ import {
   resetCart,
   resetPromoCode,
   setCodeCheckResult,
-} from "features/cart/controllers";
-import { $cart, $codeCheckStatus, $promoCode } from "features/cart/stores";
+} from "features/cart/model/controllers";
+import { $cart, $codeCheckStatus, $promoCode } from "features/cart/model/stores";
 import { createModal } from "libs/createModal";
 import { TOrder } from "features/orders/types";
 

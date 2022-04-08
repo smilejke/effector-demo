@@ -6,9 +6,9 @@ import {
   $codeCheckStatus,
   $promoCode,
   $totalPrice,
-} from "features/cart/stores";
-import { confirmOrderModal } from "features/cart/model";
-import { checkPromoCodeFx } from "features/cart/controllers";
+} from "features/cart/model/stores";
+import { confirmOrderModal } from "features/cart/model/model";
+import { checkPromoCodeFx } from "features/cart/model/controllers";
 import { TCart, TPromoCode } from "features/cart/types";
 import { TOrder } from "features/orders/types";
 

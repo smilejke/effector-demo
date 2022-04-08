@@ -5,9 +5,9 @@ import {
   selectCategory,
   selectProduct,
   setMenu,
-} from "features/menu/controllers";
-import { addToCart, deleteFromCart } from "features/cart/controllers";
-import { $products, $selectedCategories } from "features/menu/stores";
+} from "features/menu/model/controllers";
+import { addToCart, deleteFromCart } from "features/cart/model/controllers";
+import { $products, $selectedCategories } from "features/menu/model/stores";
 import { TProductGuard } from "features/menu/types";
 
 import "./model";

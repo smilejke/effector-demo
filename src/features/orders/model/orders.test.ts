@@ -1,6 +1,6 @@
 import { allSettled, fork } from "effector";
-import { createOrderFx } from "features/orders/controllers";
-import { $orders } from "features/orders/stores";
+import { createOrderFx } from "features/orders/model/controllers";
+import { $orders } from "features/orders/model/stores";
 import { MOCK_ORDERS } from "mocks/orders";
 
 import { orderDomain } from "./domain";

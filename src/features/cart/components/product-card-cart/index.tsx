@@ -10,7 +10,7 @@ import {
 } from "features/common/components/product-card";
 import { TProductCardAction } from "features/common/types";
 import { CartItem } from "features/cart/types";
-import { selectProduct } from "features/menu/controllers";
+import { selectProduct } from "features/menu/model/controllers";
 
 const { Text } = Typography;
 

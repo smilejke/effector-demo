@@ -3,12 +3,12 @@ import {
   getProductsByCategoryFx,
   selectCategory,
   setMenu,
-} from "features/menu/controllers";
+} from "features/menu/model/controllers";
 import {
   $menu,
   $selectedCategories,
   $selectedCategory,
-} from "features/menu/stores";
+} from "features/menu/model/stores";
 
 /** Stores subscriptions on different actions. **/
 
