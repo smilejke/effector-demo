@@ -1,6 +1,7 @@
 import update from "immutability-helper";
-import { $orders } from "features/orders/stores";
-import { checkOrderStatusFx, createOrderFx } from "features/orders/controllers";
+
+import { $orders } from "features/orders/model/stores";
+import { checkOrderStatusFx, createOrderFx } from "features/orders/model/controllers";
 
 $orders
   .on(createOrderFx.done, (state, payload) => {

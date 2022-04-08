@@ -1,4 +1,4 @@
-import React, { ChangeEvent, useState } from "react";
+import { ChangeEvent, useState } from "react";
 
 import Card from "antd/lib/card";
 import Input from "antd/lib/input";
@@ -20,7 +20,7 @@ import {
 import {
   checkPromoCodeFx,
   setCodeCheckResult,
-} from "features/cart/controllers";
+} from "features/cart/model/controllers";
 
 import useDebounce from "hooks/useDebounce";
 

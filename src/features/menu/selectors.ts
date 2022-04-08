@@ -1,5 +1,5 @@
 import { useStore } from "effector-react";
-import { $isMenuPending, $products } from "features/menu/stores";
+import { $isMenuPending, $products } from "features/menu/model/stores";
 
 import { TMenu } from "features/menu/types";
 

@@ -1,8 +1,13 @@
-import { combine, createStore } from "effector-root";
+import { combine } from "effector";
+
 import { TMenuPosition } from "features/menu/types";
 import { TCart, TPromoCode } from "features/cart/types";
 import { getSumToFixed } from "libs/sumToFixed";
 import { countTotalPriceWithCode } from "libs/discountCounter";
+
+import { cartDomain } from "./domain";
+
+const { createStore } = cartDomain
 
 /**
  * Store to keep all selected menu positions.

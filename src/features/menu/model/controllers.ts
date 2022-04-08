@@ -1,6 +1,9 @@
-import { createEffect, createEvent } from "effector-root";
 import { TMenu, TSelectProduct } from "features/menu/types";
 import { getProductsByCategoryRequest } from "features/menu/api";
+
+import { menuDomain } from './domain'
+
+const { createEffect, createEvent } = menuDomain
 
 /** replace $menu with new data **/
 export const setMenu = createEvent<TMenu>("setMenu");

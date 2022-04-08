@@ -5,7 +5,7 @@ import qs from "query-string";
 import { GeneralTemplate } from "templates/general-template";
 import { MenuPageContainer } from "features/menu/containers/menu-container";
 import { useMenuFetching } from "features/menu/selectors";
-import { selectCategory } from "features/menu/controllers";
+import { selectCategory } from "features/menu/model/controllers";
 
 export const MenuPage = () => {
   const isMenuFetching = useMenuFetching();

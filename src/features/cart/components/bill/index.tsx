@@ -2,10 +2,11 @@ import { FC } from "react";
 import Card from "antd/lib/card";
 import Typography from "antd/lib/typography";
 import Button from "antd/lib/button";
+
 import { useTotalPrice } from "features/cart/selectors";
 import { useOrderFetching } from "features/orders/selectors";
 import { BillContentTable } from "features/cart/components/bill-content-table";
-import { createOrderFx } from "features/orders/controllers";
+import { createOrderFx } from "features/orders/model/controllers";
 import { TCart } from "features/cart/types";
 
 import "./styles.scss";

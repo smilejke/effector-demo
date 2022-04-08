@@ -1,10 +1,13 @@
-import { createEffect } from "effector-root";
 import { TCheckOrderData, TOrder } from "features/orders/types";
 import { TCart } from "features/cart/types";
 import {
   checkOrderStatusRequest,
   createOrderRequest,
 } from "features/orders/api";
+
+import { orderDomain } from "./domain";
+
+const { createEffect } = orderDomain;
 
 /** FAKE API TO CREATE ORDER **/
 export const createOrderFx = createEffect<
