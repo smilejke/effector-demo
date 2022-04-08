@@ -4,8 +4,8 @@ import {
   resetCart,
   resetPromoCode,
   setCodeCheckResult,
-} from "features/cart/controllers";
-import { confirmOrderModal } from "features/cart/model";
+} from "features/cart/model/controllers";
+import { confirmOrderModal } from "features/cart/model/model";
 
 import "./model";
 

@@ -1,3 +1,3 @@
-import "features/menu/init";
-import "features/cart/init";
-import "features/orders/init";
+import "features/menu/model/init";
+import "features/cart/model/init";
+import "features/orders/model/init";

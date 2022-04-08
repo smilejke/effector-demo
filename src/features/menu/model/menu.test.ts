@@ -1,11 +1,12 @@
-import { allSettled, fork, root } from "effector-root";
+import { allSettled, fork } from "effector";
 import {
   getAllProductsFx,
   getProductsByCategoryFx,
   selectCategory,
-} from "features/menu/controllers";
-import { $menu, $products, $selectedCategories } from "features/menu/stores";
+} from "features/menu/model/controllers";
+import { $menu, $products, $selectedCategories } from "features/menu/model/stores";
 import { MOCK_MENU } from "mocks/menu";
+import { menuDomain } from "./domain";
 
 import "./model";
 import "./init";
@@ -16,7 +17,7 @@ describe("Menu flow", () => {
   };
 
   test("Set menu and cache it", async () => {
-    const scope = fork(root);
+    const scope = fork(menuDomain);
 
     await allSettled(getAllProductsFx, {
       params: "all",
@@ -33,7 +34,7 @@ describe("Menu flow", () => {
   });
 
   test("Get products by selected categories and cache it", async () => {
-    const scope = fork(root);
+    const scope = fork(menuDomain);
 
     const getProductsByCategoryReq = async (category: string) => {
       return await allSettled(getProductsByCategoryFx, {
@@ -80,7 +81,7 @@ describe("Menu flow", () => {
   });
 
   test("Check if $products store builds correct", async () => {
-    const scope = fork(root);
+    const scope = fork(menuDomain);
 
     /**
      * $products is based on $menu and $selectedCategory, so until they are empty/not selected,

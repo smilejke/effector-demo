@@ -1,6 +1,6 @@
 import { forward, guard } from "effector";
-import { checkOrderStatusFx, createOrderFx } from "features/orders/controllers";
-import { confirmOrderModal } from "features/cart/model";
+import { checkOrderStatusFx, createOrderFx } from "features/orders/model/controllers";
+import { confirmOrderModal } from "features/cart/model/model";
 import "./model";
 
 /**

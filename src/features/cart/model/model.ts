@@ -7,12 +7,13 @@ import {
   resetCart,
   resetPromoCode,
   setCodeCheckResult,
-} from "features/cart/controllers";
-import { $cart, $codeCheckStatus, $promoCode } from "features/cart/stores";
+} from "features/cart/model/controllers";
+import { $cart, $codeCheckStatus, $promoCode } from "features/cart/model/stores";
 import { createModal } from "libs/createModal";
 import { TOrder } from "features/orders/types";
 
 export const confirmOrderModal = createModal<TOrder>("confirmOrderModal");
+
 
 $cart
   .on(addToCart, (state, position) => {
@@ -23,10 +24,12 @@ $cart
   .on(deleteFromCart, (state, position) => {
     const selectedPosition = state.find((pos) => pos.id === position.id);
 
-    if (selectedPosition) {
-      const index = state.indexOf(selectedPosition);
-      return update(state, { $splice: [[index, 1]] });
-    }
+    if (!selectedPosition) return;
+
+    const index = state.indexOf(selectedPosition);
+
+    if (index === -1) return;
+    return update(state, { $splice: [[index, 1]] });
   })
   .reset(resetCart);
 

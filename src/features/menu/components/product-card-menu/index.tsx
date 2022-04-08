@@ -8,7 +8,7 @@ import {
   ProductCardBaseProps,
 } from "features/common/components/product-card";
 import { TMenuPosition } from "features/menu/types";
-import { selectProduct } from "features/menu/controllers";
+import { selectProduct } from "features/menu/model/controllers";
 
 import "./styles.scss";
 

@@ -1,4 +1,11 @@
-import { allSettled, fork, root, Scope } from "effector-root";
+import { allSettled, fork, Scope } from "effector";
+
+import { MOCK_MENU } from "mocks/menu";
+import { MOCK_PROMO_CODES } from "mocks/promo-codes";
+import { TMenuPosition } from "features/menu/types";
+import { getSumToFixed } from "libs/sumToFixed";
+import { countTotalPriceWithCode } from "libs/discountCounter";
+
 import {
   addToCart,
   checkPromoCodeFx,
@@ -13,14 +20,11 @@ import {
   $promoCode,
   $totalPrice,
 } from "./stores";
-import { MOCK_MENU } from "mocks/menu";
-import { MOCK_PROMO_CODES } from "mocks/promo-codes";
-import { TMenuPosition } from "features/menu/types";
-import { getSumToFixed } from "libs/sumToFixed";
+
+import { cartDomain } from './domain'
 
 import "./model";
 import "./init";
-import { countTotalPriceWithCode } from "libs/discountCounter";
 
 describe("Cart flow", () => {
   const TEST_MENU_POSITION = MOCK_MENU[0];
@@ -38,7 +42,7 @@ describe("Cart flow", () => {
   };
 
   test("Add product to cart from menu", async () => {
-    const scope = fork(root);
+    const scope = fork(cartDomain);
 
     await addProductToCart(TEST_MENU_POSITION, scope);
 
@@ -46,7 +50,7 @@ describe("Cart flow", () => {
   });
 
   test("Remove product from cart", async () => {
-    const scope = fork(root);
+    const scope = fork(cartDomain);
 
     await addProductToCart(TEST_MENU_POSITION, scope);
     expect(scope.getState($cart).length).toBe(1);
@@ -59,7 +63,7 @@ describe("Cart flow", () => {
   });
 
   test("Clear cart", async () => {
-    const scope = fork(root);
+    const scope = fork(cartDomain);
 
     await addProductToCart(TEST_MENU_POSITION, scope);
     expect(scope.getState($cart).length).toBe(1);
@@ -69,7 +73,7 @@ describe("Cart flow", () => {
   });
 
   test("Get promo code and set promo code status", async () => {
-    const scope = fork(root);
+    const scope = fork(cartDomain);
 
     await allSettled(checkPromoCodeFx, {
       params: TEST_PROMO_CODE_ALL.code,
@@ -81,7 +85,7 @@ describe("Cart flow", () => {
   });
 
   test("Reset promo code and promo code status", async () => {
-    const scope = fork(root);
+    const scope = fork(cartDomain);
 
     await allSettled(checkPromoCodeFx, {
       params: TEST_PROMO_CODE_ALL.code,
@@ -96,7 +100,7 @@ describe("Cart flow", () => {
   });
 
   test("Check if $cartGrouped and $cartWithCode builds correct", async () => {
-    const scope = fork(root);
+    const scope = fork(cartDomain);
     const TEST_MENU_POSITION_SALAD = MOCK_MENU[5];
     const TEST_CART_ITEM_SALAD = {
       ...TEST_MENU_POSITION_SALAD,
@@ -219,7 +223,7 @@ describe("Cart flow", () => {
   });
 
   test(`Check cart's total sum`, async () => {
-    const scope = fork(root);
+    const scope = fork(cartDomain);
     const TEST_MENU_POSITION_SALAD = MOCK_MENU[5];
 
     expect(scope.getState($totalPrice)).toBe(0);

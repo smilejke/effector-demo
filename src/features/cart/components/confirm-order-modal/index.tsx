@@ -1,4 +1,3 @@
-import React from "react";
 import { Link } from "react-router-dom";
 import Modal from "antd/lib/modal";
 import Button from "antd/lib/button";
@@ -8,7 +7,7 @@ import {
   useConfirmModalPayload,
   useConfirmModalVisible,
 } from "features/cart/selectors";
-import { confirmOrderModal } from "features/cart/model";
+import { confirmOrderModal } from "features/cart/model/model";
 import { paths } from "pages/paths";
 
 import "./styles.scss";

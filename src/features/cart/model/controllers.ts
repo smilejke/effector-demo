@@ -1,7 +1,10 @@
-import { createEffect, createEvent } from "effector-root";
 import { checkPromoCodeRequest } from "features/cart/api";
 import { TMenuPosition } from "features/menu/types";
 import { TPromoCode } from "features/cart/types";
+
+import { cartDomain } from "./domain";
+
+const { createEvent, createEffect } = cartDomain;
 
 /** Add menu position to cart. **/
 export const addToCart = createEvent<TMenuPosition>("addToCart");
