@@ -14,11 +14,14 @@ The project was bootstrapped with [Create React App](https://github.com/facebook
 4. `npm start`
 
 ## Author's advice
+
 Look through the project in logical order for better understanding:
+
 <ol>
 <li>menu</li>
 <li>cart</li>
 <li>orders</li>
+<li>map</li>
 </ol>
 Each feature block contain files to work with Effector, I also advice to learn them in such an order:  
 <ol>

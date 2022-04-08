@@ -37,3 +37,15 @@ export const CartPage = loadable(
     fallback: <GeneralTemplate loading />,
   }
 );
+export const MapPage = loadable(
+  () =>
+    import(
+      /* webpackChunkName: "map-page-lazy" */
+      /* webpackPrefetch: true */
+      "./map"
+    ),
+  {
+    resolveComponent: ({ MapPage }) => MapPage,
+    fallback: <GeneralTemplate loading />,
+  }
+);

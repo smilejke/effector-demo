@@ -1,5 +1,5 @@
 import { paths } from "./paths";
-import { MenuPage, CartPage, OrdersPage } from "pages/loadable-pages";
+import { MenuPage, CartPage, OrdersPage, MapPage } from "pages/loadable-pages";
 
 export const routes = [
   {
@@ -15,6 +15,11 @@ export const routes = [
   {
     component: OrdersPage,
     path: paths.orders(),
+    exact: true,
+  },
+{
+    component: MapPage,
+    path: paths.map(),
     exact: true,
   },
 ];
