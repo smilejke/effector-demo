@@ -1,4 +1,4 @@
-"use strict";
+
 
 const fs = require("fs");
 const path = require("path");
@@ -358,6 +358,7 @@ module.exports = function (webpackEnv) {
         "react-native": "react-native-web",
         pages: paths.pages,
         features: paths.features,
+        widgets: paths.widgets,
         assets: paths.assets,
         templates: paths.templates,
         libs: paths.libs,

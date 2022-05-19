@@ -1,4 +1,4 @@
-"use strict";
+
 
 const path = require("path");
 const fs = require("fs");
@@ -69,6 +69,7 @@ module.exports = {
   swSrc: resolveModule(resolveApp, "src/service-worker"),
   pages: resolveApp("src/pages"),
   features: resolveApp("src/features"),
+  widgets: resolveApp("src/widgets"),
   assets: resolveApp("src/assets"),
   templates: resolveApp("src/templates"),
   libs: resolveApp("src/libs"),

@@ -1,9 +1,6 @@
-import {} from 'effector'
+import { mapDomain } from "./domain";
 
-import {mapDomain} from './domain'
+const { createStore } = mapDomain;
 
-const { createStore } = mapDomain
+export const $shops = createStore([]);
 
-export const $shops = createStore([])
-
-export const $mapbox = createStore({})
