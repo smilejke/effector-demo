@@ -359,6 +359,7 @@ module.exports = function (webpackEnv) {
         pages: paths.pages,
         features: paths.features,
         widgets: paths.widgets,
+        entities: paths.entities,
         assets: paths.assets,
         templates: paths.templates,
         libs: paths.libs,

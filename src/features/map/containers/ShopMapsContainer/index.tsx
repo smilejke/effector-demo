@@ -1,6 +1,6 @@
 import { FC } from "react";
 
-import { Map } from "widgets/map/ui";
+import { Map } from "entities/map/ui";
 
 import { Aside } from "../Aside";
 

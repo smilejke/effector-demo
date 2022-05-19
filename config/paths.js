@@ -69,6 +69,7 @@ module.exports = {
   swSrc: resolveModule(resolveApp, "src/service-worker"),
   pages: resolveApp("src/pages"),
   features: resolveApp("src/features"),
+  entities: resolveApp("src/entities"),
   widgets: resolveApp("src/widgets"),
   assets: resolveApp("src/assets"),
   templates: resolveApp("src/templates"),

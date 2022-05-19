@@ -1,10 +1,10 @@
 import { useRef, useEffect } from "react";
 
-import { setMapboxInstance, zoomedMapbox } from "widgets/map/model/mapbox/model";
-import { useMapboxConfig } from "widgets/map/model/selectors";
+import { setMapboxInstance, zoomedMapbox } from "entities/map/model/mapbox/model";
+import { useMapboxConfig } from "entities/map/model/selectors";
 import { ZoomButtons } from "./ZoomButtons";
 
-import "widgets/map/model/model";
+import "entities/map/model/model";
 
 import "./styles.scss";
 
