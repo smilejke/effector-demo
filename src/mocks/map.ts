@@ -37,7 +37,7 @@ export const SHOP_ITEM_LOCATIONS = [
   {
     ...createShopItemLocation({
       name: "Shop #1",
-      location: { lat: 53.674531, lng: 23.832549 },
+      location: { lat: 53.677026, lng: 23.840449 },
       id: 1,
     }),
   },

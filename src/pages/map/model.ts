@@ -25,7 +25,11 @@ export const $shopList = createStore<ShopLocation[]>([], {
 $shopList.on(api.getAllLocationFx.doneData, (_, data) => data);
 
 export const $mapboxMarkers = $shopList.map((shopList) =>
-  shopList.map((shop) => ({ id: shop.id, center: shop.location }))
+  shopList.map((shop) => ({
+    id: shop.id,
+    name: shop.name,
+    center: [shop.location.lat, shop.location.lng] as [number, number],
+  }))
 );
 
 export const $shopSelectOptions = $shopList.map((shopList) =>

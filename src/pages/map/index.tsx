@@ -7,6 +7,7 @@ import { ShopMap } from "widgets/map/ShopMap/ui";
 import {
   useMapFetching,
   useSelectedShop,
+  useShopMarkers,
   useShopOptions,
 } from "pages/map/selectors";
 
@@ -18,6 +19,7 @@ export const MapPage: FC = () => {
   const shopOptions = useShopOptions();
   const loading = useMapFetching();
   const selectedShop = useSelectedShop();
+  const markers = useShopMarkers();
 
   return (
     <>
@@ -27,6 +29,7 @@ export const MapPage: FC = () => {
           loading={loading}
           selectedShop={selectedShop}
           onSelectShop={selectShopId}
+          markers={markers}
         />
       </GeneralTemplate>
     </>

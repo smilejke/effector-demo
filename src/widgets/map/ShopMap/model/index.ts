@@ -1,5 +1,6 @@
-import { appDomain } from "features/common/model";
 import mapboxgl, { Map } from "mapbox-gl";
+
+import { appDomain } from "features/common/model";
 
 const { createStore, createEvent } = appDomain;
 
@@ -7,6 +8,10 @@ export const changedMapbox =
   createEvent<{ zoom: number; lat: number; lng: number }>("changedMapbox");
 
 export const zoomedMapbox = createEvent<number>("zoomedMapbox");
+export const setMarkersToMapbox =
+  createEvent<{ center: [number, number]; name: string; id: string }[]>(
+    "setMarkersToMapbox"
+  );
 
 export const setMapboxInstance = createEvent<HTMLElement>("setMapboxInstance");
 
@@ -78,4 +83,22 @@ $mapbox
       state.instance?.zoomIn();
     }
     return { ...state, zoom: payload };
-  });
+  }).on(setMarkersToMapbox, (state, payload) => {
+    if (state.instance === null) return;
+
+    payload.forEach((marker) => {
+      const markerInstance = new mapboxgl.Marker({
+        draggable: false,
+      })
+        .setLngLat([marker.center[1], marker.center[0]])
+        .addTo(state.instance as Map);
+
+      // markerInstance.setPopup(
+      //   new mapboxgl.Popup({
+      //     offset: 25,
+      //   })
+      //     .setHTML(`<h3>${marker.name}</h3>`)
+      //     .setLngLat([marker.center[1], marker.center[0]])
+      // );
+    })
+  })

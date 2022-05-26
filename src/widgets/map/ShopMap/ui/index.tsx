@@ -6,7 +6,7 @@ import { FilterMapCard } from "entities/map/FilterMapCard";
 import { SelectedShopCard } from "entities/map/SelectedShopCard";
 import { ShopLocation } from "src/shared/types";
 
-import { setMapboxInstance, zoomedMapbox } from "../model";
+import { setMapboxInstance, setMarkersToMapbox, zoomedMapbox } from "../model";
 import { useMapboxConfig } from "../model/selectors";
 
 import "../model";
@@ -18,6 +18,7 @@ interface ShopMapProps {
   loading: boolean;
   selectedShop: ShopLocation | null;
   onSelectShop: (shopId: string) => void;
+  markers?: { center: [number, number]; name: string; id: string }[];
 }
 
 export const ShopMap: FC<ShopMapProps> = ({
@@ -25,6 +26,7 @@ export const ShopMap: FC<ShopMapProps> = ({
   loading,
   selectedShop,
   onSelectShop,
+  markers = [],
 }) => {
   const config = useMapboxConfig();
   const mapContainer = useRef<HTMLDivElement | null>(null);
@@ -33,6 +35,10 @@ export const ShopMap: FC<ShopMapProps> = ({
     if (config.instance) return;
     setMapboxInstance(mapContainer.current as HTMLElement);
   }, [config.instance]);
+
+  useEffect(() => {
+    setMarkersToMapbox(markers);
+  }, [markers]);
 
   const handleZoomIn = () => {
     zoomedMapbox(config.zoom + 1);
@@ -49,6 +55,7 @@ export const ShopMap: FC<ShopMapProps> = ({
         onZoomIn={handleZoomIn}
         onZoomOut={handleZoomOut}
         config={config}
+        markers={markers}
       />
       <Spin spinning={loading}>
         <aside className="shops-sidebar">
