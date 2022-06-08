@@ -1,6 +1,8 @@
 import { FC } from "react";
-import { Card, Typography } from "antd";
+import { Card, Image, Typography } from "antd";
 import { ShopLocation } from "src/shared/types";
+
+import "./styles.scss";
 
 interface SelectedShopCardProps {
   data: ShopLocation | null;
@@ -9,7 +11,16 @@ interface SelectedShopCardProps {
 export const SelectedShopCard: FC<SelectedShopCardProps> = ({ data }) => {
   return (
     <Card>
-      <Typography.Text>{data?.name}</Typography.Text>
+      <div className="shop-card">
+        <Typography.Text>{data?.name}</Typography.Text>
+        <Typography.Text>{data?.address}</Typography.Text>
+        <Typography.Text>{data?.phone}</Typography.Text>
+        <div className="shop-card__hours">
+          <Typography.Text>Open: {data?.workingHours.open}</Typography.Text>
+          <Typography.Text>Close: {data?.workingHours.close}</Typography.Text>
+        </div>
+      </div>
+      <Image src={data?.picture} alt={data?.name} />
     </Card>
   );
 };

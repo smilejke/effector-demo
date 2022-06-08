@@ -1,4 +1,4 @@
-import ReactDOM from "react-dom";
+import { createRoot } from 'react-dom/client';
 
 import { setLogger } from "libs/logger";
 import { appDomain } from "features/common/model";
@@ -12,6 +12,6 @@ import "./init";
 /* appDomain - main application domain */
 setLogger(appDomain);
 
-const root = document.getElementById("root");
-
-ReactDOM.render(<App />, root);
+const container = document.getElementById("root");
+const root = createRoot(container as HTMLElement); // createRoot(container!) if you use TypeScript
+root.render(<App />);

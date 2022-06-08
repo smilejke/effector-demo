@@ -1,4 +1,4 @@
-import { FC, useEffect, useRef } from "react";
+import { FC, useRef } from "react";
 import { Spin } from "antd";
 
 import { Mapbox } from "entities/map/mapbox";
@@ -6,7 +6,7 @@ import { FilterMapCard } from "entities/map/FilterMapCard";
 import { SelectedShopCard } from "entities/map/SelectedShopCard";
 import { ShopLocation } from "src/shared/types";
 
-import { setMapboxInstance, setMarkersToMapbox, zoomedMapbox } from "../model";
+import { changedMapbox, zoomedMapbox } from "../model";
 import { useMapboxConfig } from "../model/selectors";
 
 import "../model";
@@ -29,16 +29,7 @@ export const ShopMap: FC<ShopMapProps> = ({
   markers = [],
 }) => {
   const config = useMapboxConfig();
-  const mapContainer = useRef<HTMLDivElement | null>(null);
-
-  useEffect(() => {
-    if (config.instance) return;
-    setMapboxInstance(mapContainer.current as HTMLElement);
-  }, [config.instance]);
-
-  useEffect(() => {
-    setMarkersToMapbox(markers);
-  }, [markers]);
+  const mapContainer = useRef<any | null>(null);
 
   const handleZoomIn = () => {
     zoomedMapbox(config.zoom + 1);
@@ -48,6 +39,10 @@ export const ShopMap: FC<ShopMapProps> = ({
     zoomedMapbox(config.zoom - 1);
   };
 
+  const handleSelectShop = (shopId: string) => {
+    onSelectShop(shopId);
+  };
+
   return (
     <div className="shops-container">
       <Mapbox
@@ -55,16 +50,20 @@ export const ShopMap: FC<ShopMapProps> = ({
         onZoomIn={handleZoomIn}
         onZoomOut={handleZoomOut}
         config={config}
+        onMarkerClick={onSelectShop}
         markers={markers}
+        onMove={({ latitude, longitude, zoom }) =>
+          changedMapbox({ zoom, lat: latitude, lng: longitude })
+        }
       />
       <Spin spinning={loading}>
         <aside className="shops-sidebar">
           <FilterMapCard
             options={shopOptions}
             selectedId={selectedShop?.id}
-            onChange={onSelectShop}
+            onChange={handleSelectShop}
           />
-          <SelectedShopCard data={selectedShop} />
+          {selectedShop && <SelectedShopCard data={selectedShop} />}
         </aside>
       </Spin>
     </div>

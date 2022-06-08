@@ -1,6 +1,8 @@
 import { FC } from "react";
 import { Card, Select, Typography } from "antd";
 
+import './styles.scss';
+
 interface CityFilterCardProps {
   options?: { value: string; label: string }[];
   onChange?: (value: string) => void;
@@ -16,9 +18,9 @@ export const FilterMapCard: FC<CityFilterCardProps> = ({
     onChange?.(value);
   };
   return (
-    <Card>
-      <Typography.Text>Filter</Typography.Text>
-      <Select value={selectedId} options={options} onSelect={handleSelected} />
+    <Card className="filter-card">
+      <Typography.Text>List of shops</Typography.Text>
+      <Select className="filter-card__select" value={selectedId} options={options} onSelect={handleSelected} />
     </Card>
   );
 };
