@@ -2,11 +2,11 @@ import { forward, combine, restore, sample } from "effector";
 import { createGate } from "effector-react";
 
 import * as api from "widgets/map/ShopMap/api";
+import { changedMapbox } from "widgets/map/ShopMap/model";
 
 import { appDomain } from "features/common/model";
 
 import { ShopLocation } from "src/shared/types";
-import { changedMapbox } from "widgets/map/ShopMap/model";
 
 
 const { createEvent, createStore } = appDomain;

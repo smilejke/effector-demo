@@ -4,6 +4,7 @@ import { Spin } from "antd";
 import { Mapbox } from "entities/map/mapbox";
 import { FilterMapCard } from "entities/map/FilterMapCard";
 import { SelectedShopCard } from "entities/map/SelectedShopCard";
+
 import { ShopLocation } from "src/shared/types";
 
 import { changedMapbox, zoomedMapbox } from "../model";

@@ -8,8 +8,8 @@ export const getShopListRequest = (): Promise<ShopLocation[]> =>
   new Promise((res) => {
     setTimeout(() => {
       return res(SHOP_ITEM_LOCATIONS);
-    }, 1200);
+    }, 200);
   });
 
 
-export const getAllLocationFx = createEffect<void, ShopLocation[]>('getAllLocationFx').use(getShopListRequest);
+export const getAllLocationFx = createEffect<void, ShopLocation[], Error>('getAllLocationFx').use(getShopListRequest);
