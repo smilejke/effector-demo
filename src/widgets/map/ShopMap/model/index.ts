@@ -8,15 +8,6 @@ export const changedMapbox =
   createEvent<{ zoom?: number; lat?: number; lng?: number }>("changedMapbox");
 
 export const zoomedMapbox = createEvent<number>("zoomedMapbox");
-export const setMarkersToMapbox =
-  createEvent<{ center: [number, number]; name: string; id: string }[]>(
-    "setMarkersToMapbox"
-  );
-
-export const setMapboxInstance =
-  createEvent<HTMLElement>("setMapboxInstance");
-export const setMapboxRef = createEvent<HTMLDivElement>("setMapboxRef");
-export const removeMapboxInstance = createEvent("removeMapboxInstance");
 
 mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_ACCESS_TOKEN as string;
 
