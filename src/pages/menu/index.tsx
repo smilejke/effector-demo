@@ -6,6 +6,7 @@ import { GeneralTemplate } from "templates/general-template";
 import { MenuPageContainer } from "features/menu/containers/menu-container";
 import { useMenuFetching } from "features/menu/selectors";
 import { selectCategory } from "features/menu/model/controllers";
+import { SideMenu } from "features/common/components/side-menu";
 
 export const MenuPage = () => {
   const isMenuFetching = useMenuFetching();
@@ -21,7 +22,7 @@ export const MenuPage = () => {
   }, [category]);
 
   return (
-    <GeneralTemplate loading={isMenuFetching}>
+    <GeneralTemplate sideMenuChildren={<SideMenu />} loading={isMenuFetching}>
       <MenuPageContainer />
     </GeneralTemplate>
   );

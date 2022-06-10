@@ -1,21 +1,22 @@
 import { FC, useMemo } from "react";
 import { useLocation } from "react-router-dom";
 import { Layout, Spin } from "antd";
+
 import { HeaderTemplate } from "templates/header-template";
-import { MenuTemplate as Menu } from "templates/menu-template";
 import { TDefaultSelectedKeys } from "templates/types";
 
 import "./styles.scss";
 
-const { Content, Footer, Sider } = Layout;
+const { Content, Footer } = Layout;
 
 interface GeneralTemplateProps {
-  children?: JSX.Element;
   loading?: boolean;
+  sideMenuChildren?: React.ReactNode;
 }
 
 export const GeneralTemplate: FC<GeneralTemplateProps> = ({
   children,
+  sideMenuChildren,
   loading = false,
 }) => {
   const { pathname } = useLocation();
@@ -25,7 +26,6 @@ export const GeneralTemplate: FC<GeneralTemplateProps> = ({
 
     return {
       page,
-      isMenuPage: page !== "cart" && page !== "orders",
     };
   }, [pathname]);
 
@@ -34,14 +34,10 @@ export const GeneralTemplate: FC<GeneralTemplateProps> = ({
       <HeaderTemplate selectedKey={pageIdentifier.page} />
       <Content style={{ padding: "0 50px" }}>
         <Layout style={{ padding: "24px 0" }}>
-          {pageIdentifier.isMenuPage && (
-            <Sider className="site-layout-background" width={200}>
-              <Menu />
-            </Sider>
-          )}
+          {sideMenuChildren}
           <Content
             style={{
-              padding: pageIdentifier.isMenuPage ? "0 24px" : "",
+              padding: sideMenuChildren ? "0 24px" : "",
               minHeight: 280,
               display: !loading ? "block" : "flex",
             }}

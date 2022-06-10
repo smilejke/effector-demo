@@ -14,11 +14,14 @@ The project was bootstrapped with [Create React App](https://github.com/facebook
 4. `npm start`
 
 ## Author's advice
+
 Look through the project in logical order for better understanding:
+
 <ol>
 <li>menu</li>
 <li>cart</li>
 <li>orders</li>
+<li>map</li>
 </ol>
 Each feature block contain files to work with Effector, I also advice to learn them in such an order:  
 <ol>
@@ -60,3 +63,18 @@ App contain only few tests just to show Effector's test advantages.
 
 You can learn more in the [Effector documentation](https://github.com/effector/effector). \
 Short list of [projects based on Effector](https://github.com/effector/effector/issues/278).
+
+# Feature sliced design
+
+The project has a design system - [Feature sliced](https://feature-sliced.design/)
+
+## Layer order
+
+If you look at the order of the layers , you can distinguish two general patterns:
+
+By the level of knowledge/responsibility
+`app` > `processes` > `pages` > `features` > `entities` > `shared`
+
+The module "knows" only about itself and the underlying modules, but not the ones lying above
+
+This also affects the allowed imports

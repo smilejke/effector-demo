@@ -1,0 +1,1 @@
+export { SelectedShopCard } from "./ui";
