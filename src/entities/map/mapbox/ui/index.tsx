@@ -2,8 +2,6 @@ import { forwardRef } from "react";
 import { Button } from "antd";
 import Map, { Marker, ViewStateChangeEvent } from "react-map-gl";
 
-import { Marker as MarkerComponent } from "./marker";
-
 import "mapbox-gl/dist/mapbox-gl.css";
 
 import "./styles.scss";
