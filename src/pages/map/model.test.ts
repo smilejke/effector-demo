@@ -65,7 +65,7 @@ describe("Map of shops flow", () => {
 
     const marker = markers[0];
     expect(marker).toHaveProperty("id");
-    expect(marker).toHaveProperty("center");
+    expect(marker).toHaveProperty("coords");
     expect(marker).toHaveProperty("name");
   });
 
