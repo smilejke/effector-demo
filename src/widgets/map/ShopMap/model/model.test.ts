@@ -8,14 +8,14 @@ describe("Widget map flow", () => {
     const scope = fork(appDomain);
 
     const mapState = scope.getState($mapbox);
-    expect(mapState).toHaveProperty("center");
+    expect(mapState).toHaveProperty("coords");
     expect(mapState).toHaveProperty("style");
     expect(mapState).toHaveProperty("zoom");
     expect(mapState).toHaveProperty("container");
     expect(mapState).toHaveProperty("instance");
   });
 
-  it("should change mapbox center", async () => {
+  it("should change mapbox coords", async () => {
     const scope = fork(appDomain);
     await allSettled(changedMapbox, {
       scope,
@@ -26,7 +26,10 @@ describe("Widget map flow", () => {
     });
 
     const mapState = scope.getState($mapbox);
-    expect(mapState.center).toEqual([37.57, 55.75]);
+    expect(mapState.coords).toEqual({
+      lat: 55.75,
+      lng: 37.57,
+    });
   })
 
   it("should change mapbox zoom", async () => {

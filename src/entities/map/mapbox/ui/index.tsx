@@ -11,12 +11,12 @@ interface MapboxProps {
   onZoomOut?: () => void;
   config?: {
     zoom: number;
-    center: [number, number];
+    coords: { lng: number, lat: number };
     container: string | null;
     style: string;
     instance: mapboxgl.Map | null;
   };
-  markers?: { center: [number, number]; name: string; id: string }[];
+  markers?: { coords: { lat: number, lng: number }; name: string; id: string }[];
   onMarkerClick?: (id: string) => void;
   onMove?: (props: { latitude: number; longitude: number, zoom: number }) => void;
 }
@@ -43,28 +43,28 @@ export const Mapbox = forwardRef<HTMLDivElement, MapboxProps>(
     return (
       <div className="shop-map">
         <div className="sidebar">
-          Longitude: {config?.center[1]} | Latitude: {config?.center[0]} | Zoom:
+          Longitude: {config?.coords.lng} | Latitude: {config?.coords.lat} | Zoom:
           {config?.zoom}
         </div>
         <div ref={mapContainerRef} className="map-container" />
         <Map
           initialViewState={{
-            longitude: config?.center[0] ?? 0,
-            latitude: config?.center[1] ?? 0,
+            longitude: config?.coords.lng ?? 0,
+            latitude: config?.coords.lat ?? 0,
             zoom: config?.zoom ?? 0,
           }}
-          longitude={config?.center[0] ?? 0}
-          latitude={config?.center[1] ?? 0}
+          longitude={config?.coords.lng ?? 0}
+          latitude={config?.coords.lat ?? 0}
           zoom={config?.zoom ?? 0}
           onMove={handleMove}
           mapStyle={config?.style ?? "mapbox://styles/mapbox/streets-v11"}
         >
           <div id="coordinates" className="coordinates">
-            {markers?.map(({ center, id }) => (
+            {markers?.map(({ coords, id }) => (
               <Marker
                 key={id}
-                longitude={center[1]}
-                latitude={center[0]}
+                longitude={coords.lng}
+                latitude={coords.lat}
                 onClick={() => onMarkerClick?.(id)}
               />
             ))}

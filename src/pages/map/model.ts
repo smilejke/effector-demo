@@ -26,7 +26,7 @@ export const $mapboxMarkers = $shopList.map((shopList) =>
   shopList.map((shop) => ({
     id: shop.id,
     name: shop.name,
-    center: [shop.location.lat, shop.location.lng] as [number, number],
+    coords: { lat: shop.location.lat, lng: shop.location.lng } as { lat: number, lng: number },
   }))
 );
 

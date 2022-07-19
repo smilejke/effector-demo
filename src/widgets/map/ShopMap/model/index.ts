@@ -13,14 +13,14 @@ mapboxgl.accessToken = process.env.REACT_APP_MAPBOX_ACCESS_TOKEN as string;
 
 // create store for Mapbox
 export const $mapbox = createStore<{
-  center: [number, number];
+  coords: { lng: number, lat: number };
   zoom: number;
   container: string | null;
   style: string;
   instance: mapboxgl.Map | null;
 }>(
   {
-    center: [23.851442, 53.683851],
+    coords: { lng: 23.851442, lat: 53.683851 },
     style: "mapbox://styles/mapbox/streets-v11",
     zoom: 12,
     container: null,
@@ -36,7 +36,7 @@ $mapbox
   .on(changedMapbox, (state, { lat, lng, ...rest }) => ({
     ...state,
     ...rest,
-    center: [lng ?? state.center[0], lat ?? state.center[1]],
+    coords: { lng: lng ?? state.coords.lng, lat: lat ?? state.coords.lat },
   }))
   .on(zoomedMapbox, (state, payload) => {
     if (payload < state.zoom) {

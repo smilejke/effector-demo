@@ -19,7 +19,7 @@ interface ShopMapProps {
   loading: boolean;
   selectedShop: ShopLocation | null;
   onSelectShop: (shopId: string) => void;
-  markers?: { center: [number, number]; name: string; id: string }[];
+  markers?: { coords: { lat: number, lng: number }; name: string; id: string }[];
 }
 
 export const ShopMap: FC<ShopMapProps> = ({
@@ -27,7 +27,7 @@ export const ShopMap: FC<ShopMapProps> = ({
   loading,
   selectedShop,
   onSelectShop,
-  markers = [],
+  markers,
 }) => {
   const config = useMapboxConfig();
   const mapContainer = useRef<any | null>(null);
