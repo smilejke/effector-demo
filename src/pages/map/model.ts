@@ -1,8 +1,8 @@
 import { forward, combine, restore, sample } from "effector";
 import { createGate } from "effector-react";
 
-import * as api from "widgets/map/ShopMap/api";
-import { changedMapbox } from "widgets/map/ShopMap/model";
+import * as api from "features/shops/api";
+import { changedMapbox } from "features/shops/model";
 
 import { appDomain } from "features/common/model";
 
@@ -59,3 +59,4 @@ sample({
   },
   target: changedMapbox,
 })
+

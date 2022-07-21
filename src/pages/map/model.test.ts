@@ -2,7 +2,7 @@ import { allSettled, fork } from "effector";
 
 import { appDomain } from "features/common/model";
 import { ShopLocation } from "src/shared/types";
-import { getAllLocationFx } from "widgets/map/ShopMap/api";
+import { getAllLocationFx } from "features/shops/api";
 import {
   $mapboxMarkers,
   $selectedShop,

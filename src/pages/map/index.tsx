@@ -2,7 +2,7 @@ import { FC } from "react";
 import { useGate } from "effector-react";
 
 import { GeneralTemplate } from "templates/general-template";
-import { ShopMap } from "widgets/map/ShopMap/ui";
+import { ShopMap } from "features/shops/components/map";
 
 import {
   useMapFetching,

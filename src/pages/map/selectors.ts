@@ -1,6 +1,6 @@
 import { useStore } from "effector-react";
 
-import * as api from "widgets/map/ShopMap/api";
+import * as api from "features/shops/api";
 import * as model from "./model";
 
 export const useMapFetching = () => {

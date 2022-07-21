@@ -7,10 +7,10 @@ import { SelectedShopCard } from "entities/map/SelectedShopCard";
 
 import { ShopLocation } from "src/shared/types";
 
-import { changedMapbox, zoomedMapbox } from "../model";
-import { useMapboxConfig } from "../model/selectors";
+import { changedMapbox, zoomedMapbox } from "features/shops/model";
+import { useMapboxConfig } from "features/shops/selectors";
 
-import "../model";
+import "../../model";
 
 import "./styles.scss";
 
