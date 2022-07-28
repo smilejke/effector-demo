@@ -8,7 +8,7 @@ import { useMenuFetching } from "features/menu/selectors";
 import { selectCategory } from "features/menu/model/controllers";
 import { SideMenu } from "features/common/components/side-menu";
 
-import * as model from './model'
+import './model'
 
 export const MenuPage = () => {
   const isMenuFetching = useMenuFetching();
