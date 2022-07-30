@@ -1,6 +1,6 @@
 # Effector state manager demo using Create React App
 
-![alt text](https://repository-images.githubusercontent.com/123197392/2cfb4000-1310-11eb-8f8b-316a18c2ce65)
+![alt text](https://miro.medium.com/max/1200/0*OeR1IYJ8pnUHAKDI)
 
 This project was created as demonstration of Effector state manager.\
 A lot of decisions were made only to demonstrate different Effector's possibilities and could have been done much easier.\
@@ -63,18 +63,3 @@ App contain only few tests just to show Effector's test advantages.
 
 You can learn more in the [Effector documentation](https://github.com/effector/effector). \
 Short list of [projects based on Effector](https://github.com/effector/effector/issues/278).
-
-# Feature sliced design
-
-The project has a design system - [Feature sliced](https://feature-sliced.design/)
-
-## Layer order
-
-If you look at the order of the layers , you can distinguish two general patterns:
-
-By the level of knowledge/responsibility
-`app` > `processes` > `pages` > `features` > `entities` > `shared`
-
-The module "knows" only about itself and the underlying modules, but not the ones lying above
-
-This also affects the allowed imports
