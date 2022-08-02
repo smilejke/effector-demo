@@ -1,0 +1,64 @@
+.menu-container,
+.order-container {
+  & .ant-card {
+    max-width: 30rem;
+    max-height: 32.5rem;
+  }
+}
+
+.menu-container {
+  & .ant-card {
+    img {
+      transition: transform 0.2s ease;
+    }
+
+    & .ant-card-cover {
+      overflow: hidden;
+    }
+
+    &:hover {
+      img {
+        transform: scale(1.05);
+      }
+    }
+  }
+}
+
+.ant-card.bill {
+  max-width: 30rem;
+  max-height: 25rem;
+}
+
+.bill,
+.order-container,
+.menu-container {
+  & .ant-card-body {
+    min-height: 13rem;
+  }
+}
+
+.ant-card {
+  & .ant-card-actions {
+    display: flex;
+    align-items: center;
+
+    & button svg {
+      & svg {
+        transition: transform 0.2s ease;
+        transform: scale(1.3);
+      }
+
+      &:hover {
+        & svg {
+          transform: scale(1.5);
+        }
+      }
+    }
+  }
+  &[data-clicked="true"] {
+    &.ant-card.ant-card {
+      box-shadow: 0 3px 10px 4px rgba(0, 0, 255, 0.16),
+        0 3px 6px 0 rgba(0, 0, 255, 0.12), 0 5px 12px 4px rgba(0, 0, 255, 0.09);
+    }
+  }
+}

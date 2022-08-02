@@ -1,0 +1,37 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+#root {
+  width: 100vw;
+  height: 100vh;
+  --ant-blue: #1890ff;
+  --order-accepted: #3498db;
+  --order-cooking: #e67e22;
+  --order-ready: #2ecc71;
+  --order-card-text: #b7c9e5;
+  --order-cart-back: #001529;
+
+  --fw-normal: 400;
+  --fw-bold: 700;
+}
+
+::-webkit-scrollbar {
+  width: 0.41667rem;
+  background-color: rgb(245, 245, 245);
+}
+
+::-webkit-scrollbar-thumb {
+  width: 0.41667rem;
+  border-radius: 0.208333rem;
+  background-color: rgb(160, 160, 160);
+}
+
+.ant-notification-notice-with-icon {
+  & .ant-notification-notice-description {
+    margin-left: 0;
+    margin-top: 0.7rem;
+  }
+}

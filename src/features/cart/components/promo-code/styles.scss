@@ -1,0 +1,28 @@
+.promo-code__container {
+  height: 100%;
+  width: 100%;
+
+  & .ant-card-head {
+    & .ant-card-head-title {
+      padding: 12px 0 8px;
+    }
+  }
+
+  & .ant-card-body {
+    padding: 0 24px;
+    text-align: center;
+  }
+}
+
+.promo-code__code {
+  display: grid;
+  grid-template-columns: 90% 10%;
+  align-items: center;
+  margin: 1rem 0 0.7rem;
+
+  & span[role="img"],
+  & .ant-spin {
+    font-size: 24px;
+    text-align: end;
+  }
+}

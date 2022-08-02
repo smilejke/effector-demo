@@ -1,0 +1,35 @@
+.order-container {
+  display: grid;
+  grid-template-rows: 3rem repeat(auto-fill, 32.5rem);
+  grid-row-gap: 2rem;
+  justify-content: center;
+  overflow-y: auto;
+  padding-bottom: 0.4rem;
+}
+
+.bill-container {
+  display: grid;
+  grid-template-rows: 3rem 10rem auto;
+  grid-row-gap: 2rem;
+  justify-content: center;
+}
+
+.bill-container .ant-card-body table tbody tr td:not(:first-of-type),
+.bill-container .ant-card-body table thead tr th:not(:first-of-type) {
+  text-align: center;
+}
+
+.bill-container .ant-card-body table tbody tr td:first-of-type {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width: 15rem;
+}
+
+.bill {
+  .ant-card-body {
+    .ant-table-body {
+      overflow-y: auto !important;
+    }
+  }
+}

@@ -1,0 +1,25 @@
+{
+  "short_name": "Effector demo",
+  "name": "Effector demo using Create React App Sample",
+  "icons": [
+    {
+      "src": "favicon.ico",
+      "sizes": "48x48",
+      "type": "image/x-icon"
+    },
+    {
+      "src": "comet192.png",
+      "type": "image/png",
+      "sizes": "192x192"
+    },
+    {
+      "src": "comet512.png",
+      "type": "image/png",
+      "sizes": "512x512"
+    }
+  ],
+  "start_url": ".",
+  "display": "standalone",
+  "theme_color": "#000000",
+  "background_color": "#ffffff"
+}

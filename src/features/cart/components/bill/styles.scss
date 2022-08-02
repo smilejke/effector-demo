@@ -1,0 +1,10 @@
+.bill {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 500px;
+
+  & .ant-card-body {
+    padding: 0;
+  }
+}
