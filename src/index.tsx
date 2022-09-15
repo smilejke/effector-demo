@@ -5,7 +5,7 @@ import { appDomain } from "features/common/model";
 
 import { App } from "./app";
 
-import "./index.scss";
+import "./index.css";
 import "./init";
 
 /* Initialing logs for events, effects and domains */

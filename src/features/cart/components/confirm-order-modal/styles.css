@@ -1,0 +1,14 @@
+.order-confirm__list ul li {
+  list-style: none;
+  margin-bottom: 0.3rem;
+}
+
+.order-confirm__total.ant-typography {
+  text-align: end;
+  margin-bottom: 1rem;
+}
+
+.order-confirm__actions {
+  display: flex;
+  justify-content: space-between;
+}

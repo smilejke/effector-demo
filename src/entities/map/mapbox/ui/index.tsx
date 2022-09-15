@@ -4,7 +4,7 @@ import Map, { Marker, ViewStateChangeEvent } from "react-map-gl";
 
 import "mapbox-gl/dist/mapbox-gl.css";
 
-import "./styles.scss";
+import "./styles.css";
 
 interface MapboxProps {
   onZoomIn?: () => void;

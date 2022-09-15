@@ -2,7 +2,7 @@ import { FC } from "react";
 import { Card, Image, Typography } from "antd";
 import { ShopLocation } from "src/shared/types";
 
-import "./styles.scss";
+import "./styles.css";
 
 interface SelectedShopCardProps {
   data: ShopLocation | null;

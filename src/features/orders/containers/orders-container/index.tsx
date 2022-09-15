@@ -3,7 +3,7 @@ import Typography from "antd/lib/typography";
 import { useOrders } from "features/orders/selectors";
 import { OrderCard } from "features/orders/components/order-card";
 
-import "./styles.scss";
+import "./styles.css";
 
 const { Title } = Typography;
 

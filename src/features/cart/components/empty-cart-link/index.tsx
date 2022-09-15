@@ -2,7 +2,7 @@ import { FC } from "react";
 import { Link } from "react-router-dom";
 import Button from "antd/lib/button";
 
-import "./styles.scss";
+import "./styles.css";
 
 interface EmptyCartLinkProps {
   description: string;

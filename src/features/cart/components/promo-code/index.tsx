@@ -24,7 +24,7 @@ import {
 
 import useDebounce from "hooks/useDebounce";
 
-import "./styles.scss";
+import "./styles.css";
 
 const { Text } = Typography;
 

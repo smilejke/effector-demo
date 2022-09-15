@@ -10,8 +10,6 @@ import {
 import { TMenuPosition } from "features/menu/types";
 import { selectProduct } from "features/menu/model/controllers";
 
-import "./styles.scss";
-
 const { Text } = Typography;
 
 export const ProductCardMenu: FC<ProductCardBaseProps> = ({

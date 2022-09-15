@@ -1,0 +1,110 @@
+@import url("https://fonts.googleapis.com/css?family=Oswald:400,700");
+
+:root {
+  --level-one: translateZ(3rem);
+  --level-two: translateZ(6rem);
+  --level-three: translateZ(9rem);
+}
+
+.card {
+  width: 18rem;
+  height: 20rem;
+  cursor: pointer;
+}
+
+.card .card__content {
+  text-align: center;
+  position: relative;
+  height: 100%;
+  transition: transform 1s;
+  transform-style: preserve-3d;
+}
+
+.card .card__content .card__front,
+.card .card__content .card__back {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  padding: 5em 3em;
+  backface-visibility: hidden;
+  transform-style: preserve-3d;
+  display: grid;
+  align-content: center;
+}
+
+.card .card__front {
+  background-color: var(--order-card-text);
+  color: #333;
+}
+
+.card .card__front::before {
+  content: "";
+  position: absolute;
+  --spacer: 1em;
+  top: var(--spacer);
+  bottom: var(--spacer);
+  left: var(--spacer);
+  right: var(--spacer);
+  border: 3px solid currentColor;
+  transform: var(--level-one);
+}
+
+.card .card__front .card__title {
+  font-size: 3.5rem;
+  transform: var(--level-three);
+  order: 2;
+  text-transform: uppercase;
+}
+
+.card .card__front .card__subtitle {
+  transform: var(--level-two);
+  text-transform: uppercase;
+  letter-spacing: 4px;
+  font-size: 0.75rem;
+  font-weight: var(--fw-bold);
+  opacity: 0.8;
+  margin-bottom: 0;
+}
+
+.card .card__front .card__subtitle span {
+  font-size: 0.9rem;
+}
+
+.card .card__back {
+  transform: rotateY(0.5turn);
+  background: var(--order-cart-back);
+}
+
+.card .card__back .card__body {
+  transform: var(--level-two);
+  font-size: 1.4rem;
+  white-space: nowrap;
+  line-height: 1.6;
+}
+
+.card .card__back .card__body .ant-typography {
+  color: var(--order-card-text);
+  margin-bottom: 0.5rem;
+}
+
+.card .card__back .card__body .ant-typography span[data-status="accepted"] {
+  color: var(--order-accepted);
+}
+
+.card .card__back .card__body .ant-typography span[data-status="cooking"] {
+  color: var(--order-cooking);
+}
+
+.card .card__back .card__body .ant-typography span[data-status="ready"] {
+  color: var(--order-ready);
+}
+
+.card .card__back .card__body .ant-typography span[data-status="closed"] {
+  color: var(--order-accepted);
+}
+
+.card:hover .card__content {
+  transform: rotateY(0.5turn);
+}

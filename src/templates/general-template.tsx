@@ -5,7 +5,7 @@ import { Layout, Spin } from "antd";
 import { HeaderTemplate } from "templates/header-template";
 import { TDefaultSelectedKeys } from "templates/types";
 
-import "./styles.scss";
+import "./styles.css";
 
 const { Content, Footer } = Layout;
 
