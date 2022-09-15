@@ -2,7 +2,7 @@ import { FC } from "react";
 import Typography from "antd/lib/typography";
 import { TOrder } from "features/orders/types";
 
-import "./styles.scss";
+import "./styles.css";
 
 const { Title, Paragraph, Text } = Typography;
 

@@ -4,7 +4,7 @@ import Card from "antd/lib/card";
 import { TMenuPosition } from "features/menu/types";
 import { CartItem } from "features/cart/types";
 
-import "./styles.scss";
+import "./styles.css";
 
 const { Meta } = Card;
 

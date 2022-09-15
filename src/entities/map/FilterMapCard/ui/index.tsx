@@ -1,7 +1,7 @@
 import { FC } from "react";
 import { Card, Select, Typography } from "antd";
 
-import './styles.scss';
+import './styles.css';
 
 interface CityFilterCardProps {
   options?: { value: string; label: string }[];

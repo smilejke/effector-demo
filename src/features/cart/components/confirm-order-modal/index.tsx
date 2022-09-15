@@ -10,7 +10,7 @@ import {
 import { confirmOrderModal } from "features/cart/model/model";
 import { paths } from "pages/paths";
 
-import "./styles.scss";
+import "./styles.css";
 
 export const ConfirmOrderModal = () => {
   const visible = useConfirmModalVisible();

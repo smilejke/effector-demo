@@ -9,7 +9,7 @@ import { BillContentTable } from "features/cart/components/bill-content-table";
 import { createOrderFx } from "features/orders/model/controllers";
 import { TCart } from "features/cart/types";
 
-import "./styles.scss";
+import "./styles.css";
 
 const { Text } = Typography;
 

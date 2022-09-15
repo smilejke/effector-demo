@@ -12,7 +12,7 @@ import { useMapboxConfig } from "features/shops/selectors";
 
 import "../../model";
 
-import "./styles.scss";
+import "./styles.css";
 
 interface ShopMapProps {
   shopOptions: { value: string; label: string }[];

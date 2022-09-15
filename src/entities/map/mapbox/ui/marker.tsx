@@ -1,6 +1,6 @@
 import {FC} from 'react';
 
-import './marker.scss';
+import './marker.css';
 
 interface MarkerProps {
   coords: { lat: number, lng: number };
