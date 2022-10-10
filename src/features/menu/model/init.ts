@@ -28,21 +28,12 @@ import "./model";
  * Separately, it should be said that ".map" method here is not native JS array method. It's effector's function
  * which does data extraction / transformation.
  *
- * Most of fields are not required and are optional, for example here are sample's types:
+ * Most of the fields are not required and are optional, for example here are sample's types:
  * sample({source?, clock?, fn?, target?}): target.
  * Depending on what is used, the meaning of other fields can be changed.
  * In description above I have listed only "full" variations for all functions.
  * You can learn more in the Effector documentation. (https://github.com/effector/effector).
  * **/
-
-/**
- * When getProductsByCategoryFx done successful (if effect fails, .done is unavailable ),
- * get it's response, destructure data and call SetMenu event with this data as props.
- * **/
-forward({
-  from: getProductsByCategoryFx.done.map(({ result }) => result),
-  to: setMenu,
-});
 
 /** ========================================================= **/
 
@@ -71,7 +62,6 @@ const getProductCategoryGuard = guard({
   source: getProductCategorySample,
   filter: (state) => !state.is,
 });
-
 /**
  * Read as: Take data from getProductCategoryGuard and create two scenarios:
  * 1. effectToUse.category - keep any category instead of "all",
@@ -95,6 +85,15 @@ forward({
 forward({
   from: effectToUse.all.map(({ category }) => category),
   to: getAllProductsFx,
+});
+
+/**
+ * When getProductsByCategoryFx done successful (if effect fails, .done is unavailable ),
+ * get it's response, destructure data and call SetMenu event with this data as props.
+ * **/
+forward({
+  from: getProductsByCategoryFx.done.map(({ result }) => result),
+  to: setMenu,
 });
 
 /** ========================================================= **/

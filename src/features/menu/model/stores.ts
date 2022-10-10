@@ -5,7 +5,6 @@ import {
   getProductsByCategoryFx,
 } from "features/menu/model/controllers";
 
-
 import { menuDomain } from './domain'
 
 const { createStore } = menuDomain

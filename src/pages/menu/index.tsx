@@ -1,4 +1,4 @@
-import { useEffect, useMemo } from "react";
+import { useEffect } from "react";
 import { useLocation } from "react-router-dom";
 import qs from "query-string";
 
@@ -14,10 +14,7 @@ export const MenuPage = () => {
   const isMenuFetching = useMenuFetching();
   const { search } = useLocation();
 
-  const category = useMemo(
-    () => String(qs.parse(search).section || "all"),
-    [search]
-  );
+  const category = String(qs.parse(search).section || "all");
 
   useEffect(() => {
     selectCategory(category);
