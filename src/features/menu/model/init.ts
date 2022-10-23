@@ -7,7 +7,7 @@ import {
   setMenu,
 } from "features/menu/model/controllers";
 import { addToCart, deleteFromCart } from "features/cart/model/controllers";
-import { $products, $selectedCategories } from "features/menu/model/stores";
+import { $menu, $selectedCategories } from "features/menu/model/stores";
 import { TProductGuard } from "features/menu/types";
 
 import "./model";
@@ -100,14 +100,14 @@ forward({
 
 /**
  * Read as:
- * 1. After selectProduct is called, take $products and selectProduct's params and pass them as FN's args,
+ * 1. After selectProduct is called, take menu and selectProduct's params and pass them as FN's args,
  * 2. Return { product, action } in FN
  * **/
 const selectProductSample = sample({
-  source: $products,
+  source: $menu,
   clock: selectProduct,
-  fn: (products, { id, action }) => {
-    const product = products.find((prod) => prod.id === id) ?? null;
+  fn: (menu, { id, action }) => {
+    const product = menu.find((prod) => prod.id === id) ?? null;
 
     return {
       product,
