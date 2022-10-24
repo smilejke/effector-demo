@@ -20,7 +20,7 @@ export const getProductsByCategoryFx = createEffect<string, TMenu, Error>({
 /** FAKE API TO GET ALL MENU POSITIONS **/
 export const getAllProductsFx = createEffect<string, TMenu, Error>({
   handler: getProductsByCategoryRequest,
-  name: "getProductsByCategoryFx",
+  name: "getAllProductsFx",
 });
 
 /** select product to make actions with $cart in { id: productId, action: "add" / "remove" } format **/
