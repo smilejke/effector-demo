@@ -1,7 +1,7 @@
 import { allSettled, fork } from "effector";
 
 import { appDomain } from "features/common/model";
-import { $mapbox, changedMapbox, zoomedMapbox } from "./";
+import { $mapbox, changedMapbox, zoomedMapbox } from "features/shops/model";
 
 describe("Widget map flow", () => {
   it("store mapbox should contain all properties", async () => {
