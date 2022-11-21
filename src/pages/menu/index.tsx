@@ -11,7 +11,7 @@ import { SideMenu } from "features/common/components/side-menu";
 import './model'
 
 export const MenuPage = () => {
-  const isMenuFetching = useMenuFetching();
+  const isMenuFetching = useMenuFetching()
   const { search } = useLocation();
 
   const category = String(qs.parse(search).section || "all");

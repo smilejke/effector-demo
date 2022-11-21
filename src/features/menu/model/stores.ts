@@ -18,9 +18,9 @@ export const $menu = createStore<TMenu>([], { name: "$menu" });
  * Store to add a category in {[category]: true} format to check if category
  * was downloaded and prevent the same requests (cache).
  * **/
-export const $selectedCategories = createStore<Record<string, boolean>>(
+export const $cachedCategories = createStore<Record<string, boolean>>(
   {},
-  { name: "$selectedCategories" }
+  { name: "$cachedCategories" }
 );
 
 /**

@@ -4,7 +4,7 @@ import {
   getProductsByCategoryFx,
   selectCategory,
 } from "features/menu/model/controllers";
-import { $menu, $products, $selectedCategories } from "features/menu/model/stores";
+import { $menu, $products, $cachedCategories } from "features/menu/model/stores";
 import { MOCK_MENU } from "mocks/menu";
 import { menuDomain } from "./domain";
 
@@ -25,7 +25,7 @@ describe("Menu flow", () => {
     });
 
     expect(scope.getState($menu)).toEqual(MOCK_MENU);
-    expect(scope.getState($selectedCategories)).toEqual({
+    expect(scope.getState($cachedCategories)).toEqual({
       soups: true,
       salads: true,
       burgers: true,
@@ -43,14 +43,14 @@ describe("Menu flow", () => {
       });
     };
 
-    /** 1. request on burgers, put response in $menu store and cache it in $selectedCategories **/
+    /** 1. request on burgers, put response in $menu store and cache it in $cachedCategories **/
     await getProductsByCategoryReq("burgers");
     expect(scope.getState($menu)).toEqual(getProducts("burgers"));
-    expect(scope.getState($selectedCategories)).toEqual({
+    expect(scope.getState($cachedCategories)).toEqual({
       burgers: true,
     });
 
-    /** 2. request on salads, push response to $menu store and cache salads in $selectedCategories
+    /** 2. request on salads, push response to $menu store and cache salads in $cachedCategories
      *  with burgers.
      * **/
     await getProductsByCategoryReq("salads");
@@ -58,12 +58,12 @@ describe("Menu flow", () => {
       ...getProducts("burgers"),
       ...getProducts("salads"),
     ]);
-    expect(scope.getState($selectedCategories)).toEqual({
+    expect(scope.getState($cachedCategories)).toEqual({
       burgers: true,
       salads: true,
     });
 
-    /** 3. request on soups, push response to $menu store and cache salads in $selectedCategories
+    /** 3. request on soups, push response to $menu store and cache salads in $cachedCategories
      *  with burgers and salads (+ add {"all": true} because 3/3 categories were downloaded).
      * **/
     await getProductsByCategoryReq("soups");
@@ -72,7 +72,7 @@ describe("Menu flow", () => {
       ...getProducts("salads"),
       ...getProducts("soups"),
     ]);
-    expect(scope.getState($selectedCategories)).toEqual({
+    expect(scope.getState($cachedCategories)).toEqual({
       burgers: true,
       salads: true,
       soups: true,

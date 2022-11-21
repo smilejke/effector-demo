@@ -6,7 +6,7 @@ import {
 } from "features/menu/model/controllers";
 import {
   $menu,
-  $selectedCategories,
+  $cachedCategories,
   $selectedCategory,
 } from "features/menu/model/stores";
 
@@ -16,7 +16,7 @@ $menu
   .on(setMenu, (state, payload) => [...state, ...payload])
   .on(getAllProductsFx.doneData, (_, payload) => payload);
 
-$selectedCategories
+$cachedCategories
   .on(getProductsByCategoryFx.done, (state, payload) => {
     const categories = ["salads", "burgers", "soups"];
     const updated = {

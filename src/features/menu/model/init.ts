@@ -7,7 +7,7 @@ import {
   setMenu,
 } from "features/menu/model/controllers";
 import { addToCart, deleteFromCart } from "features/cart/model/controllers";
-import { $menu, $selectedCategories } from "features/menu/model/stores";
+import { $menu, $cachedCategories } from "features/menu/model/stores";
 import { TProductGuard } from "features/menu/types";
 
 import "./model";
@@ -40,12 +40,12 @@ import "./model";
 /**
  * Read as:
  * 1. When selectCategory called, take it's params.
- * 2. Also take data from SOURCE ($selectedCategories store),
+ * 2. Also take data from SOURCE ($cachedCategories store),
  * 3. Pass them through FN (data from SOURCE - 1st arg of FN, data from CLOCK - 2nd)
  * 4. The result of FN (Object { is: state[category], category }) assign into getProductCategorySample variable.
  * **/
 const getProductCategorySample = sample({
-  source: $selectedCategories,
+  source: $cachedCategories,
   clock: selectCategory,
   fn: (state, category) => ({
     is: state[category],
